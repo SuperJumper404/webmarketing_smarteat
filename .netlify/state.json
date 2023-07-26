@@ -1,0 +1,19 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Vinneuf",
+			"country": {
+				"code": "FR",
+				"name": "France"
+			},
+			"subdivision": {
+				"code": "BFC",
+				"name": "Bourgogne-Franche-Comte"
+			},
+			"timezone": "Europe/Paris",
+			"latitude": 48.3451,
+			"longitude": 3.1329
+		},
+		"timestamp": 1690066736831
+	}
+}
