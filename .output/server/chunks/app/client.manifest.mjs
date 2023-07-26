@@ -15,7 +15,7 @@ const client_manifest = {
     "css": [
       "error-404.8bdbaeb8.css"
     ],
-    "file": "error-404.caf45985.js",
+    "file": "error-404.357a6013.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
       "__plugin-vue_export-helper.c27b6911.js"
@@ -38,7 +38,7 @@ const client_manifest = {
     "css": [
       "error-500.b63a96f5.css"
     ],
-    "file": "error-500.4976fefe.js",
+    "file": "error-500.65a6eb8c.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
       "__plugin-vue_export-helper.c27b6911.js"
@@ -52,7 +52,7 @@ const client_manifest = {
   },
   "node_modules/nuxt/dist/app/entry.css": {
     "resourceType": "style",
-    "file": "entry.78622ad2.css",
+    "file": "entry.95bd8690.css",
     "src": "node_modules/nuxt/dist/app/entry.css"
   },
   "node_modules/nuxt/dist/app/entry.js": {
@@ -65,17 +65,17 @@ const client_manifest = {
       "appscreen.7b7b6f52.svg"
     ],
     "css": [
-      "entry.78622ad2.css"
+      "entry.95bd8690.css"
     ],
     "dynamicImports": [
       "virtual:nuxt:C:/Users/kalag/Desktop/projects/Strapi/MarketingWebsite_QrMenu/web_marketing_qr_menu/.nuxt/error-component.mjs"
     ],
-    "file": "entry.3d48e77f.js",
+    "file": "entry.17893095.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js"
   },
-  "entry.78622ad2.css": {
-    "file": "entry.78622ad2.css",
+  "entry.95bd8690.css": {
+    "file": "entry.95bd8690.css",
     "resourceType": "style"
   },
   "imggroupclean.e5331768.jpg": {
@@ -129,7 +129,7 @@ const client_manifest = {
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "error-component.0a6fce5a.js",
+    "file": "error-component.c122ad22.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
