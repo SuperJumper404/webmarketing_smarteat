@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "bundledDependencies": {
-    "@babel/parser": "7.21.8",
+    "@babel/parser": "7.22.7",
     "@vue/compiler-core": "3.3.4",
     "@vue/compiler-dom": "3.3.4",
     "@vue/compiler-ssr": "3.3.4",

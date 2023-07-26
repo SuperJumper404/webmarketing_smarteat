@@ -790,90 +790,6 @@ const assets = {
     "size": 12015,
     "path": "../public/whatapp_icon.svg"
   },
-  "/_nuxt/appscreen.7b7b6f52.svg": {
-    "type": "image/svg+xml",
-    "etag": "\"a97c8-7Lg6gh+fCeh6RMq1rC2nvhYKnzs\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 694216,
-    "path": "../public/_nuxt/appscreen.7b7b6f52.svg"
-  },
-  "/_nuxt/arrowleft.dbdf85ca.svg": {
-    "type": "image/svg+xml",
-    "etag": "\"eb-ZE8EEFEKREbAkf5SFZrmoXp+QcQ\"",
-    "mtime": "2023-07-26T20:38:33.717Z",
-    "size": 235,
-    "path": "../public/_nuxt/arrowleft.dbdf85ca.svg"
-  },
-  "/_nuxt/entry.17893095.js": {
-    "type": "application/javascript",
-    "etag": "\"8c5ed-DmybIweDkIXJbQ5yriy1BPViWS4\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 574957,
-    "path": "../public/_nuxt/entry.17893095.js"
-  },
-  "/_nuxt/entry.95bd8690.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"b224-Ir475cax+011kUOgkOlDDo65O7E\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 45604,
-    "path": "../public/_nuxt/entry.95bd8690.css"
-  },
-  "/_nuxt/error-404.357a6013.js": {
-    "type": "application/javascript",
-    "etag": "\"199d-RlolcXn7O7A/FYy2sPhgBvtbS+A\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 6557,
-    "path": "../public/_nuxt/error-404.357a6013.js"
-  },
-  "/_nuxt/error-404.8bdbaeb8.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"e70-jl7r/kE1FF0H+CLPNh+07RJXuFI\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 3696,
-    "path": "../public/_nuxt/error-404.8bdbaeb8.css"
-  },
-  "/_nuxt/error-500.65a6eb8c.js": {
-    "type": "application/javascript",
-    "etag": "\"78b-WDN0k4nJ8J9Tr1r9IgdA3OJY/+k\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 1931,
-    "path": "../public/_nuxt/error-500.65a6eb8c.js"
-  },
-  "/_nuxt/error-500.b63a96f5.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"7e0-loEWA9n4Kq4UMBzJyT6hY9SSl00\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 2016,
-    "path": "../public/_nuxt/error-500.b63a96f5.css"
-  },
-  "/_nuxt/error-component.c122ad22.js": {
-    "type": "application/javascript",
-    "etag": "\"4b2-A+9NRQRW3HkdUuemxLjHoPd/ygw\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 1202,
-    "path": "../public/_nuxt/error-component.c122ad22.js"
-  },
-  "/_nuxt/imggroupclean.e5331768.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"118e9-4Wk9Tj80cS2KfCsD/7BHpVVo+ko\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 71913,
-    "path": "../public/_nuxt/imggroupclean.e5331768.jpg"
-  },
-  "/_nuxt/qrappmenu2.f473b4ef.png": {
-    "type": "image/png",
-    "etag": "\"3250f-2oPx9p/fUHhNNGWojrs0UQOstic\"",
-    "mtime": "2023-07-26T20:38:33.715Z",
-    "size": 206095,
-    "path": "../public/_nuxt/qrappmenu2.f473b4ef.png"
-  },
-  "/_nuxt/_plugin-vue_export-helper.c27b6911.js": {
-    "type": "application/javascript",
-    "etag": "\"5b-eFCz/UrraTh721pgAl0VxBNR1es\"",
-    "mtime": "2023-07-26T20:38:33.718Z",
-    "size": 91,
-    "path": "../public/_nuxt/_plugin-vue_export-helper.c27b6911.js"
-  },
   "/lottie/system-outline-117-bolt.json": {
     "type": "application/json",
     "etag": "\"7669-rF3uerLY1nGLwl5cs+rPLM7kshk\"",
@@ -950,6 +866,90 @@ const assets = {
     "mtime": "2023-07-09T19:35:36.264Z",
     "size": 78618,
     "path": "../public/lottie/system-solid-58-call-phone.json"
+  },
+  "/_nuxt/appscreen.7b7b6f52.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"a97c8-7Lg6gh+fCeh6RMq1rC2nvhYKnzs\"",
+    "mtime": "2023-07-26T21:50:54.458Z",
+    "size": 694216,
+    "path": "../public/_nuxt/appscreen.7b7b6f52.svg"
+  },
+  "/_nuxt/arrowleft.dbdf85ca.svg": {
+    "type": "image/svg+xml",
+    "etag": "\"eb-ZE8EEFEKREbAkf5SFZrmoXp+QcQ\"",
+    "mtime": "2023-07-26T21:50:54.456Z",
+    "size": 235,
+    "path": "../public/_nuxt/arrowleft.dbdf85ca.svg"
+  },
+  "/_nuxt/entry.17893095.js": {
+    "type": "application/javascript",
+    "etag": "\"8c5ed-DmybIweDkIXJbQ5yriy1BPViWS4\"",
+    "mtime": "2023-07-26T21:50:54.454Z",
+    "size": 574957,
+    "path": "../public/_nuxt/entry.17893095.js"
+  },
+  "/_nuxt/entry.95bd8690.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"b224-Ir475cax+011kUOgkOlDDo65O7E\"",
+    "mtime": "2023-07-26T21:50:54.456Z",
+    "size": 45604,
+    "path": "../public/_nuxt/entry.95bd8690.css"
+  },
+  "/_nuxt/error-404.357a6013.js": {
+    "type": "application/javascript",
+    "etag": "\"199d-RlolcXn7O7A/FYy2sPhgBvtbS+A\"",
+    "mtime": "2023-07-26T21:50:54.457Z",
+    "size": 6557,
+    "path": "../public/_nuxt/error-404.357a6013.js"
+  },
+  "/_nuxt/error-404.8bdbaeb8.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"e70-jl7r/kE1FF0H+CLPNh+07RJXuFI\"",
+    "mtime": "2023-07-26T21:50:54.456Z",
+    "size": 3696,
+    "path": "../public/_nuxt/error-404.8bdbaeb8.css"
+  },
+  "/_nuxt/error-500.65a6eb8c.js": {
+    "type": "application/javascript",
+    "etag": "\"78b-WDN0k4nJ8J9Tr1r9IgdA3OJY/+k\"",
+    "mtime": "2023-07-26T21:50:54.456Z",
+    "size": 1931,
+    "path": "../public/_nuxt/error-500.65a6eb8c.js"
+  },
+  "/_nuxt/error-500.b63a96f5.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"7e0-loEWA9n4Kq4UMBzJyT6hY9SSl00\"",
+    "mtime": "2023-07-26T21:50:54.456Z",
+    "size": 2016,
+    "path": "../public/_nuxt/error-500.b63a96f5.css"
+  },
+  "/_nuxt/error-component.c122ad22.js": {
+    "type": "application/javascript",
+    "etag": "\"4b2-A+9NRQRW3HkdUuemxLjHoPd/ygw\"",
+    "mtime": "2023-07-26T21:50:54.457Z",
+    "size": 1202,
+    "path": "../public/_nuxt/error-component.c122ad22.js"
+  },
+  "/_nuxt/imggroupclean.e5331768.jpg": {
+    "type": "image/jpeg",
+    "etag": "\"118e9-4Wk9Tj80cS2KfCsD/7BHpVVo+ko\"",
+    "mtime": "2023-07-26T21:50:54.456Z",
+    "size": 71913,
+    "path": "../public/_nuxt/imggroupclean.e5331768.jpg"
+  },
+  "/_nuxt/qrappmenu2.f473b4ef.png": {
+    "type": "image/png",
+    "etag": "\"3250f-2oPx9p/fUHhNNGWojrs0UQOstic\"",
+    "mtime": "2023-07-26T21:50:54.456Z",
+    "size": 206095,
+    "path": "../public/_nuxt/qrappmenu2.f473b4ef.png"
+  },
+  "/_nuxt/_plugin-vue_export-helper.c27b6911.js": {
+    "type": "application/javascript",
+    "etag": "\"5b-eFCz/UrraTh721pgAl0VxBNR1es\"",
+    "mtime": "2023-07-26T21:50:54.456Z",
+    "size": 91,
+    "path": "../public/_nuxt/_plugin-vue_export-helper.c27b6911.js"
   }
 };
 
