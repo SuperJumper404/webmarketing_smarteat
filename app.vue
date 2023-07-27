@@ -1,5 +1,10 @@
 <template>
-  <!-- navbar -->
+  <!-- navbar --><link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/logo.png"
+  />
   <section>
     <header class="bg-white">
       <nav
@@ -7,13 +12,18 @@
         aria-label="Global"
       >
         <div class="flex lg:flex-1">
-          <a href="#" class="-m-1.5 p-1.5">
+          <a href="#" class="flex items-center">
             <img
               class="lg:h-20 w-auto h-16"
               src="/logo.png"
               alt=""
               style="position: absolute; top: 10px; left: 10px"
             />
+            <span
+              class="text-3xl font-semibold whitespace-nowrap dark:text-white"
+              style="position: absolute; top: 20px; left: 85px"
+              >Smart<span style="color: #7e22ce">Eat</span></span
+            >
           </a>
         </div>
         <div class="flex lg:hidden">
@@ -121,11 +131,14 @@
   <!-- hero -->
   <section class="bg-white dark:bg-gray-900">
     <div class="grid lg:mt-0 lg:grid-cols-12">
-      <div class="lg:py-32 max-w-screen-xl text-center lg:col-span-7">
+      <div
+        data-aos="zoom-in-right"
+        class="lg:py-32 max-w-screen-xl text-center lg:col-span-7"
+      >
         <h1
           class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
         >
-          <span style="color: #7e22ce"> ScanEat</span> une expérience unique de
+          <span style="color: #7e22ce">SmartEat</span> une expérience unique de
           commande pour votre restaurant.
           <!-- Révolutionnez l'expérience de commande de votre restaurant -->
         </h1>
@@ -158,7 +171,7 @@
         </div>
       </div>
 
-      <div class="lg:col-span-5">
+      <div class="lg:col-span-5" data-aos="zoom-in-left">
         <img class="max-w-full h-auto" src="./public/imggroupclean.jpg" />
       </div>
     </div>
@@ -166,31 +179,40 @@
   <!-- Hero2 -->
 
   <section id="produit" class="bg-white dark:bg-gray-900">
-    <div data-aos="fade-right">
+    <div
+      data-aos="fade-right"
+      data-aos-offset="500"
+      data-aos-easing="ease-in-sine"
+      data-aos-once="true"
+      class="grid max-w-screen-4xl py-8 mx-auto xl:gap-0 lg:py-4 lg:grid-cols-12"
+    >
+      <div class="lg:col-span-5">
+        <img class="hidden sm:block" src="./public/qrappmenu2.png" />
+      </div>
       <div
-        class="grid max-w-screen-4xl py-8 mx-auto xl:gap-0 lg:py-4 lg:grid-cols-12"
+        data-aos="fade-left"
+        data-aos-offset="500"
+        data-aos-easing="ease-in-sine"
+        data-aos-once="true"
+        class="place-self-center grid lg:col-span-7"
       >
-        <div class="lg:col-span-5">
-          <img class="hidden sm:block" src="./public/qrappmenu2.png" />
-        </div>
-        <div class="place-self-center grid lg:col-span-7">
-          <h1
-            class="max-w-5xl mb-4 text-4xl font-extrabold text-center tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
-          >
-            Un <span style="color: #7e22ce">écosystème digitale </span>dédié à
-            la <br />restauration
-          </h1>
-          <p
-            class="max-w-4xl mb-6 font-light text-gray-500 text-center lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
-          >
-            La platforme ultime pour une expérience de restauration sans
-            friction. <br />
-            Un simple scan du QR Code pour accéder au menu et réaliser la prise
-            de commmande. <br />
-            Un suivi de la préparation de la commande en temps réel. <br />
-            Un service à table fluide et accelerer.
-          </p>
-          <!-- <div
+        <h1
+          class="max-w-5xl mb-4 text-4xl font-extrabold text-center tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+        >
+          Un <span style="color: #7e22ce">écosystème digitale </span>dédié à la
+          <br />restauration
+        </h1>
+        <p
+          class="max-w-4xl mb-6 font-light text-gray-500 text-center lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
+        >
+          La platforme ultime pour une expérience de restauration sans friction.
+          <br />
+          Un simple scan du QR Code pour accéder au menu et réaliser la prise de
+          commmande. <br />
+          Un suivi de la préparation de la commande en temps réel. <br />
+          Un service à table fluide et accelerer.
+        </p>
+        <!-- <div
             class="inline-flex mx-auto justify-center items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
           >
             <div
@@ -207,24 +229,23 @@
               >
             </div>
           </div> -->
-          <div
-            class="inline-flex mx-auto justify-center items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
-          >
-            <div class="slide-container" @click="toggleSlide">
-              <div
-                id="slide"
-                style="margin-right: 1em"
-                class="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5"
-                :class="{ 'slide-right': isSlideRight }"
-              >
-                <img class="w-6 h-6" src="./public/arrowleft.svg" />
-              </div>
-              <span
-                class="lg:text-xl sm:text-lg font-medium"
-                :class="{ 'hide-text': isSlideRight }"
-                >Commencez l'aventure maintenant !</span
-              >
+        <div
+          class="inline-flex mx-auto justify-center items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
+        >
+          <div class="slide-container" @click="toggleSlide">
+            <div
+              id="slide"
+              style="margin-right: 1em"
+              class="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5"
+              :class="{ 'slide-right': isSlideRight }"
+            >
+              <img class="w-6 h-6" src="./public/arrowleft.svg" />
             </div>
+            <span
+              class="lg:text-xl sm:text-lg font-medium"
+              :class="{ 'hide-text': isSlideRight }"
+              >Commencez l'aventure maintenant !</span
+            >
           </div>
         </div>
       </div>
@@ -232,7 +253,13 @@
   </section>
   <!--Hero3-->
   <section id="solution" class="bg-white h-auto dark:bg-gray-900">
-    <div class="grid lg:mt-8 lg:grid-cols-12">
+    <div
+      data-aos="fade-right"
+      data-aos-offset="500"
+      data-aos-easing="ease-in-sine"
+      data-aos-once="true"
+      class="grid lg:mt-8 lg:grid-cols-12"
+    >
       <div class="max-w-screen-xl text-center lg:col-span-6">
         <h1
           class="max-w-full min-w-max px-8 mb-4 mx-auto text-4xl font-extrabold text-center tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
@@ -252,7 +279,13 @@
       </div>
     </div>
     <div class="grid lg:mt-0 lg:grid-cols-12">
-      <div class="max-w-screen-xl text-center lg:col-span-5">
+      <div
+        data-aos="fade-right"
+        data-aos-offset="500"
+        data-aos-easing="ease-in-sine"
+        data-aos-once="true"
+        class="max-w-screen-xl text-center lg:col-span-5"
+      >
         <div class="mx-auto mt-8 max-w-2xl sm:mt-20 lg:mt-16 lg:max-w-4xl">
           <div class="flex flex-col max-w-xl gap-x-8 gap-y-10 lg:max-w-none">
             <div
@@ -282,7 +315,13 @@
         </div>
       </div>
 
-      <div class="lg:col-span-7">
+      <div
+        data-aos="fade-left"
+        data-aos-offset="500"
+        data-aos-easing="ease-in-sine"
+        data-aos-once="true"
+        class="lg:col-span-7"
+      >
         <img
           class="max-w-full h-auto w-1/1 mx-auto lg:py-16 md:py-16"
           src="./public/appscreen.svg"
@@ -292,7 +331,13 @@
   </section>
   <!-- Features -->
   <section>
-    <div data-aos="fade-down">
+    <div
+      data-aos="fade-left"
+      data-aos-offset="500"
+      data-aos-duration="8500"
+      data-aos-once="true"
+    >
+      >
       <div>
         <div class="mx-auto">
           <div class="px-16 py-4">
@@ -349,7 +394,7 @@
                 </div>
                 <div class="ml-4">
                   <h1>Email</h1>
-                  <span class="font-medium text-xl">contact@scaneat.com</span>
+                  <span class="font-medium text-xl">admin@smarteat.fr</span>
                 </div>
               </div>
               <div class="flex items-center py-4">
@@ -370,7 +415,7 @@
                 </div>
                 <div class="ml-4">
                   <h1>Instagram</h1>
-                  <span class="font-medium text-xl">scan_eat</span>
+                  <span class="font-medium text-xl">smart_eat</span>
                 </div>
               </div>
             </div>
@@ -523,11 +568,11 @@
               <img src="/logo.jpg" class="mr-3 h-12" />
               <span
                 class="text-3xl font-semibold whitespace-nowrap dark:text-white"
-                >ScanEat</span
+                >Smart<span style="color: #7e22ce">Eat</span></span
               >
             </a>
           </div>
-          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <!-- <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
               <h2
                 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white"
@@ -585,7 +630,7 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> -->
         </div>
         <hr
           class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
@@ -593,7 +638,7 @@
         <div class="sm:flex sm:items-center sm:justify-between">
           <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
             >© 2023
-            <a href="https://flowbite.com" class="hover:underline">ScanEat</a>.
+            <a href="https://flowbite.com" class="hover:underline">SmartEat</a>.
             Tous droits réservés
           </span>
           <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
@@ -631,7 +676,7 @@
                 />
               </svg>
             </a>
-            <a
+            <!-- <a
               href="#"
               class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
             >
@@ -679,7 +724,7 @@
                   clip-rule="evenodd"
                 />
               </svg>
-            </a>
+            </a> -->
           </div>
         </div>
       </div>

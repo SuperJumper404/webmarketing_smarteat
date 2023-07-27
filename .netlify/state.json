@@ -1,20 +1,20 @@
 {
 	"geolocation": {
 		"data": {
-			"city": "Vinneuf",
+			"city": "Vitry-sur-Seine",
 			"country": {
 				"code": "FR",
 				"name": "France"
 			},
 			"subdivision": {
-				"code": "BFC",
-				"name": "Bourgogne-Franche-Comte"
+				"code": "IDF",
+				"name": "Ãle-de-France"
 			},
 			"timezone": "Europe/Paris",
-			"latitude": 48.3451,
-			"longitude": 3.1329
+			"latitude": 48.7866,
+			"longitude": 2.3985
 		},
-		"timestamp": 1690066736831
+		"timestamp": 1690489431805
 	},
 	"siteId": "f21fb44c-0150-41ee-bbc7-7b9d2a3fac96"
 }
