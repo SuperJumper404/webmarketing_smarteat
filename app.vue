@@ -75,11 +75,7 @@
         >
           <div class="flex items-center justify-between">
             <a href="#" class="-m-1.5 p-1.5">
-              <img
-                class="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
+              <img class="h-8 w-auto" src="/logo.png" alt="" />
             </a>
             <button
               type="button"
@@ -96,22 +92,26 @@
                 <a
                   href="#produit"
                   class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  @click="mobileMenuOpen = false"
                 >
                   Produit
                 </a>
                 <a
                   href="#solution"
                   class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  @click="mobileMenuOpen = false"
                   >Solutions</a
                 >
                 <a
                   href="#contact"
                   class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  @click="mobileMenuOpen = false"
                   >Contact</a
                 >
                 <a
                   href="#faq"
                   class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  @click="mobileMenuOpen = false"
                   >FAQ</a
                 >
               </div>
@@ -205,12 +205,13 @@
         <p
           class="max-w-4xl mb-6 font-light text-gray-500 text-center lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
         >
-          La platforme ultime pour une expérience de restauration sans friction.
+          La plateforme ultime pour une expérience de restauration sans
+          friction.
           <br />
           Un simple scan du QR Code pour accéder au menu et réaliser la prise de
           commmande. <br />
           Un suivi de la préparation de la commande en temps réel. <br />
-          Un service à table fluide et accelerer.
+          Un service à table fluide et accéleré.
         </p>
         <!-- <div
             class="inline-flex mx-auto justify-center items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -264,7 +265,7 @@
         <h1
           class="max-w-full min-w-max px-8 mb-4 mx-auto text-4xl font-extrabold text-center tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
         >
-          Une <span style="color: #7e22ce"> gestion</span> simplifié
+          Une <span style="color: #7e22ce"> gestion</span> simplifiée
           <!-- Révolutionnez l'expérience de commande de votre restaurant -->
         </h1>
         <div
@@ -337,7 +338,6 @@
       data-aos-duration="8500"
       data-aos-once="true"
     >
-      >
       <div>
         <div class="mx-auto">
           <div class="px-16 py-4">
@@ -427,13 +427,13 @@
           <h2
             class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white"
           >
-            Contactez-Nous
+            Contactez-nous
           </h2>
           <p
             class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl"
           >
-            Programmer un entretien ? Une demonstration ? <br />Besoin
-            d'informations supplementaires ? Néhistez pas !
+            Programmer un entretien ? Une démonstration ? <br />Besoin
+            d'informations supplémentaires ? N'hésitez pas !
           </p>
           <form @submit.prevent="submitForm" class="space-y-8">
             <div>
@@ -778,7 +778,7 @@ function stopAnimation(question) {
 AOS.init({
   offset: 120, // offset (in px) from the original trigger point
   delay: 5, // values from 0 to 3000, with step 50ms
-  duration: 1500, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
   easing: "ease", // default easing for AOS animations
   once: false, // whether animation should happen only once - while scrolling down
   mirror: false, // whether elements should animate out while scrolling past them
@@ -871,27 +871,27 @@ const features = [
   {
     name: "Menu personnalisable",
     description:
-      "Une interface conviviale et intuitive pour personnaliser votre menu simplement.  Modifiez vos plats, intégrer de nouvelles options, spécifier les ingrédients souhaités ou encore concevoir des menus sur mesure.",
+      "Une interface conviviale et intuitive pour personnaliser votre menu simplement.  Modifiez vos plats, intégrez de nouvelles options, spécifiez les ingrédients souhaités ou encore concevez des menus sur mesure.",
     imgPath: "/menupersonnalisable.svg",
   },
 ];
 const features_bottom = [
   {
-    name: "Suivi de preparation ",
+    name: "Suivi des préparations ",
     description:
-      "Grâce à cette fonction intégré, vous serez en mesure d'informer vos clients à chaque étape du processus, depuis la prise de commande jusqu'à la préparation et au service.",
+      "Grâce à cette fonction intégrée, vous serez en mesure d'informer vos clients à chaque étape du processus, depuis la prise de commande jusqu'à la préparation et au service.",
     imgPath: "/robot_server.svg",
   },
   {
     name: "Plan de table",
     description:
-      "Avec cette fonctionnalité, vous pouvez facilement créer et organiser votre plan de table en attribuant des QR codes uniques à chaque table. ",
+      "Avec cette fonctionnalité, vous pouvez facilement créer et organiser votre plan de table en attribuant des QR Codes uniques à chaque table. ",
     imgPath: "/tableplan.svg",
   },
   {
-    name: "Tableau de board",
+    name: "Tableau de bord",
     description:
-      "Un tableau de bord complet offrant une vue d'ensemble de votre entreprise en temps réel. Des indicateurs clés pour prendre des décisions éclairées, basées sur des données précises et optimiser vos performances.",
+      "Un tableau de bord complet offrant une vue d'ensemble de votre entreprise en temps réel. Des indicateurs clés pour prendre des décisions éclairées, basées sur des données précises afin d'optimiser vos performances.",
     imgPath: "/dashbord.svg",
   },
 ];
@@ -955,7 +955,7 @@ const questions2 = [
     icon_src: "/lottie/system-solid-160-trending-up.json",
     question: "Quel est le nombre maximum de tables pouvant être ajoutées ?",
     answer:
-      "Il n'y a aucune limite ! Vous pouvez ajouter autant de tables que vous le souhaitez dans l'application, en fonction de la capacité de votre restaurant. Il suffira creer et de deposer le nouveau Qr code sur la table.",
+      "Il n'y a aucune limite ! Vous pouvez ajouter autant de tables que vous le souhaitez dans l'application, en fonction de la capacité de votre restaurant. Il suffira créer et de déposer le nouveau QR Code sur la table.",
   },
   {
     id: 9,
