@@ -17,6 +17,12 @@ declare module 'nuxt/schema' {
   interface PublicRuntimeConfig {
    url: string,
 
+   appUrl: string,
+
+   googleAnalyticsId: string,
+
+   hotjarId: string,
+
    test: string,
   }
 }

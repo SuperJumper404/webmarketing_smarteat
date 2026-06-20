@@ -5,7 +5,11 @@ export default defineNuxtConfig({
     modules: [
       '@nuxtjs/tailwindcss',
     ],
-    plugins: [{ src: "~/plugins/lottie-player.js", mode: "client" }],
+    plugins: [
+      { src: "~/plugins/lottie-player.js", mode: "client" },
+      { src: "~/plugins/google-analytics.js", mode: "client" },
+      { src: "~/plugins/hotjar.js", mode: "client" },
+    ],
     tailwindcss: {
       cssPath: '~/assets/css/tailwind.css',
       configPath: 'tailwind.config',
@@ -14,11 +18,14 @@ export default defineNuxtConfig({
       injectPosition: 'first',
       viewer: true,
     },
-      runtimeConfig: {
-        public:{
-          url: process.env.BACKEND_URL , // Default value if BACKEND_URL is not defined in .env
-          test:"Hrllos"
-        }
-      },
+    runtimeConfig: {
+      public:{
+        url: process.env.BACKEND_URL,
+        appUrl: process.env.APP_URL || 'https://app.smarteat.fr/login',
+        googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+        hotjarId: process.env.HOTJAR_ID,
+        test:"Hrllos"
+      }
+    },
     
   })

@@ -11,7 +11,9 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/nuxt/dist/head/runtime/plugins/unhead").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/router").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/app/plugins/chunk-reload.client").default> &
-  InjectionType<typeof import("../../plugins/lottie-player").default>
+  InjectionType<typeof import("../../plugins/lottie-player").default> &
+  InjectionType<typeof import("../../plugins/google-analytics").default> &
+  InjectionType<typeof import("../../plugins/hotjar").default>
 
 declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }

@@ -44,6 +44,9 @@ const _inlineRuntimeConfig = {
   },
   "public": {
     "url": "http://localhost:3000",
+    "appUrl": "https://app.smarteat.fr/login",
+    "googleAnalyticsId": "",
+    "hotjarId": "",
     "test": "Hrllos"
   }
 };
@@ -867,89 +870,54 @@ const assets = {
     "size": 78618,
     "path": "../public/lottie/system-solid-58-call-phone.json"
   },
-  "/_nuxt/appscreen.7b7b6f52.svg": {
-    "type": "image/svg+xml",
-    "etag": "\"a97c8-7Lg6gh+fCeh6RMq1rC2nvhYKnzs\"",
-    "mtime": "2023-07-29T18:24:49.423Z",
-    "size": 694216,
-    "path": "../public/_nuxt/appscreen.7b7b6f52.svg"
-  },
-  "/_nuxt/arrowleft.dbdf85ca.svg": {
-    "type": "image/svg+xml",
-    "etag": "\"eb-ZE8EEFEKREbAkf5SFZrmoXp+QcQ\"",
-    "mtime": "2023-07-29T18:24:49.420Z",
-    "size": 235,
-    "path": "../public/_nuxt/arrowleft.dbdf85ca.svg"
-  },
-  "/_nuxt/entry.2fea7c4c.js": {
+  "/_nuxt/entry.0ac93f4a.js": {
     "type": "application/javascript",
-    "etag": "\"8bb8b-tRxvYTkHFcokpMAuqktnmM7nE0o\"",
-    "mtime": "2023-07-29T18:24:49.423Z",
-    "size": 572299,
-    "path": "../public/_nuxt/entry.2fea7c4c.js"
+    "etag": "\"79fec-pfXJGgf1GxjN8JSuhXLxtGtxFOc\"",
+    "mtime": "2026-06-20T10:26:38.441Z",
+    "size": 499692,
+    "path": "../public/_nuxt/entry.0ac93f4a.js"
   },
-  "/_nuxt/entry.95bd8690.css": {
+  "/_nuxt/entry.ed8c19cb.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"b224-Ir475cax+011kUOgkOlDDo65O7E\"",
-    "mtime": "2023-07-29T18:24:49.422Z",
-    "size": 45604,
-    "path": "../public/_nuxt/entry.95bd8690.css"
+    "etag": "\"424e-onICJQ+ID4fz47TiMHCsDTqBMuw\"",
+    "mtime": "2026-06-20T10:26:38.440Z",
+    "size": 16974,
+    "path": "../public/_nuxt/entry.ed8c19cb.css"
   },
-  "/_nuxt/error-404.39a471f7.js": {
+  "/_nuxt/error-404.5d3fa367.js": {
     "type": "application/javascript",
-    "etag": "\"199d-qXIDmgBfQbo0IJpXB4z+moCb2s8\"",
-    "mtime": "2023-07-29T18:24:49.422Z",
-    "size": 6557,
-    "path": "../public/_nuxt/error-404.39a471f7.js"
+    "etag": "\"1968-FePoaRdG9DZSoYjWW8DYqHe/So4\"",
+    "mtime": "2026-06-20T10:26:38.440Z",
+    "size": 6504,
+    "path": "../public/_nuxt/error-404.5d3fa367.js"
   },
   "/_nuxt/error-404.8bdbaeb8.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"e70-jl7r/kE1FF0H+CLPNh+07RJXuFI\"",
-    "mtime": "2023-07-29T18:24:49.422Z",
+    "mtime": "2026-06-20T10:26:38.440Z",
     "size": 3696,
     "path": "../public/_nuxt/error-404.8bdbaeb8.css"
+  },
+  "/_nuxt/error-500.540454e6.js": {
+    "type": "application/javascript",
+    "etag": "\"756-rfWUH+dB/ZkjUP7/a5YJ3jBLOXw\"",
+    "mtime": "2026-06-20T10:26:38.440Z",
+    "size": 1878,
+    "path": "../public/_nuxt/error-500.540454e6.js"
   },
   "/_nuxt/error-500.b63a96f5.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"7e0-loEWA9n4Kq4UMBzJyT6hY9SSl00\"",
-    "mtime": "2023-07-29T18:24:49.422Z",
+    "mtime": "2026-06-20T10:26:38.438Z",
     "size": 2016,
     "path": "../public/_nuxt/error-500.b63a96f5.css"
   },
-  "/_nuxt/error-500.d3a31694.js": {
+  "/_nuxt/error-component.70785b7a.js": {
     "type": "application/javascript",
-    "etag": "\"78b-Re7PyQqPhzFgLttFajUA+Zgr0hE\"",
-    "mtime": "2023-07-29T18:24:49.423Z",
-    "size": 1931,
-    "path": "../public/_nuxt/error-500.d3a31694.js"
-  },
-  "/_nuxt/error-component.bc13d68d.js": {
-    "type": "application/javascript",
-    "etag": "\"4b2-anABDRzGhLc0z99j2+htz3TrGRo\"",
-    "mtime": "2023-07-29T18:24:49.423Z",
-    "size": 1202,
-    "path": "../public/_nuxt/error-component.bc13d68d.js"
-  },
-  "/_nuxt/imggroupclean.e5331768.jpg": {
-    "type": "image/jpeg",
-    "etag": "\"118e9-4Wk9Tj80cS2KfCsD/7BHpVVo+ko\"",
-    "mtime": "2023-07-29T18:24:49.422Z",
-    "size": 71913,
-    "path": "../public/_nuxt/imggroupclean.e5331768.jpg"
-  },
-  "/_nuxt/qrappmenu2.f473b4ef.png": {
-    "type": "image/png",
-    "etag": "\"3250f-2oPx9p/fUHhNNGWojrs0UQOstic\"",
-    "mtime": "2023-07-29T18:24:49.423Z",
-    "size": 206095,
-    "path": "../public/_nuxt/qrappmenu2.f473b4ef.png"
-  },
-  "/_nuxt/_plugin-vue_export-helper.c27b6911.js": {
-    "type": "application/javascript",
-    "etag": "\"5b-eFCz/UrraTh721pgAl0VxBNR1es\"",
-    "mtime": "2023-07-29T18:24:49.422Z",
-    "size": 91,
-    "path": "../public/_nuxt/_plugin-vue_export-helper.c27b6911.js"
+    "etag": "\"45e-9br1m3pCquf3anKGhL/A4aaOpkA\"",
+    "mtime": "2026-06-20T10:26:38.440Z",
+    "size": 1118,
+    "path": "../public/_nuxt/error-component.70785b7a.js"
   }
 };
 
