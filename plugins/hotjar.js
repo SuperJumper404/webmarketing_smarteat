@@ -3,7 +3,7 @@ export default defineNuxtPlugin(() => {
   const hotjarId = config.public.hotjarId;
 
   if (!hotjarId) {
-    console.warn('HotJar ID not configured');
+    console.warn("HotJar ID not configured");
     return;
   }
 
@@ -18,7 +18,7 @@ export default defineNuxtPlugin(() => {
     hjsv: 6,
   };
 
-  const script = document.createElement('script');
+  const script = document.createElement("script");
   script.async = true;
   script.src = `https://static.hotjar.com/c/hotjar-${hotjarId}.js?sv=6`;
   document.head.appendChild(script);

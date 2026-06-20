@@ -1,12 +1,22 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900">
-    <header class="sticky top-0 z-30 border-b border-gray-100 bg-white/95 backdrop-blur">
+    <header
+      class="sticky top-0 z-30 border-b border-gray-100 bg-white/95 backdrop-blur"
+    >
       <nav
         class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
         aria-label="Navigation principale"
       >
-        <a href="#" class="flex items-center gap-3" aria-label="SmartEat accueil">
-          <img class="h-11 w-11 rounded-lg object-contain" src="/logo.png" alt="SmartEat" />
+        <a
+          href="#"
+          class="flex items-center gap-3"
+          aria-label="SmartEat accueil"
+        >
+          <img
+            class="h-11 w-11 rounded-lg object-contain"
+            src="/logo.png"
+            alt="SmartEat"
+          />
           <span class="text-2xl font-bold tracking-tight">
             Smart<span class="text-primary-700">Eat</span>
           </span>
@@ -48,18 +58,25 @@
 
     <main>
       <section id="produit" class="border-b border-gray-100 bg-white">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-20">
+        <div
+          class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-20"
+        >
           <div>
-            <p class="text-sm font-semibold uppercase tracking-wide text-primary-700">
+            <p
+              class="text-sm font-semibold uppercase tracking-wide text-primary-700"
+            >
               Menu QR, commande et service
             </p>
-            <h1 class="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
+            <h1
+              class="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl lg:text-6xl"
+            >
               Le menu QR et la prise de commande prets pour votre restaurant.
             </h1>
             <p class="mt-6 max-w-2xl text-lg leading-8 text-gray-600">
-              SmartEat vous aide a digitaliser votre menu, recevoir les commandes
-              et fluidifier le service. Notre equipe prepare votre espace et vous
-              rappelle sous 24h pour une demo adaptee a votre etablissement.
+              SmartEat vous aide a digitaliser votre menu, recevoir les
+              commandes et fluidifier le service. Notre equipe prepare votre
+              espace et vous rappelle sous 24h pour une demo adaptee a votre
+              etablissement.
             </p>
             <div class="mt-8">
               <MarketingCta @select="openOnboarding" />
@@ -81,12 +98,15 @@
               src="/imggroupclean.jpg"
               alt="Clients utilisant un menu digital SmartEat"
             />
-            <div class="mt-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:absolute lg:bottom-6 lg:left-6 lg:mt-0 lg:max-w-sm">
+            <div
+              class="mt-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:absolute lg:bottom-6 lg:left-6 lg:mt-0 lg:max-w-sm"
+            >
               <p class="text-sm font-semibold text-gray-950">
                 Une experience claire des le premier scan.
               </p>
               <p class="mt-1 text-sm leading-6 text-gray-600">
-                Menu, table, commande et suivi rassembles dans un parcours simple.
+                Menu, table, commande et suivi rassembles dans un parcours
+                simple.
               </p>
             </div>
           </div>
@@ -95,7 +115,9 @@
 
       <section class="bg-gray-50">
         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <div class="grid gap-3 text-center text-sm font-semibold text-gray-700 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            class="grid gap-3 text-center text-sm font-semibold text-gray-700 sm:grid-cols-2 lg:grid-cols-4"
+          >
             <p
               v-for="item in reassurance"
               :key="item"
@@ -110,10 +132,14 @@
       <section class="bg-white">
         <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div class="max-w-3xl">
-            <p class="text-sm font-semibold uppercase tracking-wide text-primary-700">
+            <p
+              class="text-sm font-semibold uppercase tracking-wide text-primary-700"
+            >
               Ce que SmartEat simplifie
             </p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
+            <h2
+              class="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl"
+            >
               Les irritants du service ne devraient pas freiner vos ventes.
             </h2>
           </div>
@@ -123,7 +149,9 @@
               :key="problem"
               class="rounded-lg border border-gray-200 bg-white p-5"
             >
-              <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50 text-lg font-bold text-primary-700">
+              <div
+                class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50 text-lg font-bold text-primary-700"
+              >
                 !
               </div>
               <p class="text-base font-semibold leading-7 text-gray-900">
@@ -138,10 +166,14 @@
         <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <p class="text-sm font-semibold uppercase tracking-wide text-primary-700">
+              <p
+                class="text-sm font-semibold uppercase tracking-wide text-primary-700"
+              >
                 Solution
               </p>
-              <h2 class="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
+              <h2
+                class="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl"
+              >
                 Un espace pour presenter, commander et piloter.
               </h2>
               <p class="mt-4 text-base leading-7 text-gray-600">
@@ -161,7 +193,11 @@
                 :key="feature.title"
                 class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
               >
-                <img class="h-20 w-20" :src="feature.image" :alt="feature.title" />
+                <img
+                  class="h-20 w-20"
+                  :src="feature.image"
+                  :alt="feature.title"
+                />
                 <h3 class="mt-5 text-lg font-bold text-gray-950">
                   {{ feature.title }}
                 </h3>
@@ -178,10 +214,14 @@
         <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
-              <p class="text-sm font-semibold uppercase tracking-wide text-primary-700">
+              <p
+                class="text-sm font-semibold uppercase tracking-wide text-primary-700"
+              >
                 Demarrage
               </p>
-              <h2 class="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
+              <h2
+                class="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl"
+              >
                 Demarrer sans perdre une semaine en configuration.
               </h2>
               <p class="mt-4 text-base leading-7 text-gray-600">
@@ -199,7 +239,9 @@
                 :key="step"
                 class="rounded-lg border border-gray-200 bg-gray-50 p-5"
               >
-                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-700 text-sm font-bold text-white">
+                <span
+                  class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-700 text-sm font-bold text-white"
+                >
                   {{ index + 1 }}
                 </span>
                 <p class="mt-4 text-base font-semibold leading-7 text-gray-900">
@@ -214,14 +256,20 @@
       <section id="faq" class="bg-gray-50">
         <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
           <div class="text-center">
-            <p class="text-sm font-semibold uppercase tracking-wide text-primary-700">
+            <p
+              class="text-sm font-semibold uppercase tracking-wide text-primary-700"
+            >
               FAQ
             </p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
+            <h2
+              class="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl"
+            >
               Questions frequentes
             </h2>
           </div>
-          <div class="mt-10 divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+          <div
+            class="mt-10 divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white"
+          >
             <article v-for="faq in faqs" :key="faq.question" class="p-6">
               <h3 class="text-lg font-bold text-gray-950">
                 {{ faq.question }}
@@ -236,8 +284,12 @@
 
       <section class="bg-white">
         <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div class="rounded-lg border border-primary-100 bg-primary-50 px-6 py-10 text-center sm:px-10">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
+          <div
+            class="rounded-lg border border-primary-100 bg-primary-50 px-6 py-10 text-center sm:px-10"
+          >
+            <h2
+              class="text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl"
+            >
               Votre espace SmartEat peut etre prepare aujourd'hui.
             </h2>
             <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-gray-700">
@@ -253,7 +305,9 @@
     </main>
 
     <footer class="border-t border-gray-100 bg-gray-950 text-white">
-      <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+      <div
+        class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8"
+      >
         <div>
           <p class="text-xl font-bold">
             Smart<span class="text-primary-300">Eat</span>
@@ -262,17 +316,32 @@
             Menu QR et prise de commande pour restaurants.
           </p>
         </div>
-        <div class="flex flex-col gap-2 text-sm text-gray-300 sm:flex-row sm:gap-6">
+        <div
+          class="flex flex-col gap-2 text-sm text-gray-300 sm:flex-row sm:gap-6"
+        >
           <a class="transition hover:text-white" href="tel:0745203343">
             ☎️ 07 45 20 33 43
           </a>
-          <a class="transition hover:text-white" href="https://wa.me/33745203343" target="_blank" rel="noreferrer">
+          <a
+            class="transition hover:text-white"
+            href="https://wa.me/33745203343"
+            target="_blank"
+            rel="noreferrer"
+          >
             WhatsApp
           </a>
-          <a class="transition hover:text-white" href="mailto:admin@smarteat.fr">
+          <a
+            class="transition hover:text-white"
+            href="mailto:admin@smarteat.fr"
+          >
             admin@smarteat.fr
           </a>
-          <a class="transition hover:text-white" href="https://www.instagram.com/smart_eat" target="_blank" rel="noreferrer">
+          <a
+            class="transition hover:text-white"
+            href="https://www.instagram.com/smart_eat"
+            target="_blank"
+            rel="noreferrer"
+          >
             Instagram smart_eat
           </a>
         </div>
@@ -295,7 +364,9 @@ const onboardingOpen = ref(false);
 const onboardingIntent = ref("demo");
 
 // URL de l'application SmartEat - à configurer dans les variables d'environnement
-const appLoginUrl = ref(config.public.appUrl || "https://app.smarteat.fr/login");
+const appLoginUrl = ref(
+  config.public.appUrl || "https://app.smarteat.fr/login",
+);
 
 function openOnboarding(intent) {
   onboardingIntent.value = intent === "account" ? "account" : "demo";
@@ -315,7 +386,11 @@ const navItems = [
   { label: "FAQ", href: "#faq" },
 ];
 
-const heroProofs = ["Menu digital", "Commandes centralisees", "Rappel sous 24h"];
+const heroProofs = [
+  "Menu digital",
+  "Commandes centralisees",
+  "Rappel sous 24h",
+];
 
 const reassurance = [
   "Adapte aux restaurants",
@@ -369,7 +444,8 @@ const faqs = [
   },
   {
     question: "Ai-je besoin d'un menu digital existant ?",
-    answer: "Non. Vous pouvez partir d'un PDF, d'un site web, de photos ou d'un menu papier.",
+    answer:
+      "Non. Vous pouvez partir d'un PDF, d'un site web, de photos ou d'un menu papier.",
   },
   {
     question: "Est-ce adapte aux petits restaurants ?",
