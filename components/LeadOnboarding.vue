@@ -251,8 +251,11 @@
 </template>
 
 <script setup>
+import { buildSupabaseLeadRequest } from "~/utils/supabase-leads.mjs";
+
 const storageKey = "smarteat-lead-onboarding";
 const totalSteps = 6;
+const runtimeConfig = useRuntimeConfig();
 
 const props = defineProps({
   open: {
@@ -513,14 +516,17 @@ async function submitStep() {
   isSending.value = true;
 
   try {
-    await $fetch("/.netlify/functions/send-mail", {
-      method: "POST",
-      body: {
+    const request = buildSupabaseLeadRequest({
+      supabaseUrl: runtimeConfig.public.supabaseUrl,
+      supabaseAnonKey: runtimeConfig.public.supabaseAnonKey,
+      lead: {
         ...lead,
         intent: normalizedIntent.value,
         step: currentStep.value,
       },
     });
+
+    await $fetch(request.url, request.options);
 
     if (currentStep.value === totalSteps) {
       isComplete.value = true;
