@@ -141,6 +141,58 @@ assert.ok(content.onboarding.messages, "onboarding.messages is required");
 assertObject(content.onboarding.fields, "onboarding.fields");
 assertObject(content.onboarding.actions, "onboarding.actions");
 assertObject(content.onboarding.messages, "onboarding.messages");
+assert.ok(content.onboarding.options, "onboarding.options is required");
+assertObject(content.onboarding.options, "onboarding.options");
+
+const expectedOnboardingOptions = {
+  restaurantTypes: ["Restaurant", "Snack", "Cafe", "Bar", "Food truck", "Autre"],
+  menuSources: ["PDF", "Site web", "Photos", "Pas encore de menu digital"],
+  mainNeeds: ["Menu QR", "Prise de commande", "Click & Collect", "Caisse", "Suivi des ventes", "Gestion complete"],
+};
+
+assert.ok(Array.isArray(content.onboarding.options.restaurantTypes), "onboarding.options.restaurantTypes must be an array");
+assert.ok(Array.isArray(content.onboarding.options.menuSources), "onboarding.options.menuSources must be an array");
+assert.ok(Array.isArray(content.onboarding.options.mainNeeds), "onboarding.options.mainNeeds must be an array");
+assert.ok(
+  content.onboarding.options.restaurantTypes.length >= 4,
+  "onboarding.options.restaurantTypes must contain at least 4 items",
+);
+assert.ok(
+  content.onboarding.options.menuSources.length >= 3,
+  "onboarding.options.menuSources must contain at least 3 items",
+);
+assert.ok(
+  content.onboarding.options.mainNeeds.length >= 5,
+  "onboarding.options.mainNeeds must contain at least 5 items",
+);
+for (const [index, restaurantType] of content.onboarding.options.restaurantTypes.entries()) {
+  assert.equal(
+    typeof restaurantType,
+    "string",
+    `onboarding.options.restaurantTypes[${index}] must be a string`,
+  );
+}
+for (const [index, menuSource] of content.onboarding.options.menuSources.entries()) {
+  assert.equal(typeof menuSource, "string", `onboarding.options.menuSources[${index}] must be a string`);
+}
+for (const [index, mainNeed] of content.onboarding.options.mainNeeds.entries()) {
+  assert.equal(typeof mainNeed, "string", `onboarding.options.mainNeeds[${index}] must be a string`);
+}
+assert.deepEqual(
+  content.onboarding.options.restaurantTypes,
+  expectedOnboardingOptions.restaurantTypes,
+  "onboarding.options.restaurantTypes must match the requested values and order",
+);
+assert.deepEqual(
+  content.onboarding.options.menuSources,
+  expectedOnboardingOptions.menuSources,
+  "onboarding.options.menuSources must match the requested values and order",
+);
+assert.deepEqual(
+  content.onboarding.options.mainNeeds,
+  expectedOnboardingOptions.mainNeeds,
+  "onboarding.options.mainNeeds must match the requested values and order",
+);
 
 const requiredOnboardingFields = [
   "restaurantName",
@@ -171,6 +223,22 @@ assertObject(content.footer, "footer");
 assert.equal(typeof content.footer.text, "string", "footer.text must be a string");
 assert.equal(typeof content.footer.phone, "string", "footer.phone must be a string");
 assert.equal(typeof content.footer.whatsapp, "string", "footer.whatsapp must be a string");
+assert.equal(typeof content.footer.email, "string", "footer.email must be a string");
+assert.equal(typeof content.footer.instagram, "string", "footer.instagram must be a string");
+assert.equal(typeof content.footer.phoneHref, "string", "footer.phoneHref must be a string");
+assert.equal(typeof content.footer.whatsappHref, "string", "footer.whatsappHref must be a string");
+assert.equal(typeof content.footer.emailHref, "string", "footer.emailHref must be a string");
+assert.equal(typeof content.footer.instagramHref, "string", "footer.instagramHref must be a string");
+assert.equal(content.footer.phoneHref, "tel:0745203343", "footer.phoneHref must match the requested value");
+assert.equal(content.footer.whatsappHref, "https://wa.me/33745203343", "footer.whatsappHref must match the requested value");
+assert.equal(content.footer.email, "admin@smarteat.fr", "footer.email must match the requested value");
+assert.equal(content.footer.emailHref, "mailto:admin@smarteat.fr", "footer.emailHref must match the requested value");
+assert.equal(content.footer.instagram, "Instagram smart_eat", "footer.instagram must match the requested value");
+assert.equal(
+  content.footer.instagramHref,
+  "https://www.instagram.com/smart_eat",
+  "footer.instagramHref must match the requested value",
+);
 
 const normalizedContent = JSON.stringify(content)
   .normalize("NFD")

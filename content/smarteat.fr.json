@@ -223,6 +223,18 @@
       "email": "Email",
       "mainNeed": "Priorite"
     },
+    "options": {
+      "restaurantTypes": ["Restaurant", "Snack", "Cafe", "Bar", "Food truck", "Autre"],
+      "menuSources": ["PDF", "Site web", "Photos", "Pas encore de menu digital"],
+      "mainNeeds": [
+        "Menu QR",
+        "Prise de commande",
+        "Click & Collect",
+        "Caisse",
+        "Suivi des ventes",
+        "Gestion complete"
+      ]
+    },
     "actions": {
       "continue": "Continuer",
       "back": "Retour",
@@ -238,6 +250,12 @@
   "footer": {
     "text": "SmartEat aide les restaurants a digitaliser leur service et mieux piloter leur activite.",
     "phone": "07 45 20 33 43",
-    "whatsapp": "WhatsApp"
+    "phoneHref": "tel:0745203343",
+    "whatsapp": "WhatsApp",
+    "whatsappHref": "https://wa.me/33745203343",
+    "email": "admin@smarteat.fr",
+    "emailHref": "mailto:admin@smarteat.fr",
+    "instagram": "Instagram smart_eat",
+    "instagramHref": "https://www.instagram.com/smart_eat"
   }
 }
