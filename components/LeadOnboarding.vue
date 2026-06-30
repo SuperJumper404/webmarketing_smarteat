@@ -20,7 +20,7 @@
           class="absolute right-4 top-4 rounded-full p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
           @click="emitClose"
         >
-          <span class="sr-only">Fermer</span>
+          <span class="sr-only">{{ content.actions.close }}</span>
           <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path
               fill-rule="evenodd"
@@ -32,27 +32,27 @@
 
         <div v-if="isComplete" class="pr-8">
           <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-primary-700">
-            SmartEat
+            {{ content.intro.eyebrow }}
           </p>
           <h2 id="lead-onboarding-title" class="text-2xl font-bold text-gray-900">
-            Merci
+            {{ content.messages.successTitle }}
           </h2>
           <p class="mt-4 text-base leading-7 text-gray-700">
-            Merci, nous preparons votre espace SmartEat. Nous vous rappelons sous 24h pour une demo adaptee a votre restaurant.
+            {{ content.messages.success }}
           </p>
           <button
             type="button"
             class="mt-6 rounded-lg bg-primary-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-200"
             @click="emitClose"
           >
-            Fermer
+            {{ content.actions.close }}
           </button>
         </div>
 
         <form v-else class="space-y-6" @submit.prevent="submitStep">
           <div class="pr-8">
             <p class="text-sm font-semibold uppercase tracking-wide text-primary-700">
-              Etape {{ currentStep }} sur {{ totalSteps }}
+              {{ content.messages.progressPrefix }} {{ currentStep }} {{ content.messages.progressSeparator }} {{ totalSteps }}
             </p>
             <h2 id="lead-onboarding-title" class="mt-2 text-2xl font-bold text-gray-900">
               {{ stepTitle }}
@@ -78,7 +78,7 @@
 
           <div v-if="currentStep === 1">
             <label for="restaurantName" class="block text-sm font-semibold text-gray-800">
-              Nom du restaurant
+              {{ content.fields.restaurantName }}
             </label>
             <input
               id="restaurantName"
@@ -87,13 +87,13 @@
               required
               autocomplete="organization"
               class="mt-2 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100"
-              placeholder="Ex: Le Bistrot Central"
+              :placeholder="content.fields.restaurantNamePlaceholder"
             />
           </div>
 
           <div v-else-if="currentStep === 2">
             <label for="phone" class="block text-sm font-semibold text-gray-800">
-              Telephone
+              {{ content.fields.phone }}
             </label>
             <input
               id="phone"
@@ -102,14 +102,14 @@
               required
               autocomplete="tel"
               class="mt-2 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100"
-              placeholder="Ex: 06 12 34 56 78"
+              :placeholder="content.fields.phonePlaceholder"
             />
           </div>
 
           <div v-else-if="currentStep === 3" class="grid gap-4 sm:grid-cols-2">
             <div>
               <label for="city" class="block text-sm font-semibold text-gray-800">
-                Ville
+                {{ content.fields.city }}
               </label>
               <input
                 id="city"
@@ -118,13 +118,13 @@
                 required
                 autocomplete="address-level2"
                 class="mt-2 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100"
-                placeholder="Ex: Lyon"
+                :placeholder="content.fields.cityPlaceholder"
               />
             </div>
 
             <div>
               <label for="restaurantType" class="block text-sm font-semibold text-gray-800">
-                Type d'etablissement
+                {{ content.fields.restaurantType }}
               </label>
               <select
                 id="restaurantType"
@@ -132,7 +132,7 @@
                 required
                 class="mt-2 block w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100"
               >
-                <option value="" disabled>Choisir un type</option>
+                <option value="" disabled>{{ content.fields.restaurantTypePlaceholder }}</option>
                 <option v-for="type in restaurantTypes" :key="type" :value="type">
                   {{ type }}
                 </option>
@@ -143,7 +143,7 @@
           <div v-else-if="currentStep === 4" class="grid gap-4 sm:grid-cols-2">
             <div>
               <label for="tablesCount" class="block text-sm font-semibold text-gray-800">
-                Nombre de tables
+                {{ content.fields.tablesCount }}
               </label>
               <input
                 id="tablesCount"
@@ -153,13 +153,13 @@
                 required
                 inputmode="numeric"
                 class="mt-2 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100"
-                placeholder="Ex: 24"
+                :placeholder="content.fields.tablesCountPlaceholder"
               />
             </div>
 
             <div>
               <label for="currentMenuSource" class="block text-sm font-semibold text-gray-800">
-                Menu actuel
+                {{ content.fields.currentMenuSource }}
               </label>
               <select
                 id="currentMenuSource"
@@ -167,7 +167,7 @@
                 required
                 class="mt-2 block w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100"
               >
-                <option value="" disabled>Choisir une source</option>
+                <option value="" disabled>{{ content.fields.currentMenuSourcePlaceholder }}</option>
                 <option v-for="source in menuSources" :key="source" :value="source">
                   {{ source }}
                 </option>
@@ -178,7 +178,7 @@
           <div v-else-if="currentStep === 5" class="grid gap-4 sm:grid-cols-2">
             <div>
               <label for="contactName" class="block text-sm font-semibold text-gray-800">
-                Nom du contact
+                {{ content.fields.contactName }}
               </label>
               <input
                 id="contactName"
@@ -186,13 +186,13 @@
                 type="text"
                 autocomplete="name"
                 class="mt-2 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100"
-                placeholder="Ex: Sarah Martin"
+                :placeholder="content.fields.contactNamePlaceholder"
               />
             </div>
 
             <div>
               <label for="email" class="block text-sm font-semibold text-gray-800">
-                Email
+                {{ content.fields.email }}
               </label>
               <input
                 id="email"
@@ -200,14 +200,14 @@
                 type="email"
                 autocomplete="email"
                 class="mt-2 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-4 focus:ring-primary-100"
-                placeholder="Ex: contact@restaurant.fr"
+                :placeholder="content.fields.emailPlaceholder"
               />
             </div>
           </div>
 
           <div v-else>
             <p class="mb-3 block text-sm font-semibold text-gray-800">
-              Besoin principal
+              {{ content.fields.mainNeed }}
             </p>
             <div class="grid gap-3 sm:grid-cols-2">
               <button
@@ -234,14 +234,14 @@
               :disabled="currentStep === 1 || isSending"
               @click="goBack"
             >
-              Retour
+              {{ content.actions.back }}
             </button>
             <button
               type="submit"
               class="rounded-lg bg-primary-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-200 disabled:cursor-wait disabled:opacity-70"
               :disabled="isSending"
             >
-              {{ isSending ? "Envoi..." : submitLabel }}
+              {{ isSending ? content.actions.sending : submitLabel }}
             </button>
           </div>
         </form>
@@ -263,19 +263,97 @@ const props = defineProps({
     type: String,
     default: "demo",
   },
+  content: {
+    type: Object,
+    required: true,
+  },
 });
 
 const emit = defineEmits(["close"]);
 
-const restaurantTypes = ["Restaurant", "Snack", "Cafe", "Bar", "Food truck", "Autre"];
-const menuSources = ["PDF", "Site web", "Photos", "Pas encore de menu digital"];
-const mainNeeds = [
-  "Menu QR",
-  "Prise de commande",
-  "Plan de table",
-  "Suivi des preparations",
-  "Gestion complete",
-];
+const fallbackContent = {
+  intro: {
+    eyebrow: "Demo SmartEat",
+  },
+  steps: [
+    {
+      title: "Quel est le nom de votre restaurant ?",
+      description: "Une premiere info suffit pour demarrer votre demande.",
+    },
+    {
+      title: "A quel numero peut-on vous rappeler ?",
+      description: "Apres cette etape, notre equipe peut vous recontacter sous 24h.",
+    },
+    {
+      title: "Ou se trouve votre etablissement ?",
+      description: "Cela nous aide a preparer une demo adaptee.",
+    },
+    {
+      title: "Preparons votre espace SmartEat",
+      description: "Ces infos servent a anticiper vos QR codes et votre menu.",
+    },
+    {
+      title: "Qui devons-nous contacter ?",
+      description: "Ajoutez un contact pour faciliter le suivi.",
+    },
+    {
+      title: "Quelle est votre priorite aujourd'hui ?",
+      description: "Choisissez ce que vous voulez voir en premier pendant la demo.",
+    },
+  ],
+  fields: {
+    restaurantName: "Nom du restaurant",
+    restaurantNamePlaceholder: "Ex: Le Bistrot Central",
+    phone: "Telephone",
+    phonePlaceholder: "Ex: 06 12 34 56 78",
+    city: "Ville",
+    cityPlaceholder: "Ex: Lyon",
+    restaurantType: "Type d'etablissement",
+    restaurantTypePlaceholder: "Choisir un type",
+    tablesCount: "Nombre de tables",
+    tablesCountPlaceholder: "Ex: 24",
+    currentMenuSource: "Menu actuel",
+    currentMenuSourcePlaceholder: "Choisir une source",
+    contactName: "Responsable",
+    contactNamePlaceholder: "Ex: Sarah Martin",
+    email: "Email",
+    emailPlaceholder: "Ex: contact@restaurant.fr",
+    mainNeed: "Priorite",
+  },
+  options: {
+    restaurantTypes: ["Restaurant", "Snack", "Cafe", "Bar", "Food truck", "Autre"],
+    menuSources: ["PDF", "Site web", "Photos", "Pas encore de menu digital"],
+    mainNeeds: [
+      "Menu QR",
+      "Prise de commande",
+      "Click & Collect",
+      "Caisse",
+      "Suivi des ventes",
+      "Gestion complete",
+    ],
+  },
+  actions: {
+    continue: "Continuer",
+    back: "Retour",
+    finish: "Terminer",
+    close: "Fermer",
+    sending: "Envoi...",
+  },
+  messages: {
+    successTitle: "Merci",
+    progressPrefix: "Etape",
+    progressSeparator: "sur",
+    required: "Completez les champs requis pour continuer.",
+    error: "Votre progression est conservee. Reessayez dans un instant.",
+    success:
+      "Merci, nous preparons votre espace SmartEat. Nous vous rappelons sous 24h pour une demo adaptee a votre restaurant.",
+  },
+};
+
+const content = computed(() => props.content || fallbackContent);
+const restaurantTypes = computed(() => content.value.options?.restaurantTypes || []);
+const menuSources = computed(() => content.value.options?.menuSources || []);
+const mainNeeds = computed(() => content.value.options?.mainNeeds || []);
 
 const blankLead = () => ({
   leadId: "",
@@ -299,34 +377,14 @@ const lead = reactive(blankLead());
 
 const normalizedIntent = computed(() => (props.intent === "account" ? "account" : "demo"));
 
-const stepTitle = computed(() => {
-  const titles = {
-    1: "Commencons par votre restaurant",
-    2: "Ou pouvons-nous vous rappeler ?",
-    3: "Precisez votre etablissement",
-    4: "Votre organisation actuelle",
-    5: "Vos coordonnees",
-    6: "Votre priorite SmartEat",
-  };
-
-  return titles[currentStep.value];
-});
-
-const stepDescription = computed(() => {
-  const descriptions = {
-    1: "Une premiere information suffit pour creer votre progression.",
-    2: "Nous utiliserons ce numero uniquement pour organiser votre demonstration.",
-    3: "Ces details nous aident a adapter la demo a votre activite.",
-    4: "SmartEat prepare une experience plus proche de votre quotidien.",
-    5: "Cette etape est optionnelle, mais elle facilite le suivi.",
-    6: "Choisissez le sujet le plus important pour votre restaurant aujourd'hui.",
-  };
-
-  return descriptions[currentStep.value];
-});
+const activeStep = computed(() => content.value.steps?.[currentStep.value - 1] || {});
+const stepTitle = computed(() => activeStep.value.title || "");
+const stepDescription = computed(() => activeStep.value.description || "");
 
 const progressPercent = computed(() => Math.round((currentStep.value / totalSteps) * 100));
-const submitLabel = computed(() => (currentStep.value === totalSteps ? "Terminer" : "Continuer"));
+const submitLabel = computed(() =>
+  currentStep.value === totalSteps ? content.value.actions.finish : content.value.actions.continue
+);
 
 watch(
   () => props.open,
@@ -443,7 +501,7 @@ async function submitStep() {
   errorMessage.value = "";
 
   if (!isStepValid()) {
-    errorMessage.value = "Completez les champs requis pour continuer.";
+    errorMessage.value = content.value.messages.required;
     return;
   }
 
@@ -475,7 +533,7 @@ async function submitStep() {
     }
   } catch {
     saveProgress();
-    errorMessage.value = "Votre progression est conservee. Reessayez dans un instant.";
+    errorMessage.value = content.value.messages.error;
   } finally {
     isSending.value = false;
   }

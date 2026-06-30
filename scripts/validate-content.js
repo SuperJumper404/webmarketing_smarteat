@@ -128,6 +128,9 @@ assert.equal(typeof content.finalCta.primaryCta, "string", "finalCta.primaryCta 
 assert.equal(typeof content.finalCta.secondaryCta, "string", "finalCta.secondaryCta must be a string");
 
 assertObject(content.onboarding, "onboarding");
+assert.ok(content.onboarding.intro, "onboarding.intro is required");
+assertObject(content.onboarding.intro, "onboarding.intro");
+assert.equal(typeof content.onboarding.intro.eyebrow, "string", "onboarding.intro.eyebrow must be a string");
 assert.ok(Array.isArray(content.onboarding.steps), "onboarding.steps must be an array");
 assert.equal(content.onboarding.steps.length, 6, "onboarding.steps must contain exactly 6 steps");
 for (const [index, step] of content.onboarding.steps.entries()) {
@@ -196,25 +199,41 @@ assert.deepEqual(
 
 const requiredOnboardingFields = [
   "restaurantName",
+  "restaurantNamePlaceholder",
   "phone",
+  "phonePlaceholder",
   "city",
+  "cityPlaceholder",
   "restaurantType",
+  "restaurantTypePlaceholder",
   "tablesCount",
+  "tablesCountPlaceholder",
   "currentMenuSource",
+  "currentMenuSourcePlaceholder",
   "contactName",
+  "contactNamePlaceholder",
   "email",
+  "emailPlaceholder",
   "mainNeed",
 ];
 for (const key of requiredOnboardingFields) {
   assert.equal(typeof content.onboarding.fields[key], "string", `onboarding.fields.${key} must be a string`);
 }
 
-const requiredOnboardingActions = ["continue", "back", "finish", "close"];
+const requiredOnboardingActions = ["continue", "back", "finish", "close", "sending"];
 for (const key of requiredOnboardingActions) {
   assert.equal(typeof content.onboarding.actions[key], "string", `onboarding.actions.${key} must be a string`);
 }
 
-const requiredOnboardingMessages = ["error", "missingPriority", "success"];
+const requiredOnboardingMessages = [
+  "successTitle",
+  "progressPrefix",
+  "progressSeparator",
+  "error",
+  "required",
+  "missingPriority",
+  "success",
+];
 for (const key of requiredOnboardingMessages) {
   assert.equal(typeof content.onboarding.messages[key], "string", `onboarding.messages.${key} must be a string`);
 }

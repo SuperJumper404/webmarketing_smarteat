@@ -214,13 +214,21 @@
     ],
     "fields": {
       "restaurantName": "Nom du restaurant",
+      "restaurantNamePlaceholder": "Ex: Le Bistrot Central",
       "phone": "Telephone",
+      "phonePlaceholder": "Ex: 06 12 34 56 78",
       "city": "Ville",
+      "cityPlaceholder": "Ex: Lyon",
       "restaurantType": "Type d'etablissement",
+      "restaurantTypePlaceholder": "Choisir un type",
       "tablesCount": "Nombre de tables",
+      "tablesCountPlaceholder": "Ex: 24",
       "currentMenuSource": "Menu actuel",
+      "currentMenuSourcePlaceholder": "Choisir une source",
       "contactName": "Responsable",
+      "contactNamePlaceholder": "Ex: Sarah Martin",
       "email": "Email",
+      "emailPlaceholder": "Ex: contact@restaurant.fr",
       "mainNeed": "Priorite"
     },
     "options": {
@@ -239,10 +247,15 @@
       "continue": "Continuer",
       "back": "Retour",
       "finish": "Terminer",
-      "close": "Fermer"
+      "close": "Fermer",
+      "sending": "Envoi..."
     },
     "messages": {
+      "successTitle": "Merci",
+      "progressPrefix": "Etape",
+      "progressSeparator": "sur",
       "error": "Votre progression est conservee. Reessayez dans un instant.",
+      "required": "Completez les champs requis pour continuer.",
       "missingPriority": "Choisissez une priorite pour terminer.",
       "success": "Merci, nous preparons votre espace SmartEat. Nous vous rappelons sous 24h pour une demo adaptee a votre restaurant."
     }
