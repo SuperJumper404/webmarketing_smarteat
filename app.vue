@@ -455,7 +455,7 @@ const faqs = [
   {
     question: "Les deux boutons font-ils la meme chose ?",
     answer:
-      "Oui. Demander une demo et Creer mon compte ouvrent le meme onboarding, avec une intention differente pour notre equipe.",
+      "Oui. Demander une demo et Creer mon espace SmartEat ouvrent le meme onboarding, avec une intention differente pour notre equipe.",
   },
 ];
 </script>
