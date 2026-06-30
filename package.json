@@ -7,7 +7,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test:lead": "node --test functions/*.test.js"
+    "test:lead": "node --test functions/*.test.js",
+    "test:content": "node scripts/validate-content.js",
+    "test": "npm run test:lead && npm run test:content"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.7.0",

@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "title": "SmartEat - Menu QR, commande et caisse pour restaurants",
+    "description": "SmartEat aide les restaurateurs a digitaliser leur menu, recevoir les commandes par QR code et mieux piloter leur activite."
+  },
+  "navigation": {
+    "logoAlt": "SmartEat",
+    "links": [
+      {
+        "label": "Produit",
+        "href": "#produit"
+      },
+      {
+        "label": "Solution",
+        "href": "#solution"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
+    ],
+    "primaryCta": "Demander une demo",
+    "secondaryCta": "Se connecter"
+  },
+  "hero": {
+    "eyebrow": "SaaS restaurant, menu QR et caisse",
+    "title": "Boostez la rentabilite de votre restaurant avec SmartEat",
+    "subtitle": "Gerer un restaurant aujourd'hui, ce n'est plus seulement bien cuisiner. C'est maitriser ses couts, optimiser son service et maximiser chaque commande.",
+    "supportingText": "SmartEat vous aide a gagner plus d'argent tout en simplifiant votre quotidien.",
+    "primaryCta": "Demander une demo",
+    "secondaryCta": "Creer mon espace SmartEat",
+    "visual": {
+      "src": "/qrappmenu2.png",
+      "alt": "Interface SmartEat de menu QR pour restaurant"
+    }
+  },
+  "benefits": [
+    {
+      "title": "Plus de chiffre d'affaires",
+      "text": "Vos clients commandent plus facilement, ajoutent plus simplement un dessert, un cafe ou un supplement, et le service avance plus vite."
+    },
+    {
+      "title": "Moins de frais en salle",
+      "text": "Une equipe plus legere peut gerer davantage de commandes avec moins de friction pendant le service."
+    },
+    {
+      "title": "Meilleure maitrise des couts",
+      "text": "Suivez vos ventes, anticipez les besoins et reduisez les pertes grace a une meilleure visibilite sur l'activite."
+    },
+    {
+      "title": "Restaurant plus moderne",
+      "text": "Offrez une experience client fluide avec menu digital, commande QR, site web et mise en avant de vos reseaux sociaux."
+    }
+  ],
+  "problem": {
+    "eyebrow": "Le quotidien des restaurateurs",
+    "title": "Un bon service ne suffit plus si vos outils vous ralentissent",
+    "items": [
+      "Menus papier difficiles a mettre a jour",
+      "Commandes lentes ou mal transmises",
+      "Equipe en salle sous pression",
+      "Manque de visibilite sur les ventes",
+      "Couts et gaspillage difficiles a piloter"
+    ]
+  },
+  "solution": {
+    "eyebrow": "La solution SmartEat",
+    "title": "Un espace centralise pour vendre, servir et piloter plus simplement",
+    "text": "SmartEat reunit menu QR, prise de commande, click & collect, caisse, suivi des ventes et outils de gestion dans une experience simple pour le restaurateur et ses clients."
+  },
+  "features": [
+    {
+      "title": "Menu QR personnalisable",
+      "text": "Vos clients scannent, consultent le menu et commandent sans attendre.",
+      "image": "/menupersonnalisable.svg",
+      "imageAlt": "Menu QR personnalisable SmartEat"
+    },
+    {
+      "title": "Prise de commande",
+      "text": "Centralisez les commandes et reduisez les erreurs entre la salle et la preparation.",
+      "image": "/prisedecommande.svg",
+      "imageAlt": "Prise de commande SmartEat"
+    },
+    {
+      "title": "Click & Collect",
+      "text": "Generez des ventes supplementaires meme en dehors du service en salle.",
+      "image": "/appscreen.svg",
+      "imageAlt": "Click and collect SmartEat"
+    },
+    {
+      "title": "Tableau de bord",
+      "text": "Suivez les ventes, les performances du menu et les tendances qui comptent.",
+      "image": "/dashbord.svg",
+      "imageAlt": "Tableau de bord SmartEat"
+    },
+    {
+      "title": "Plan de table et QR codes",
+      "text": "Organisez vos tables et preparez une experience de commande fluide.",
+      "image": "/tableplan.svg",
+      "imageAlt": "Plan de table SmartEat"
+    },
+    {
+      "title": "Journal des ventes",
+      "text": "Gardez une trace claire et structuree de votre activite.",
+      "image": "/qrappmenu2.png",
+      "imageAlt": "Journal des ventes SmartEat"
+    }
+  ],
+  "howItWorks": {
+    "eyebrow": "Mise en route",
+    "title": "On prepare votre demo avec votre cas concret",
+    "steps": [
+      {
+        "title": "Vous renseignez votre restaurant",
+        "text": "Quelques informations suffisent pour comprendre votre activite."
+      },
+      {
+        "title": "On prepare votre espace SmartEat",
+        "text": "Votre demo est adaptee a votre menu, vos tables et vos besoins."
+      },
+      {
+        "title": "Vous etes rappele sous 24h",
+        "text": "Notre equipe vous montre comment SmartEat peut ameliorer votre service."
+      },
+      {
+        "title": "Vous demarrez progressivement",
+        "text": "Menu QR, commande, caisse ou click & collect: vous avancez selon vos priorites."
+      }
+    ]
+  },
+  "compliance": {
+    "eyebrow": "Conformite et serieux",
+    "title": "Une solution pensee pour accompagner les obligations du restaurateur",
+    "text": "SmartEat integre un journal des ventes et prepare sa certification NF525. Tant que la certification n'est pas obtenue, elle reste presentee comme en preparation."
+  },
+  "roadmap": {
+    "eyebrow": "Bientot",
+    "title": "Des outils pour aller encore plus loin",
+    "items": [
+      "Liste clients avec numero de telephone",
+      "Campagnes marketing par SMS",
+      "Gestion des stocks",
+      "Check-lists d'achats",
+      "Encaissement Apple Pay et Google Pay",
+      "Reservation de table",
+      "Personnalisation des themes, couleurs, menu et site",
+      "Envoi de facture par SMS",
+      "Demande automatique d'avis Google apres achat"
+    ]
+  },
+  "faq": [
+    {
+      "question": "SmartEat est-il seulement un menu QR ?",
+      "answer": "Non. SmartEat combine menu QR, commande, caisse, click & collect, suivi des ventes et outils de gestion pour aider le restaurant a gagner en rentabilite."
+    },
+    {
+      "question": "Est-ce adapte a un petit restaurant ?",
+      "answer": "Oui. SmartEat vise d'abord les restaurants independants, snacks, cafes, bars et etablissements qui veulent simplifier leur service sans complexite technique."
+    },
+    {
+      "question": "Ai-je besoin d'un menu digital existant ?",
+      "answer": "Non. Vous pouvez partir d'un PDF, d'un menu papier, de photos ou d'un site existant."
+    },
+    {
+      "question": "SmartEat peut-il reduire mes couts ?",
+      "answer": "SmartEat aide a fluidifier la prise de commande, reduire les erreurs et mieux piloter l'activite. Le gain reel depend de votre organisation et de votre volume de service."
+    },
+    {
+      "question": "Quel est le statut de la certification NF525 ?",
+      "answer": "La certification NF525 est en preparation. Le site ne doit pas presenter SmartEat comme certifie tant que la certification n'est pas officiellement obtenue."
+    }
+  ],
+  "finalCta": {
+    "title": "Votre restaurant peut devenir plus rentable avec les bons outils",
+    "text": "Demandez une demo SmartEat et voyons comment simplifier votre service, augmenter vos ventes et mieux piloter votre activite.",
+    "primaryCta": "Demander une demo",
+    "secondaryCta": "Creer mon espace SmartEat"
+  },
+  "onboarding": {
+    "intro": {
+      "eyebrow": "Demo SmartEat",
+      "title": "Preparons votre espace SmartEat",
+      "text": "Repondez a quelques questions. Nous vous rappelons sous 24h pour une demo adaptee a votre restaurant."
+    },
+    "steps": [
+      {
+        "title": "Quel est le nom de votre restaurant ?",
+        "description": "Une premiere info suffit pour demarrer votre demande."
+      },
+      {
+        "title": "A quel numero peut-on vous rappeler ?",
+        "description": "Apres cette etape, notre equipe peut vous recontacter sous 24h."
+      },
+      {
+        "title": "Ou se trouve votre etablissement ?",
+        "description": "Cela nous aide a preparer une demo adaptee."
+      },
+      {
+        "title": "Preparons votre espace SmartEat",
+        "description": "Ces infos servent a anticiper vos QR codes et votre menu."
+      },
+      {
+        "title": "Qui devons-nous contacter ?",
+        "description": "Ajoutez un contact pour faciliter le suivi."
+      },
+      {
+        "title": "Quelle est votre priorite aujourd'hui ?",
+        "description": "Choisissez ce que vous voulez voir en premier pendant la demo."
+      }
+    ],
+    "fields": {
+      "restaurantName": "Nom du restaurant",
+      "phone": "Telephone",
+      "city": "Ville",
+      "restaurantType": "Type d'etablissement",
+      "tablesCount": "Nombre de tables",
+      "currentMenuSource": "Menu actuel",
+      "contactName": "Responsable",
+      "email": "Email",
+      "mainNeed": "Priorite"
+    },
+    "actions": {
+      "continue": "Continuer",
+      "back": "Retour",
+      "finish": "Terminer",
+      "close": "Fermer"
+    },
+    "messages": {
+      "error": "Votre progression est conservee. Reessayez dans un instant.",
+      "missingPriority": "Choisissez une priorite pour terminer.",
+      "success": "Merci, nous preparons votre espace SmartEat. Nous vous rappelons sous 24h pour une demo adaptee a votre restaurant."
+    }
+  },
+  "footer": {
+    "text": "SmartEat aide les restaurants a digitaliser leur service et mieux piloter leur activite.",
+    "phone": "07 45 20 33 43",
+    "whatsapp": "WhatsApp"
+  }
+}

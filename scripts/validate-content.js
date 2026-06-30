@@ -1,0 +1,185 @@
+const fs = require("node:fs");
+const path = require("node:path");
+const assert = require("node:assert/strict");
+
+const contentPath = path.join(__dirname, "..", "content", "smarteat.fr.json");
+const raw = fs.readFileSync(contentPath, "utf8");
+const content = JSON.parse(raw);
+
+function assertObject(value, name) {
+  assert.equal(typeof value, "object", `${name} must be an object`);
+  assert.notEqual(value, null, `${name} must be an object`);
+  assert.equal(Array.isArray(value), false, `${name} must be an object`);
+}
+
+const requiredTopLevelKeys = [
+  "meta",
+  "navigation",
+  "hero",
+  "benefits",
+  "problem",
+  "solution",
+  "features",
+  "howItWorks",
+  "compliance",
+  "roadmap",
+  "faq",
+  "finalCta",
+  "onboarding",
+  "footer",
+];
+
+assertObject(content, "content");
+for (const key of requiredTopLevelKeys) {
+  assert.ok(content[key], `Missing top-level key: ${key}`);
+}
+
+assertObject(content.meta, "meta");
+assert.equal(typeof content.meta.title, "string", "meta.title must be a string");
+assert.equal(typeof content.meta.description, "string", "meta.description must be a string");
+assert.ok(content.meta.title.length > 10, "meta.title is too short");
+assert.ok(content.meta.description.length > 30, "meta.description is too short");
+
+assertObject(content.navigation, "navigation");
+assert.ok(Array.isArray(content.navigation.links), "navigation.links must be an array");
+assert.ok(content.navigation.links.length >= 4, "navigation.links must contain at least 4 links");
+for (const [index, link] of content.navigation.links.entries()) {
+  assertObject(link, `navigation.links[${index}]`);
+  assert.equal(typeof link.label, "string", `navigation.links[${index}].label must be a string`);
+  assert.equal(typeof link.href, "string", `navigation.links[${index}].href must be a string`);
+}
+assert.equal(typeof content.navigation.primaryCta, "string", "navigation.primaryCta must be a string");
+assert.equal(typeof content.navigation.secondaryCta, "string", "navigation.secondaryCta must be a string");
+
+assertObject(content.hero, "hero");
+assert.equal(typeof content.hero.title, "string", "hero.title must be a string");
+assert.equal(typeof content.hero.subtitle, "string", "hero.subtitle must be a string");
+assert.equal(typeof content.hero.primaryCta, "string", "hero.primaryCta must be a string");
+assert.equal(typeof content.hero.secondaryCta, "string", "hero.secondaryCta must be a string");
+assertObject(content.hero.visual, "hero.visual");
+assert.equal(typeof content.hero.visual.src, "string", "hero.visual.src must be a string");
+assert.equal(typeof content.hero.visual.alt, "string", "hero.visual.alt must be a string");
+
+assert.ok(Array.isArray(content.benefits), "benefits must be an array");
+assert.ok(content.benefits.length >= 4, "benefits must contain at least 4 items");
+for (const [index, benefit] of content.benefits.entries()) {
+  assertObject(benefit, `benefits[${index}]`);
+  assert.equal(typeof benefit.title, "string", `benefits[${index}].title must be a string`);
+  assert.equal(typeof benefit.text, "string", `benefits[${index}].text must be a string`);
+}
+
+assertObject(content.problem, "problem");
+assert.equal(typeof content.problem.eyebrow, "string", "problem.eyebrow must be a string");
+assert.equal(typeof content.problem.title, "string", "problem.title must be a string");
+assert.ok(Array.isArray(content.problem.items), "problem.items must be an array");
+assert.ok(content.problem.items.length >= 4, "problem.items must contain at least 4 items");
+for (const [index, item] of content.problem.items.entries()) {
+  assert.equal(typeof item, "string", `problem.items[${index}] must be a string`);
+}
+
+assertObject(content.solution, "solution");
+assert.equal(typeof content.solution.eyebrow, "string", "solution.eyebrow must be a string");
+assert.equal(typeof content.solution.title, "string", "solution.title must be a string");
+assert.equal(typeof content.solution.text, "string", "solution.text must be a string");
+
+assert.ok(Array.isArray(content.features), "features must be an array");
+assert.ok(content.features.length >= 6, "features must contain at least 6 items");
+for (const [index, feature] of content.features.entries()) {
+  assertObject(feature, `features[${index}]`);
+  assert.equal(typeof feature.title, "string", `features[${index}].title must be a string`);
+  assert.equal(typeof feature.text, "string", `features[${index}].text must be a string`);
+  assert.equal(typeof feature.image, "string", `features[${index}].image must be a string`);
+  assert.equal(typeof feature.imageAlt, "string", `features[${index}].imageAlt must be a string`);
+}
+
+assertObject(content.howItWorks, "howItWorks");
+assert.ok(Array.isArray(content.howItWorks.steps), "howItWorks.steps must be an array");
+assert.ok(content.howItWorks.steps.length >= 4, "howItWorks.steps must contain at least 4 items");
+for (const [index, step] of content.howItWorks.steps.entries()) {
+  assertObject(step, `howItWorks.steps[${index}]`);
+  assert.equal(typeof step.title, "string", `howItWorks.steps[${index}].title must be a string`);
+  assert.equal(typeof step.text, "string", `howItWorks.steps[${index}].text must be a string`);
+}
+
+assertObject(content.compliance, "compliance");
+assert.equal(typeof content.compliance.eyebrow, "string", "compliance.eyebrow must be a string");
+assert.equal(typeof content.compliance.title, "string", "compliance.title must be a string");
+assert.equal(typeof content.compliance.text, "string", "compliance.text must be a string");
+
+assertObject(content.roadmap, "roadmap");
+assert.ok(Array.isArray(content.roadmap.items), "roadmap.items must be an array");
+assert.ok(content.roadmap.items.length >= 5, "roadmap.items must contain at least 5 items");
+for (const [index, item] of content.roadmap.items.entries()) {
+  assert.equal(typeof item, "string", `roadmap.items[${index}] must be a string`);
+}
+
+assert.ok(Array.isArray(content.faq), "faq must be an array");
+assert.ok(content.faq.length >= 5, "faq must contain at least 5 items");
+for (const [index, item] of content.faq.entries()) {
+  assertObject(item, `faq[${index}]`);
+  assert.equal(typeof item.question, "string", `faq[${index}].question must be a string`);
+  assert.equal(typeof item.answer, "string", `faq[${index}].answer must be a string`);
+}
+
+assertObject(content.finalCta, "finalCta");
+assert.equal(typeof content.finalCta.title, "string", "finalCta.title must be a string");
+assert.equal(typeof content.finalCta.text, "string", "finalCta.text must be a string");
+assert.equal(typeof content.finalCta.primaryCta, "string", "finalCta.primaryCta must be a string");
+assert.equal(typeof content.finalCta.secondaryCta, "string", "finalCta.secondaryCta must be a string");
+
+assertObject(content.onboarding, "onboarding");
+assert.ok(Array.isArray(content.onboarding.steps), "onboarding.steps must be an array");
+assert.equal(content.onboarding.steps.length, 6, "onboarding.steps must contain exactly 6 steps");
+for (const [index, step] of content.onboarding.steps.entries()) {
+  assertObject(step, `onboarding.steps[${index}]`);
+  assert.equal(typeof step.title, "string", `onboarding.steps[${index}].title must be a string`);
+  assert.equal(typeof step.description, "string", `onboarding.steps[${index}].description must be a string`);
+}
+assert.ok(content.onboarding.fields, "onboarding.fields is required");
+assert.ok(content.onboarding.actions, "onboarding.actions is required");
+assert.ok(content.onboarding.messages, "onboarding.messages is required");
+assertObject(content.onboarding.fields, "onboarding.fields");
+assertObject(content.onboarding.actions, "onboarding.actions");
+assertObject(content.onboarding.messages, "onboarding.messages");
+
+const requiredOnboardingFields = [
+  "restaurantName",
+  "phone",
+  "city",
+  "restaurantType",
+  "tablesCount",
+  "currentMenuSource",
+  "contactName",
+  "email",
+  "mainNeed",
+];
+for (const key of requiredOnboardingFields) {
+  assert.equal(typeof content.onboarding.fields[key], "string", `onboarding.fields.${key} must be a string`);
+}
+
+const requiredOnboardingActions = ["continue", "back", "finish", "close"];
+for (const key of requiredOnboardingActions) {
+  assert.equal(typeof content.onboarding.actions[key], "string", `onboarding.actions.${key} must be a string`);
+}
+
+const requiredOnboardingMessages = ["error", "missingPriority", "success"];
+for (const key of requiredOnboardingMessages) {
+  assert.equal(typeof content.onboarding.messages[key], "string", `onboarding.messages.${key} must be a string`);
+}
+
+assertObject(content.footer, "footer");
+assert.equal(typeof content.footer.text, "string", "footer.text must be a string");
+assert.equal(typeof content.footer.phone, "string", "footer.phone must be a string");
+assert.equal(typeof content.footer.whatsapp, "string", "footer.whatsapp must be a string");
+
+const normalizedContent = JSON.stringify(content)
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase();
+assert.equal(
+  /\b(?:certifiee?|certified)\s+nf[\s-]*525\b/.test(normalizedContent),
+  false,
+  "Content must not claim SmartEat is certified NF525",
+);
+
+console.log("SmartEat content JSON OK");
