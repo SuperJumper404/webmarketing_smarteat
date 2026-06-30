@@ -1,0 +1,33 @@
+<template>
+  <section class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8">
+      <div class="rounded-lg border border-primary-100 bg-primary-50 px-6 py-10 sm:px-10" data-reveal>
+        <h2 class="mx-auto max-w-4xl text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
+          {{ content.title }}
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-gray-700">
+          {{ content.text }}
+        </p>
+        <div class="mt-8 flex justify-center">
+          <MarketingCta
+            centered
+            :primary-label="content.primaryCta"
+            :secondary-label="content.secondaryCta"
+            @select="$emit('select', $event)"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup>
+defineProps({
+  content: {
+    type: Object,
+    required: true,
+  },
+});
+
+defineEmits(["select"]);
+</script>
