@@ -19,6 +19,10 @@ declare module 'nuxt/schema' {
 
    appUrl: string,
 
+   supabaseUrl: string,
+
+   supabaseAnonKey: string,
+
    googleAnalyticsId: string,
 
    hotjarId: string,

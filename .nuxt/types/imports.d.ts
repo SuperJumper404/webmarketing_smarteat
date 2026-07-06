@@ -3,6 +3,9 @@ export {}
 declare global {
   const abortNavigation: typeof import('../../node_modules/nuxt/dist/app')['abortNavigation']
   const addRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app')['addRouteMiddleware']
+  const buildLeadRecord: typeof import('../../utils/supabase-leads')['buildLeadRecord']
+  const buildSupabaseLeadRequest: typeof import('../../utils/supabase-leads')['buildSupabaseLeadRequest']
+  const buildSupabaseLeadRequests: typeof import('../../utils/supabase-leads')['buildSupabaseLeadRequests']
   const clearError: typeof import('../../node_modules/nuxt/dist/app')['clearError']
   const clearNuxtData: typeof import('../../node_modules/nuxt/dist/app')['clearNuxtData']
   const computed: typeof import('vue')['computed']
@@ -36,6 +39,7 @@ declare global {
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
   const isShallow: typeof import('vue')['isShallow']
+  const isSupabaseConflictError: typeof import('../../utils/supabase-leads')['isSupabaseConflictError']
   const isVue2: typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')['isVue2']
   const isVue3: typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')['isVue3']
   const loadPayload: typeof import('../../node_modules/nuxt/dist/app')['loadPayload']
@@ -135,6 +139,9 @@ declare module 'vue' {
   interface ComponentCustomProperties {
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['addRouteMiddleware']>
+    readonly buildLeadRecord: UnwrapRef<typeof import('../../utils/supabase-leads')['buildLeadRecord']>
+    readonly buildSupabaseLeadRequest: UnwrapRef<typeof import('../../utils/supabase-leads')['buildSupabaseLeadRequest']>
+    readonly buildSupabaseLeadRequests: UnwrapRef<typeof import('../../utils/supabase-leads')['buildSupabaseLeadRequests']>
     readonly clearError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['clearError']>
     readonly clearNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['clearNuxtData']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -168,6 +175,7 @@ declare module 'vue' {
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly isShallow: UnwrapRef<typeof import('vue')['isShallow']>
+    readonly isSupabaseConflictError: UnwrapRef<typeof import('../../utils/supabase-leads')['isSupabaseConflictError']>
     readonly isVue2: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')['isVue2']>
     readonly isVue3: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')['isVue3']>
     readonly loadPayload: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['loadPayload']>
@@ -261,6 +269,9 @@ declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['addRouteMiddleware']>
+    readonly buildLeadRecord: UnwrapRef<typeof import('../../utils/supabase-leads')['buildLeadRecord']>
+    readonly buildSupabaseLeadRequest: UnwrapRef<typeof import('../../utils/supabase-leads')['buildSupabaseLeadRequest']>
+    readonly buildSupabaseLeadRequests: UnwrapRef<typeof import('../../utils/supabase-leads')['buildSupabaseLeadRequests']>
     readonly clearError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['clearError']>
     readonly clearNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['clearNuxtData']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -294,6 +305,7 @@ declare module '@vue/runtime-core' {
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly isShallow: UnwrapRef<typeof import('vue')['isShallow']>
+    readonly isSupabaseConflictError: UnwrapRef<typeof import('../../utils/supabase-leads')['isSupabaseConflictError']>
     readonly isVue2: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')['isVue2']>
     readonly isVue3: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')['isVue3']>
     readonly loadPayload: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['loadPayload']>

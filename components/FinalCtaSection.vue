@@ -1,7 +1,10 @@
 <template>
   <section class="bg-white">
     <div class="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8">
-      <div class="rounded-lg border border-primary-100 bg-primary-50 px-6 py-10 sm:px-10" data-reveal>
+      <div
+        class="rounded-lg border border-primary-100 bg-primary-50 px-6 py-10 sm:px-10"
+        v-motion="panelMotion"
+      >
         <h2 class="mx-auto max-w-4xl text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
           {{ content.title }}
         </h2>
@@ -30,4 +33,11 @@ defineProps({
 });
 
 defineEmits(["select"]);
+
+const panelMotion = {
+  initial: { opacity: 0, y: 28, scale: 0.98 },
+  whileInView: { opacity: 1, y: 0, scale: 1 },
+  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+  viewport: { once: true, margin: "-15% 0px" },
+};
 </script>

@@ -3,11 +3,15 @@ const assert = require("node:assert/strict");
 
 let buildLeadRecord;
 let buildSupabaseLeadRequest;
+let buildSupabaseLeadRequests;
+let isSupabaseConflictError;
 
 test.before(async () => {
   const supabaseLeads = await import("./supabase-leads.mjs");
   buildLeadRecord = supabaseLeads.buildLeadRecord;
   buildSupabaseLeadRequest = supabaseLeads.buildSupabaseLeadRequest;
+  buildSupabaseLeadRequests = supabaseLeads.buildSupabaseLeadRequests;
+  isSupabaseConflictError = supabaseLeads.isSupabaseConflictError;
 });
 
 test("builds a Supabase lead record from onboarding data", () => {
@@ -75,6 +79,36 @@ test("builds a Supabase REST insert request", () => {
     email: "",
     main_need: "",
   });
+});
+
+test("builds Supabase REST insert and lead-scoped update requests", () => {
+  const requests = buildSupabaseLeadRequests({
+    supabaseUrl: "https://example.supabase.co/",
+    supabaseAnonKey: "anon-key",
+    lead: {
+      leadId: " lead-123 ",
+      restaurantName: "Le Bistrot",
+      intent: "demo",
+      step: 1,
+    },
+  });
+
+  assert.equal(requests.insert.url, "https://example.supabase.co/rest/v1/leads");
+  assert.equal(requests.insert.options.method, "POST");
+  assert.equal(requests.insert.options.headers.Prefer, "return=minimal");
+  assert.equal(requests.insert.options.headers["x-lead-id"], "lead-123");
+
+  assert.equal(requests.update.url, "https://example.supabase.co/rest/v1/leads?lead_id=eq.lead-123");
+  assert.equal(requests.update.options.method, "PATCH");
+  assert.equal(requests.update.options.headers.Prefer, "return=minimal");
+  assert.equal(requests.update.options.headers["x-lead-id"], "lead-123");
+  assert.deepEqual(requests.update.options.body, requests.insert.options.body);
+});
+
+test("detects Supabase duplicate lead conflicts", () => {
+  assert.equal(isSupabaseConflictError({ statusCode: 409 }), true);
+  assert.equal(isSupabaseConflictError({ response: { status: 409 } }), true);
+  assert.equal(isSupabaseConflictError({ statusCode: 401 }), false);
 });
 
 test("requires Supabase public configuration before building request", () => {

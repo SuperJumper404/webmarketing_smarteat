@@ -38,13 +38,58 @@ function cleanSupabaseUrl(value) {
   return cleanString(value).replace(/\/+$/, "");
 }
 
-export function buildSupabaseLeadRequest({ supabaseUrl, supabaseAnonKey, lead }) {
+function buildHeaders(anonKey, leadId) {
+  return {
+    apikey: anonKey,
+    Authorization: `Bearer ${anonKey}`,
+    "Content-Type": "application/json",
+    Prefer: "return=minimal",
+    "x-lead-id": leadId,
+  };
+}
+
+function assertSupabaseConfig({ supabaseUrl, supabaseAnonKey }) {
   const url = cleanSupabaseUrl(supabaseUrl);
   const anonKey = cleanString(supabaseAnonKey);
 
   if (!url || !anonKey) {
     throw new Error("Missing Supabase configuration");
   }
+
+  return { url, anonKey };
+}
+
+export function buildSupabaseLeadRequests({ supabaseUrl, supabaseAnonKey, lead }) {
+  const { url, anonKey } = assertSupabaseConfig({ supabaseUrl, supabaseAnonKey });
+  const body = buildLeadRecord(lead);
+  const leadId = encodeURIComponent(body.lead_id);
+
+  return {
+    insert: {
+      url: `${url}/rest/v1/leads`,
+      options: {
+        method: "POST",
+        headers: buildHeaders(anonKey, body.lead_id),
+        body,
+      },
+    },
+    update: {
+      url: `${url}/rest/v1/leads?lead_id=eq.${leadId}`,
+      options: {
+        method: "PATCH",
+        headers: buildHeaders(anonKey, body.lead_id),
+        body,
+      },
+    },
+  };
+}
+
+export function isSupabaseConflictError(error) {
+  return error?.statusCode === 409 || error?.status === 409 || error?.response?.status === 409;
+}
+
+export function buildSupabaseLeadRequest({ supabaseUrl, supabaseAnonKey, lead }) {
+  const { url, anonKey } = assertSupabaseConfig({ supabaseUrl, supabaseAnonKey });
 
   return {
     url: `${url}/rest/v1/leads?on_conflict=lead_id`,

@@ -251,7 +251,7 @@
 </template>
 
 <script setup>
-import { buildSupabaseLeadRequest } from "~/utils/supabase-leads.mjs";
+import { buildSupabaseLeadRequests, isSupabaseConflictError } from "~/utils/supabase-leads.mjs";
 
 const storageKey = "smarteat-lead-onboarding";
 const totalSteps = 6;
@@ -516,7 +516,7 @@ async function submitStep() {
   isSending.value = true;
 
   try {
-    const request = buildSupabaseLeadRequest({
+    const requests = buildSupabaseLeadRequests({
       supabaseUrl: runtimeConfig.public.supabaseUrl,
       supabaseAnonKey: runtimeConfig.public.supabaseAnonKey,
       lead: {
@@ -526,7 +526,15 @@ async function submitStep() {
       },
     });
 
-    await $fetch(request.url, request.options);
+    try {
+      await $fetch(requests.insert.url, requests.insert.options);
+    } catch (error) {
+      if (!isSupabaseConflictError(error)) {
+        throw error;
+      }
+
+      await $fetch(requests.update.url, requests.update.options);
+    }
 
     if (currentStep.value === totalSteps) {
       isComplete.value = true;

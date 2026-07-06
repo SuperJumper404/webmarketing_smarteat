@@ -34,8 +34,9 @@
     "primaryCta": "Demander une demo",
     "secondaryCta": "Creer mon espace SmartEat",
     "visual": {
-      "src": "/qrappmenu2.png",
-      "alt": "Interface SmartEat de menu QR pour restaurant"
+      "type": "video",
+      "src": "/hero-smarteat.mp4",
+      "alt": "Demonstration video de l'interface SmartEat"
     }
   },
   "benefits": [

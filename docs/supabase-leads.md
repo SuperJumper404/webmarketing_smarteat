@@ -39,8 +39,8 @@ Cette migration:
 - cree `public.leads`;
 - active RLS;
 - autorise les inserts publics;
-- autorise les updates publics seulement pour permettre l'upsert progressif par `lead_id`;
-- bloque la lecture publique des leads;
+- autorise la lecture uniquement de la ligne correspondant au header `x-lead-id`;
+- autorise les updates publics seulement quand le header `x-lead-id` correspond au `lead_id`;
 - maintient `updated_at`.
 
 ## Notification Nouveau Lead
@@ -109,6 +109,6 @@ Apres configuration:
 5. Remplir le telephone.
 6. Verifier que la meme ligne est mise a jour avec `step = 2`.
 
-Note: la V1 utilise un upsert par `lead_id`, donc chaque etape enrichit la meme ligne lead.
+Note: la V1 tente d'abord un `insert`. Si le `lead_id` existe deja, elle fait ensuite un `update` cible sur ce `lead_id`. Chaque etape enrichit donc la meme ligne lead. La lecture RLS reste limitee au `lead_id` envoye par le navigateur, ce qui permet a Supabase d'autoriser l'update sans exposer une liste publique des leads.
 
 Le `lead_id` est genere cote navigateur avec `crypto.randomUUID()` quand disponible. Il sert de cle technique pour enrichir le meme lead au fil des etapes.

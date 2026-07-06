@@ -6,6 +6,7 @@ export default defineNuxtConfig({
       '@nuxtjs/tailwindcss',
     ],
     plugins: [
+      { src: "~/plugins/motion-v.client.js", mode: "client" },
       { src: "~/plugins/lottie-player.js", mode: "client" },
       { src: "~/plugins/google-analytics.js", mode: "client" },
       { src: "~/plugins/hotjar.js", mode: "client" },

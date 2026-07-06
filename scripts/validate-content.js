@@ -57,6 +57,7 @@ assert.equal(typeof content.hero.subtitle, "string", "hero.subtitle must be a st
 assert.equal(typeof content.hero.primaryCta, "string", "hero.primaryCta must be a string");
 assert.equal(typeof content.hero.secondaryCta, "string", "hero.secondaryCta must be a string");
 assertObject(content.hero.visual, "hero.visual");
+assert.equal(content.hero.visual.type, "video", "hero.visual.type must be video");
 assert.equal(typeof content.hero.visual.src, "string", "hero.visual.src must be a string");
 assert.equal(typeof content.hero.visual.alt, "string", "hero.visual.alt must be a string");
 

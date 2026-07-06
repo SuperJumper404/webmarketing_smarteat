@@ -18,6 +18,9 @@ create table if not exists public.leads (
 
 alter table public.leads enable row level security;
 
+grant usage on schema public to anon;
+grant insert, update, select on public.leads to anon;
+
 drop policy if exists "Public can insert SmartEat leads" on public.leads;
 create policy "Public can insert SmartEat leads"
 on public.leads
@@ -25,14 +28,19 @@ for insert
 to anon
 with check (
   length(trim(restaurant_name)) > 0
+  and lead_id = nullif(current_setting('request.headers', true)::json ->> 'x-lead-id', '')
 );
 
+drop policy if exists "Public can read matching SmartEat lead" on public.leads;
+drop policy if exists "Public can only select rows for lead upsert" on public.leads;
 drop policy if exists "Public cannot read SmartEat leads" on public.leads;
-create policy "Public cannot read SmartEat leads"
+create policy "Public can read matching SmartEat lead"
 on public.leads
 for select
 to anon
-using (false);
+using (
+  lead_id = nullif(current_setting('request.headers', true)::json ->> 'x-lead-id', '')
+);
 
 drop policy if exists "Public can update SmartEat leads by lead id" on public.leads;
 create policy "Public can update SmartEat leads by lead id"
@@ -40,10 +48,10 @@ on public.leads
 for update
 to anon
 using (
-  length(trim(lead_id)) > 0
+  lead_id = nullif(current_setting('request.headers', true)::json ->> 'x-lead-id', '')
 )
 with check (
-  length(trim(lead_id)) > 0
+  lead_id = nullif(current_setting('request.headers', true)::json ->> 'x-lead-id', '')
   and length(trim(restaurant_name)) > 0
 );
 
