@@ -14,7 +14,8 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../plugins/motion-v.client").default> &
   InjectionType<typeof import("../../plugins/lottie-player").default> &
   InjectionType<typeof import("../../plugins/google-analytics").default> &
-  InjectionType<typeof import("../../plugins/hotjar").default>
+  InjectionType<typeof import("../../plugins/hotjar").default> &
+  InjectionType<typeof import("../../plugins/motion-v.server").default>
 
 declare module '#app' {
   interface NuxtApp extends NuxtAppInjections { }
