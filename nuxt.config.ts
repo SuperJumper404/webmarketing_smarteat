@@ -25,7 +25,9 @@ export default defineNuxtConfig({
         appUrl: process.env.APP_URL || 'https://app.smarteat.fr/login',
         supabaseUrl: process.env.SUPABASE_URL || process.env.NUXT_PUBLIC_SUPABASE_URL,
         supabaseAnonKey: process.env.SUPABASE_ANON_KEY || process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
-        googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+        googleAnalyticsId:
+          process.env.NUXT_PUBLIC_GOOGLE_ANALYTICS_ID ||
+          process.env.GOOGLE_ANALYTICS_ID,
         hotjarId: process.env.HOTJAR_ID,
         test:"Hrllos"
       }
