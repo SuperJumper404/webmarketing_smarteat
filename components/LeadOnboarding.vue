@@ -42,7 +42,7 @@
           </p>
           <button
             type="button"
-            class="mt-6 rounded-lg bg-primary-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-200"
+            class="btn-fill-primary mt-6 rounded-lg bg-primary-700 px-5 py-3 text-sm font-semibold text-white focus:outline-none focus:ring-4 focus:ring-primary-200"
             @click="emitClose"
           >
             {{ content.actions.close }}
@@ -230,7 +230,7 @@
           <div class="flex flex-col-reverse gap-3 border-t border-gray-100 pt-5 sm:flex-row sm:items-center sm:justify-between">
             <button
               type="button"
-              class="rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+              class="rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 transition hover:-translate-y-0.5 hover:border-primary-200 hover:bg-primary-50 hover:text-primary-700 hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:border-gray-300 disabled:hover:bg-white disabled:hover:text-gray-700 disabled:hover:shadow-none"
               :disabled="currentStep === 1 || isSending"
               @click="goBack"
             >
@@ -238,7 +238,7 @@
             </button>
             <button
               type="submit"
-              class="rounded-lg bg-primary-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-200 disabled:cursor-wait disabled:opacity-70"
+              class="btn-fill-primary rounded-lg bg-primary-700 px-5 py-3 text-sm font-semibold text-white focus:outline-none focus:ring-4 focus:ring-primary-200 disabled:cursor-wait disabled:opacity-70"
               :disabled="isSending"
             >
               {{ isSending ? content.actions.sending : submitLabel }}
@@ -325,7 +325,7 @@ const fallbackContent = {
   },
   options: {
     restaurantTypes: ["Restaurant", "Snack", "Cafe", "Bar", "Food truck", "Autre"],
-    menuSources: ["PDF", "Site web", "Photos", "Pas encore de menu digital"],
+    menuSources: ["PDF", "Menu papier", "Site web", "Photos", "Pas encore de menu digital"],
     mainNeeds: [
       "Menu QR",
       "Prise de commande",

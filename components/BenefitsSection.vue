@@ -5,7 +5,7 @@
         <article
           v-for="(benefit, index) in items"
           :key="benefit.title"
-          class="rounded-lg border border-gray-200 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:shadow-md"
+          class="rounded-lg border border-gray-200 bg-white p-5 transition duration-300 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-900/10"
           v-motion="cardMotion(index)"
         >
           <h2 class="text-lg font-bold text-gray-950">
@@ -30,10 +30,11 @@ defineProps({
 
 function cardMotion(index) {
   return {
-    initial: { opacity: 0, y: 22 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.45, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] },
-    viewport: { once: true, margin: "-10% 0px" },
+    initial: { opacity: 0, y: 42, scale: 0.94, filter: "blur(10px)" },
+    whileInView: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
+    whileHover: { y: -8, scale: 1.025 },
+    transition: { duration: 0.68, delay: index * 0.11, ease: [0.16, 1, 0.3, 1] },
+    viewport: { once: true, margin: "-8% 0px" },
   };
 }
 </script>

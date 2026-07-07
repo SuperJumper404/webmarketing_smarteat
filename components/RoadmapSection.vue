@@ -14,7 +14,7 @@
         <p
           v-for="item in content.items"
           :key="item"
-          class="rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-semibold text-gray-700"
+          class="rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm font-semibold text-gray-700 transition duration-300 hover:-translate-y-1 hover:scale-[1.015] hover:border-primary-200 hover:bg-primary-50 hover:text-primary-800 hover:shadow-md hover:shadow-primary-900/10"
           data-reveal
         >
           {{ item }}

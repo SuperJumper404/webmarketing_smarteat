@@ -24,19 +24,35 @@
       }
     ],
     "primaryCta": "Demander une demo",
-    "secondaryCta": "Se connecter"
+    "secondaryCta": "Nous contacter"
   },
   "hero": {
-    "eyebrow": "SaaS restaurant, menu QR et caisse",
-    "title": "Boostez la rentabilite de votre restaurant avec SmartEat",
-    "subtitle": "Gerer un restaurant aujourd'hui, ce n'est plus seulement bien cuisiner. C'est maitriser ses couts, optimiser son service et maximiser chaque commande.",
-    "supportingText": "SmartEat vous aide a gagner plus d'argent tout en simplifiant votre quotidien.",
+    "eyebrow": "La plateforme tout-en-un des restaurants",
+    "title": "L'unique solution dont votre restaurant a besoin.",
+    "subtitle": "Centralisez votre menu QR, vos commandes, votre caisse et vos performances dans une seule plateforme pensée pour les restaurants modernes.",
+    "supportingText": "Du menu à l’encaissement, SmartEat réunit tous les outils essentiels pour piloter votre restaurant avec simplicité et efficacité.",
     "primaryCta": "Demander une demo",
     "secondaryCta": "Creer mon espace SmartEat",
     "visual": {
-      "type": "video",
-      "src": "/hero-smarteat.mp4",
-      "alt": "Demonstration video de l'interface SmartEat"
+      "type": "carousel",
+      "slides": [
+        {
+          "src": "/IMG_4067.PNG",
+          "alt": "Tableau de bord SmartEat sur mobile"
+        },
+        {
+          "src": "/IMG_4068.PNG",
+          "alt": "Interface de commande SmartEat"
+        },
+        {
+          "src": "/IMG_4069.PNG",
+          "alt": "Gestion du menu SmartEat"
+        },
+        {
+          "src": "/IMG_4072.PNG",
+          "alt": "Suivi restaurant SmartEat"
+        }
+      ]
     }
   },
   "benefits": [
@@ -233,8 +249,21 @@
       "mainNeed": "Priorite"
     },
     "options": {
-      "restaurantTypes": ["Restaurant", "Snack", "Cafe", "Bar", "Food truck", "Autre"],
-      "menuSources": ["PDF", "Site web", "Photos", "Pas encore de menu digital"],
+      "restaurantTypes": [
+        "Restaurant",
+        "Snack",
+        "Cafe",
+        "Bar",
+        "Food truck",
+        "Autre"
+      ],
+      "menuSources": [
+        "PDF",
+        "Menu papier",
+        "Site web",
+        "Photos",
+        "Pas encore de menu digital"
+      ],
       "mainNeeds": [
         "Menu QR",
         "Prise de commande",
@@ -263,7 +292,7 @@
   },
   "footer": {
     "text": "SmartEat aide les restaurants a digitaliser leur service et mieux piloter leur activite.",
-    "phone": "07 45 20 33 43",
+    "phone": "07.45.20.33.43",
     "phoneHref": "tel:0745203343",
     "whatsapp": "WhatsApp",
     "whatsappHref": "https://wa.me/33745203343",

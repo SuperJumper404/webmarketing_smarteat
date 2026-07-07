@@ -57,9 +57,14 @@ assert.equal(typeof content.hero.subtitle, "string", "hero.subtitle must be a st
 assert.equal(typeof content.hero.primaryCta, "string", "hero.primaryCta must be a string");
 assert.equal(typeof content.hero.secondaryCta, "string", "hero.secondaryCta must be a string");
 assertObject(content.hero.visual, "hero.visual");
-assert.equal(content.hero.visual.type, "video", "hero.visual.type must be video");
-assert.equal(typeof content.hero.visual.src, "string", "hero.visual.src must be a string");
-assert.equal(typeof content.hero.visual.alt, "string", "hero.visual.alt must be a string");
+assert.equal(content.hero.visual.type, "carousel", "hero.visual.type must be carousel");
+assert.ok(Array.isArray(content.hero.visual.slides), "hero.visual.slides must be an array");
+assert.ok(content.hero.visual.slides.length >= 2, "hero.visual.slides must contain at least 2 slides");
+for (const [index, slide] of content.hero.visual.slides.entries()) {
+  assertObject(slide, `hero.visual.slides[${index}]`);
+  assert.equal(typeof slide.src, "string", `hero.visual.slides[${index}].src must be a string`);
+  assert.equal(typeof slide.alt, "string", `hero.visual.slides[${index}].alt must be a string`);
+}
 
 assert.ok(Array.isArray(content.benefits), "benefits must be an array");
 assert.ok(content.benefits.length >= 4, "benefits must contain at least 4 items");
@@ -150,7 +155,7 @@ assertObject(content.onboarding.options, "onboarding.options");
 
 const expectedOnboardingOptions = {
   restaurantTypes: ["Restaurant", "Snack", "Cafe", "Bar", "Food truck", "Autre"],
-  menuSources: ["PDF", "Site web", "Photos", "Pas encore de menu digital"],
+  menuSources: ["PDF", "Menu papier", "Site web", "Photos", "Pas encore de menu digital"],
   mainNeeds: ["Menu QR", "Prise de commande", "Click & Collect", "Caisse", "Suivi des ventes", "Gestion complete"],
 };
 

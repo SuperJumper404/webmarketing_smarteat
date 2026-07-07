@@ -35,9 +35,10 @@ defineProps({
 defineEmits(["select"]);
 
 const panelMotion = {
-  initial: { opacity: 0, y: 28, scale: 0.98 },
-  whileInView: { opacity: 1, y: 0, scale: 1 },
-  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-  viewport: { once: true, margin: "-15% 0px" },
+  initial: { opacity: 0, y: 54, scale: 0.94, filter: "blur(14px)" },
+  whileInView: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
+  whileHover: { y: -5, scale: 1.01 },
+  transition: { duration: 0.82, ease: [0.16, 1, 0.3, 1] },
+  viewport: { once: true, margin: "-12% 0px" },
 };
 </script>

@@ -14,7 +14,7 @@
         <article
           v-for="problem in content.items"
           :key="problem"
-          class="rounded-lg border border-gray-200 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:shadow-md"
+          class="rounded-lg border border-gray-200 bg-white p-5 transition duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-primary-200 hover:shadow-lg hover:shadow-primary-900/10"
           data-reveal
         >
           <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50 text-lg font-bold text-primary-700">

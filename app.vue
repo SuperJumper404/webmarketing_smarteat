@@ -83,7 +83,10 @@ onMounted(() => {
     { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
   );
 
-  revealItems.forEach((item) => observer.observe(item));
+  revealItems.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min(index * 45, 320)}ms`;
+    observer.observe(item);
+  });
 });
 </script>
 
@@ -94,14 +97,52 @@ html {
 
 [data-reveal] {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-  will-change: opacity, transform;
+  filter: blur(10px);
+  transform: translateY(34px) scale(0.97);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
 }
 
 [data-reveal].is-visible {
   opacity: 1;
-  transform: translateY(0);
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+[data-reveal].is-visible:hover {
+  transition-delay: 0ms !important;
+}
+
+.btn-fill-primary {
+  background-image: linear-gradient(90deg, #6b21a8 0%, #6b21a8 50%, #7e22ce 50%, #7e22ce 100%);
+  background-position: 100% 0;
+  background-size: 220% 100%;
+  transition: background-position 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-fill-primary:hover {
+  background-position: 0 0;
+}
+
+.btn-fill-outline {
+  background-image: linear-gradient(90deg, #7e22ce 0%, #7e22ce 50%, transparent 50%, transparent 100%);
+  background-position: 100% 0;
+  background-size: 220% 100%;
+  transition: background-position 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-fill-outline:hover {
+  background-position: 0 0;
+  color: #fff;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -111,12 +152,18 @@ html {
 
   [data-reveal] {
     opacity: 1;
+    filter: none;
     transform: none;
     transition: none;
   }
 
   .transition {
     transition: none !important;
+  }
+
+  .btn-fill-primary,
+  .btn-fill-outline {
+    background-position: 100% 0;
   }
 }
 </style>

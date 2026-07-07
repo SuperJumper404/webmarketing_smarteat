@@ -5,7 +5,7 @@
         <article
           v-for="(feature, index) in items"
           :key="feature.title"
-          class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md"
+          class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-900/10"
           v-motion="featureMotion(index)"
         >
           <img class="h-20 w-20 object-contain" :src="feature.image" :alt="feature.imageAlt" />
@@ -31,10 +31,11 @@ defineProps({
 
 function featureMotion(index) {
   return {
-    initial: { opacity: 0, y: 26, scale: 0.98 },
-    whileInView: { opacity: 1, y: 0, scale: 1 },
-    transition: { duration: 0.5, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] },
-    viewport: { once: true, margin: "-12% 0px" },
+    initial: { opacity: 0, y: 48, scale: 0.92, filter: "blur(12px)" },
+    whileInView: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
+    whileHover: { y: -9, scale: 1.025 },
+    transition: { duration: 0.72, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] },
+    viewport: { once: true, margin: "-10% 0px" },
   };
 }
 </script>
