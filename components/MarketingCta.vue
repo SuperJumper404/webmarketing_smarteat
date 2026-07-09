@@ -26,11 +26,11 @@
 defineProps({
   primaryLabel: {
     type: String,
-    default: "Demander une demo",
+    default: "Demander une démo",
   },
   secondaryLabel: {
     type: String,
-    default: "Creer mon espace SmartEat",
+    default: "Créer mon espace SmartEat",
   },
   centered: {
     type: Boolean,

@@ -66,7 +66,7 @@ test("builds a readable email for a callable demo lead", () => {
   assert.equal(email.subject, "[SmartEat] Lead demo - Maison Test");
   assert.match(email.text, /Statut: callable/);
   assert.match(email.text, /Restaurant: Maison Test/);
-  assert.match(email.text, /Telephone: 0612345678/);
+  assert.match(email.text, /Téléphone: 0612345678/);
 });
 
 test("empty payload produces empty stage but safe email output", () => {

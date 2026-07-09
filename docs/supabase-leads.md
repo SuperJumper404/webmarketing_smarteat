@@ -47,9 +47,9 @@ Cette migration:
 
 Option simple recommandee:
 
-1. Creer un webhook Discord dans un salon prive.
+1. Créer un webhook Discord dans un salon privé.
 2. Dans Supabase, aller dans Database Webhooks.
-3. Creer un webhook sur:
+3. Créer un webhook sur :
    - Table: `public.leads`
    - Event: `INSERT`
    - Method: `POST`
@@ -96,14 +96,14 @@ supabase/functions/notify-lead/index.ts
 - `city`, `restaurant_type`, `tables_count`: qualification.
 - `current_menu_source`: source du menu actuel.
 - `contact_name`, `email`: contact.
-- `main_need`: priorite commerciale.
+- `main_need`: priorité commerciale.
 
 ## Verification
 
 Apres configuration:
 
 1. Ouvrir le site.
-2. Cliquer `Demander une demo`.
+2. Cliquer `Demander une démo`.
 3. Remplir le nom du restaurant.
 4. Verifier qu'une ligne apparait dans Supabase `public.leads`.
 5. Remplir le telephone.

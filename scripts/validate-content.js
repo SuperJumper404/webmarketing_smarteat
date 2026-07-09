@@ -154,9 +154,9 @@ assert.ok(content.onboarding.options, "onboarding.options is required");
 assertObject(content.onboarding.options, "onboarding.options");
 
 const expectedOnboardingOptions = {
-  restaurantTypes: ["Restaurant", "Snack", "Cafe", "Bar", "Food truck", "Autre"],
+  restaurantTypes: ["Restaurant", "Snack", "Café", "Bar", "Food truck", "Autre"],
   menuSources: ["PDF", "Menu papier", "Site web", "Photos", "Pas encore de menu digital"],
-  mainNeeds: ["Menu QR", "Prise de commande", "Click & Collect", "Caisse", "Suivi des ventes", "Gestion complete"],
+  mainNeeds: ["Menu QR", "Prise de commande", "Click & Collect", "Caisse", "Suivi des ventes", "Gestion complète"],
 };
 
 assert.ok(Array.isArray(content.onboarding.options.restaurantTypes), "onboarding.options.restaurantTypes must be an array");

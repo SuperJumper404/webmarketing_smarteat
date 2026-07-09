@@ -276,42 +276,42 @@ const emit = defineEmits(["close"]);
 
 const fallbackContent = {
   intro: {
-    eyebrow: "Demo SmartEat",
+    eyebrow: "Démo SmartEat",
   },
   steps: [
     {
       title: "Quel est le nom de votre restaurant ?",
-      description: "Une premiere info suffit pour demarrer votre demande.",
+      description: "Une première info suffit pour démarrer votre demande.",
     },
     {
-      title: "A quel numero peut-on vous rappeler ?",
-      description: "Apres cette etape, notre equipe peut vous recontacter sous 24h.",
+      title: "À quel numéro peut-on vous rappeler ?",
+      description: "Après cette étape, notre équipe peut vous recontacter sous 24h.",
     },
     {
-      title: "Ou se trouve votre etablissement ?",
-      description: "Cela nous aide a preparer une demo adaptee.",
+      title: "Où se trouve votre établissement ?",
+      description: "Cela nous aide à préparer une démo adaptée.",
     },
     {
-      title: "Preparons votre espace SmartEat",
-      description: "Ces infos servent a anticiper vos QR codes et votre menu.",
+      title: "Préparons votre espace SmartEat",
+      description: "Ces infos servent à anticiper vos QR codes et votre menu.",
     },
     {
       title: "Qui devons-nous contacter ?",
       description: "Ajoutez un contact pour faciliter le suivi.",
     },
     {
-      title: "Quelle est votre priorite aujourd'hui ?",
-      description: "Choisissez ce que vous voulez voir en premier pendant la demo.",
+      title: "Quelle est votre priorité aujourd'hui ?",
+      description: "Choisissez ce que vous voulez voir en premier pendant la démo.",
     },
   ],
   fields: {
     restaurantName: "Nom du restaurant",
     restaurantNamePlaceholder: "Ex: Le Bistrot Central",
-    phone: "Telephone",
+    phone: "Téléphone",
     phonePlaceholder: "Ex: 06 12 34 56 78",
     city: "Ville",
     cityPlaceholder: "Ex: Lyon",
-    restaurantType: "Type d'etablissement",
+    restaurantType: "Type d'établissement",
     restaurantTypePlaceholder: "Choisir un type",
     tablesCount: "Nombre de tables",
     tablesCountPlaceholder: "Ex: 24",
@@ -321,10 +321,10 @@ const fallbackContent = {
     contactNamePlaceholder: "Ex: Sarah Martin",
     email: "Email",
     emailPlaceholder: "Ex: contact@restaurant.fr",
-    mainNeed: "Priorite",
+    mainNeed: "Priorité",
   },
   options: {
-    restaurantTypes: ["Restaurant", "Snack", "Cafe", "Bar", "Food truck", "Autre"],
+    restaurantTypes: ["Restaurant", "Snack", "Café", "Bar", "Food truck", "Autre"],
     menuSources: ["PDF", "Menu papier", "Site web", "Photos", "Pas encore de menu digital"],
     mainNeeds: [
       "Menu QR",
@@ -332,7 +332,7 @@ const fallbackContent = {
       "Click & Collect",
       "Caisse",
       "Suivi des ventes",
-      "Gestion complete",
+      "Gestion complète",
     ],
   },
   actions: {
@@ -344,12 +344,12 @@ const fallbackContent = {
   },
   messages: {
     successTitle: "Merci",
-    progressPrefix: "Etape",
+    progressPrefix: "Étape",
     progressSeparator: "sur",
-    required: "Completez les champs requis pour continuer.",
-    error: "Votre progression est conservee. Reessayez dans un instant.",
+    required: "Complétez les champs requis pour continuer.",
+    error: "Votre progression est conservée. Réessayez dans un instant.",
     success:
-      "Merci, nous preparons votre espace SmartEat. Nous vous rappelons sous 24h pour une demo adaptee a votre restaurant.",
+      "Merci, nous préparons votre espace SmartEat. Nous vous rappelons sous 24h pour une démo adaptée à votre restaurant.",
   },
 };
 

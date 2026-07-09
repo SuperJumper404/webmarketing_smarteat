@@ -1,6 +1,6 @@
 <template>
   <section id="produit" class="border-b border-gray-100 bg-white">
-    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-20">
+    <div class="mx-auto grid max-w-[86rem] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:px-8 lg:py-20">
       <div v-motion="copyMotion">
         <p class="text-sm font-semibold uppercase tracking-wide text-primary-700">
           {{ content.eyebrow }}
@@ -41,11 +41,11 @@
         @mouseenter="pauseCarousel"
         @mouseleave="resumeCarousel"
       >
-        <div class="relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-100 bg-gray-950 shadow-xl shadow-primary-900/10">
+        <div class="relative aspect-[3/2] overflow-hidden rounded-lg border border-gray-100 bg-gray-100 shadow-xl shadow-primary-900/10">
           <img
             v-for="(slide, index) in carouselSlides"
             :key="slide.src"
-            class="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out"
+            class="absolute inset-0 h-full w-full object-contain transition duration-700 ease-out"
             :class="
               activeSlide === index
                 ? 'z-10 opacity-100 scale-100 blur-0'
@@ -54,7 +54,7 @@
             :src="slide.src"
             :alt="slide.alt"
           />
-          <div class="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-gray-950/35 to-transparent" />
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 z-[15] h-24 bg-gradient-to-t from-gray-950/35 to-transparent" />
         </div>
 
         <div
@@ -137,8 +137,8 @@ const copyMotion = {
 };
 
 const visualMotion = {
-  initial: { opacity: 0, x: 54, y: 28, rotate: 1.5, scale: 0.92, filter: "blur(14px)" },
-  animate: { opacity: 1, x: 0, y: 0, rotate: 0, scale: 1, filter: "blur(0px)" },
+  initial: { opacity: 0, x: 54, y: 28, rotate: 1.5, scale: 0.92 },
+  animate: { opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 },
   whileHover: { y: -6, scale: 1.015, rotate: -0.4 },
   transition: { duration: 1, delay: 0.18, ease: [0.16, 1, 0.3, 1] },
 };
