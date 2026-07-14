@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <section id="faq" class="bg-white">
-    <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-[86rem] px-4 py-16 sm:px-6 lg:px-8">
       <div class="mt-10 divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white" data-reveal>
         <article v-for="faq in items" :key="faq.question" class="p-6">
           <h2 class="text-lg font-bold text-gray-950">

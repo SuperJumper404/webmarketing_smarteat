@@ -1,13 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-    ssr: true,
+    ssr: false,
+    buildDir: process.env.NUXT_BUILD_DIR || '.nuxt',
     modules: [
       '@nuxtjs/tailwindcss',
     ],
     plugins: [
       { src: "~/plugins/motion-v.client.js", mode: "client" },
-      { src: "~/plugins/lottie-player.js", mode: "client" },
       { src: "~/plugins/google-analytics.js", mode: "client" },
       { src: "~/plugins/hotjar.js", mode: "client" },
     ],
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
       exposeConfig: false,
       exposeLevel: 2,
       injectPosition: 'first',
-      viewer: true,
+      viewer: false,
     },
     runtimeConfig: {
       public:{

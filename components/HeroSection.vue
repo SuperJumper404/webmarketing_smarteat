@@ -1,10 +1,9 @@
 <template>
-  <section id="produit" class="border-b border-gray-100 bg-white">
-    <div class="mx-auto grid max-w-[86rem] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:px-8 lg:py-20">
+  <section id="produit" class="overflow-hidden border-b border-gray-100 bg-white">
+    <div
+      class="mx-auto grid max-w-[86rem] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:items-center lg:px-8 lg:py-20"
+    >
       <div v-motion="copyMotion">
-        <p class="text-sm font-semibold uppercase tracking-wide text-primary-700">
-          {{ content.eyebrow }}
-        </p>
         <h1
           class="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl lg:text-6xl"
           :aria-label="content.title"
@@ -36,69 +35,47 @@
       </div>
 
       <div
-        class="relative mb-16 lg:-translate-y-8"
+        class="relative min-w-0 lg:ml-auto lg:w-[145%] lg:max-w-none lg:translate-x-16 lg:-translate-y-6 xl:w-[160%] xl:translate-x-24"
         v-motion="visualMotion"
-        @mouseenter="pauseCarousel"
-        @mouseleave="resumeCarousel"
       >
-        <div class="relative aspect-[3/2] overflow-hidden rounded-lg border border-gray-100 bg-gray-100 shadow-xl shadow-primary-900/10">
-          <img
-            v-for="(slide, index) in carouselSlides"
-            :key="slide.src"
-            class="absolute inset-0 h-full w-full object-contain transition duration-700 ease-out"
-            :class="
-              activeSlide === index
-                ? 'z-10 opacity-100 scale-100 blur-0'
-                : 'z-0 opacity-0 scale-105 blur-sm'
-            "
-            :src="slide.src"
-            :alt="slide.alt"
-          />
-          <div class="pointer-events-none absolute inset-x-0 bottom-0 z-[15] h-24 bg-gradient-to-t from-gray-950/35 to-transparent" />
-        </div>
-
         <div
-          v-if="carouselSlides.length > 1"
-          class="absolute -bottom-16 left-1/2 z-30 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-white/95 px-2 py-1.5 shadow-lg shadow-gray-950/10 backdrop-blur"
-          aria-label="Navigation du carousel"
+          class="hero-marquee relative h-[280px] w-full min-w-0 overflow-hidden rounded-[1.55rem] sm:h-[360px] lg:h-[430px]"
+          :class="{ 'is-dragging': isMarqueeDragging }"
+          @pointerdown="startMarqueeDrag"
+          @pointermove="dragMarquee"
+          @pointerup="stopMarqueeDrag"
+          @pointercancel="stopMarqueeDrag"
+          @lostpointercapture="stopMarqueeDrag"
+          @mouseenter="pauseMarquee"
+          @mouseleave="resumeMarquee"
         >
-          <button
-            type="button"
-            class="flex h-6 w-6 items-center justify-center rounded-full text-gray-700 transition hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-200"
-            aria-label="Visuel precedent"
-            @click="previousSlide"
+          <div
+            ref="marqueeTrack"
+            class="hero-marquee-track flex h-full w-max items-center py-0"
+            :style="marqueeTrackStyle"
+            aria-label="Visuels SmartEat"
           >
-            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path
-                fill-rule="evenodd"
-                d="M12.79 15.71a1 1 0 0 1-1.41 0l-5-5a1 1 0 0 1 0-1.42l5-5a1 1 0 1 1 1.41 1.42L8.5 10l4.29 4.29a1 1 0 0 1 0 1.42Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-          <button
-            v-for="(slide, index) in carouselSlides"
-            :key="`${slide.src}-dot`"
-            type="button"
-            class="h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-200"
-            :class="activeSlide === index ? 'w-6 bg-primary-700' : 'w-2 bg-gray-300 hover:bg-primary-300'"
-            :aria-label="`Afficher le visuel ${index + 1}`"
-            @click="setSlide(index)"
-          />
-          <button
-            type="button"
-            class="flex h-6 w-6 items-center justify-center rounded-full text-gray-700 transition hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-200"
-            aria-label="Visuel suivant"
-            @click="nextSlide"
-          >
-            <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path
-                fill-rule="evenodd"
-                d="M7.21 4.29a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.42l-5 5a1 1 0 1 1-1.41-1.42L11.5 10 7.21 5.71a1 1 0 0 1 0-1.42Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
+            <div
+              v-for="groupIndex in 2"
+              :key="`marquee-group-${groupIndex}`"
+              :ref="groupIndex === 1 ? setMarqueeGroup : undefined"
+              class="flex h-full shrink-0 gap-4 pr-4 sm:gap-5 sm:pr-5"
+              :aria-hidden="groupIndex === 2"
+            >
+                <article
+                  v-for="slide in carouselSlides"
+                  :key="`${slide.src}-${groupIndex}`"
+                  class="h-full aspect-[3/2] shrink-0 overflow-hidden rounded-[1.55rem]"
+                >
+                  <img
+                    class="h-full w-full rounded-[1.55rem] object-cover"
+                    draggable="false"
+                    :src="slide.src"
+                    :alt="groupIndex === 1 ? slide.alt : ''"
+                  />
+              </article>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -115,10 +92,22 @@ const props = defineProps({
 
 defineEmits(["select"]);
 
-const activeSlide = ref(0);
-const carouselTimer = ref(null);
+const marqueeTrack = ref(null);
+const marqueeGroup = ref(null);
+const marqueeOffset = ref(0);
+const isMarqueeDragging = ref(false);
+const isMarqueePaused = ref(false);
+let marqueeFrame = null;
+let marqueeLastTimestamp = 0;
+let marqueeGroupWidth = 0;
+let dragStartX = 0;
+let dragStartOffset = 0;
+
 const carouselSlides = computed(() => {
-  if (Array.isArray(props.content.visual?.slides) && props.content.visual.slides.length) {
+  if (
+    Array.isArray(props.content.visual?.slides) &&
+    props.content.visual.slides.length
+  ) {
     return props.content.visual.slides;
   }
 
@@ -129,7 +118,9 @@ const carouselSlides = computed(() => {
     },
   ];
 });
-
+const marqueeTrackStyle = computed(() => ({
+  transform: `translate3d(${marqueeOffset.value}px, 0, 0)`,
+}));
 const copyMotion = {
   initial: { opacity: 0, y: 44, scale: 0.98, filter: "blur(10px)" },
   animate: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
@@ -137,50 +128,95 @@ const copyMotion = {
 };
 
 const visualMotion = {
-  initial: { opacity: 0, x: 54, y: 28, rotate: 1.5, scale: 0.92 },
-  animate: { opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 },
-  whileHover: { y: -6, scale: 1.015, rotate: -0.4 },
+  initial: { opacity: 0, x: 44, y: 20, scale: 0.98 },
+  animate: { opacity: 1, x: 0, y: 0, scale: 1 },
   transition: { duration: 1, delay: 0.18, ease: [0.16, 1, 0.3, 1] },
 };
 
 const titleWords = props.content.title.split(" ");
 
 onMounted(() => {
-  resumeCarousel();
+  marqueeFrame = requestAnimationFrame(animateMarquee);
 });
 
 onUnmounted(() => {
-  pauseCarousel();
+  if (marqueeFrame) {
+    cancelAnimationFrame(marqueeFrame);
+  }
 });
 
-function pauseCarousel() {
-  if (!carouselTimer.value) return;
-  clearInterval(carouselTimer.value);
-  carouselTimer.value = null;
-}
-
-function resumeCarousel() {
-  if (carouselTimer.value || carouselSlides.value.length <= 1) return;
-  carouselTimer.value = setInterval(() => {
-    nextSlide(false);
-  }, 3200);
-}
-
-function setSlide(index, restartTimer = true) {
-  activeSlide.value = index;
-
-  if (restartTimer) {
-    pauseCarousel();
-    resumeCarousel();
+function setMarqueeGroup(element) {
+  if (element) {
+    marqueeGroup.value = element;
+    marqueeGroupWidth = element.offsetWidth;
   }
 }
 
-function nextSlide(restartTimer = true) {
-  setSlide((activeSlide.value + 1) % carouselSlides.value.length, restartTimer);
+function updateMarqueeWidth() {
+  if (marqueeGroup.value) {
+    marqueeGroupWidth = marqueeGroup.value.offsetWidth;
+  }
 }
 
-function previousSlide() {
-  setSlide((activeSlide.value - 1 + carouselSlides.value.length) % carouselSlides.value.length);
+function animateMarquee(timestamp) {
+  if (!marqueeLastTimestamp) {
+    marqueeLastTimestamp = timestamp;
+  }
+
+  const delta = Math.min((timestamp - marqueeLastTimestamp) / 1000, 0.05);
+  marqueeLastTimestamp = timestamp;
+
+  if (!isMarqueeDragging.value && !isMarqueePaused.value) {
+    updateMarqueeWidth();
+    marqueeOffset.value -= 32 * delta;
+    normalizeMarqueeOffset();
+  }
+
+  marqueeFrame = requestAnimationFrame(animateMarquee);
+}
+
+function normalizeMarqueeOffset() {
+  if (!marqueeGroupWidth) return;
+
+  while (marqueeOffset.value <= -marqueeGroupWidth) {
+    marqueeOffset.value += marqueeGroupWidth;
+  }
+
+  while (marqueeOffset.value > 0) {
+    marqueeOffset.value -= marqueeGroupWidth;
+  }
+}
+
+function startMarqueeDrag(event) {
+  isMarqueeDragging.value = true;
+  dragStartX = event.clientX;
+  dragStartOffset = marqueeOffset.value;
+  event.currentTarget.setPointerCapture(event.pointerId);
+}
+
+function dragMarquee(event) {
+  if (!isMarqueeDragging.value) return;
+
+  marqueeOffset.value = dragStartOffset + event.clientX - dragStartX;
+  normalizeMarqueeOffset();
+}
+
+function stopMarqueeDrag(event) {
+  if (!isMarqueeDragging.value) return;
+
+  isMarqueeDragging.value = false;
+
+  if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+    event.currentTarget.releasePointerCapture(event.pointerId);
+  }
+}
+
+function pauseMarquee() {
+  isMarqueePaused.value = true;
+}
+
+function resumeMarquee() {
+  isMarqueePaused.value = false;
 }
 
 function wordMotion(index) {
@@ -195,3 +231,19 @@ function wordMotion(index) {
   };
 }
 </script>
+
+<style scoped>
+.hero-marquee {
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.hero-marquee.is-dragging {
+  cursor: grabbing;
+}
+
+.hero-marquee-track {
+  will-change: transform;
+}
+</style>

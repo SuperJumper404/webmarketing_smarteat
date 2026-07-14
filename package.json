@@ -1,9 +1,12 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "engines": {
+    "node": ">=18 <21"
+  },
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "set NUXT_BUILD_DIR=.nuxt-dev&& nuxt dev --host 127.0.0.1",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -20,7 +23,6 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.13",
     "@heroicons/vue": "^2.0.18",
-    "@lottiefiles/lottie-player": "^2.0.2",
     "@nuxtjs/dotenv": "^1.4.1",
     "aos": "^2.3.4",
     "axios": "^1.4.0",

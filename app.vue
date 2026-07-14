@@ -9,8 +9,8 @@
 
     <main>
       <HeroSection :content="content.hero" @select="openOnboarding" />
-      <BenefitsSection :items="content.benefits" />
       <ProblemSection :content="content.problem" />
+      <BenefitsSection :items="content.benefits" />
       <SolutionSection :content="content.solution" />
       <FeaturesSection :items="content.features" />
       <HowItWorksSection :content="content.howItWorks" />
@@ -22,8 +22,9 @@
 
     <MarketingFooter :content="content.footer" />
 
-    <LeadOnboarding
-      :open="onboardingOpen"
+    <LazyLeadOnboarding
+      v-if="onboardingOpen"
+      open
       :intent="onboardingIntent"
       :content="content.onboarding"
       @close="onboardingOpen = false"
@@ -38,7 +39,9 @@ import content from "./content/smarteat.fr.json";
 const config = useRuntimeConfig();
 const onboardingOpen = ref(false);
 const onboardingIntent = ref("demo");
-const appLoginUrl = ref(config.public.appUrl || "https://app.smarteat.fr/login");
+const appLoginUrl = ref(
+  config.public.appUrl || "https://app.smarteat.fr/login",
+);
 
 useHead({
   title: content.meta.title,
@@ -80,7 +83,7 @@ onMounted(() => {
         }
       });
     },
-    { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
   );
 
   revealItems.forEach((item, index) => {
@@ -99,7 +102,8 @@ html {
   opacity: 0;
   filter: blur(10px);
   transform: translateY(34px) scale(0.97);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
     filter 0.75s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, filter, transform;
@@ -116,10 +120,17 @@ html {
 }
 
 .btn-fill-primary {
-  background-image: linear-gradient(90deg, #6b21a8 0%, #6b21a8 50%, #7e22ce 50%, #7e22ce 100%);
+  background-image: linear-gradient(
+    90deg,
+    #6b21a8 0%,
+    #6b21a8 50%,
+    #7e22ce 50%,
+    #7e22ce 100%
+  );
   background-position: 100% 0;
   background-size: 220% 100%;
-  transition: background-position 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    background-position 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -130,10 +141,17 @@ html {
 }
 
 .btn-fill-outline {
-  background-image: linear-gradient(90deg, #7e22ce 0%, #7e22ce 50%, transparent 50%, transparent 100%);
+  background-image: linear-gradient(
+    90deg,
+    #7e22ce 0%,
+    #7e22ce 50%,
+    transparent 50%,
+    transparent 100%
+  );
   background-position: 100% 0;
   background-size: 220% 100%;
-  transition: background-position 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    background-position 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     color 0.35s cubic-bezier(0.16, 1, 0.3, 1),

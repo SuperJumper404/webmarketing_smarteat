@@ -75,12 +75,21 @@ for (const [index, benefit] of content.benefits.entries()) {
 }
 
 assertObject(content.problem, "problem");
-assert.equal(typeof content.problem.eyebrow, "string", "problem.eyebrow must be a string");
+if (content.problem.eyebrow) {
+  assert.equal(typeof content.problem.eyebrow, "string", "problem.eyebrow must be a string");
+}
 assert.equal(typeof content.problem.title, "string", "problem.title must be a string");
 assert.ok(Array.isArray(content.problem.items), "problem.items must be an array");
 assert.ok(content.problem.items.length >= 4, "problem.items must contain at least 4 items");
 for (const [index, item] of content.problem.items.entries()) {
-  assert.equal(typeof item, "string", `problem.items[${index}] must be a string`);
+  assertObject(item, `problem.items[${index}]`);
+  assert.equal(typeof item.title, "string", `problem.items[${index}].title must be a string`);
+  assert.equal(typeof item.problem, "string", `problem.items[${index}].problem must be a string`);
+  assert.equal(typeof item.solution, "string", `problem.items[${index}].solution must be a string`);
+  if (item.image) {
+    assert.equal(typeof item.image, "string", `problem.items[${index}].image must be a string`);
+    assert.ok(item.image.startsWith("/"), `problem.items[${index}].image must use a public absolute path`);
+  }
 }
 
 assertObject(content.solution, "solution");

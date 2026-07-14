@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <section class="bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-[86rem] px-4 py-16 sm:px-6 lg:px-8">
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <article
           v-for="(feature, index) in items"

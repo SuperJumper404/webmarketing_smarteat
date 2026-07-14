@@ -27,7 +27,6 @@
     "secondaryCta": "Nous contacter"
   },
   "hero": {
-    "eyebrow": "La plateforme tout-en-un des restaurants",
     "title": "L'unique solution dont votre restaurant a besoin.",
     "subtitle": "Centralisez votre menu QR, vos commandes, votre caisse et vos performances dans une seule plateforme pensée pour les restaurants modernes.",
     "supportingText": "Du menu à l’encaissement, SmartEat réunit tous les outils essentiels pour piloter votre restaurant avec simplicité et efficacité.",
@@ -78,14 +77,29 @@
     }
   ],
   "problem": {
-    "eyebrow": "Le quotidien des restaurateurs",
-    "title": "Un bon service ne suffit plus si vos outils vous ralentissent",
+    "title": "La platforme tout-en-un pour les restaurants modernes",
     "items": [
-      "Menus papier difficiles à mettre à jour",
-      "Commandes lentes ou mal transmises",
-      "Équipe en salle sous pression",
-      "Manque de visibilité sur les ventes",
-      "Coûts et gaspillage difficiles à piloter"
+      {
+        "title": "Gérez vos commandes simplement",
+        "problem": "Les erreurs d'encaissement, les commandes non facturées, les ruptures de stock ou le manque de suivi peuvent réduire vos marges sans être visibles immédiatement.",
+        "solution": "De A à Z, SmartEat mets de l'ordre dans vos commandes, de la prise de commande à l'encaissement.",
+        "image": "/gestion-commandes-bg.png"
+      },
+      {
+        "title": "Protégez la rentabilité de votre restaurant",
+        "problem": "Les erreurs d'encaissement, les commandes non facturées, les ruptures de stock ou le manque de suivi peuvent réduire vos marges sans être visibles immédiatement.",
+        "solution": "SmartEat vous aide à suivre les ventes, structurer les encaissements et mieux comprendre ce qui impacte vos revenus."
+      },
+      {
+        "title": "Gagnez du temps pendant les rushs",
+        "problem": "Pendant les pics d'activité, chaque minute compte : les équipes doivent prendre les commandes, répondre aux clients, éviter les oublis et gérer les priorités en même temps.",
+        "solution": "SmartEat simplifie la prise de commande et réduit les allers-retours inutiles entre la salle, le comptoir et la cuisine."
+      },
+      {
+        "title": "Pilotez votre restaurant avec des données claires",
+        "problem": "Sans indicateurs fiables, il est difficile de savoir quels produits se vendent le mieux, quelles périodes génèrent le plus de chiffre d'affaires ou où se trouvent les pertes.",
+        "solution": "SmartEat regroupe vos ventes, vos commandes et vos performances dans un espace de suivi simple à consulter."
+      }
     ]
   },
   "solution": {
