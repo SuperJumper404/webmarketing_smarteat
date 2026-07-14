@@ -516,9 +516,10 @@ async function submitStep() {
   isSending.value = true;
 
   try {
+    const publicConfig = getPublicConfig();
     const requests = buildSupabaseLeadRequests({
-      supabaseUrl: runtimeConfig.public.supabaseUrl,
-      supabaseAnonKey: runtimeConfig.public.supabaseAnonKey,
+      supabaseUrl: publicConfig.supabaseUrl,
+      supabaseAnonKey: publicConfig.supabaseAnonKey,
       lead: {
         ...lead,
         intent: normalizedIntent.value,
@@ -551,6 +552,16 @@ async function submitStep() {
   } finally {
     isSending.value = false;
   }
+}
+
+function getPublicConfig() {
+  const browserConfig =
+    process.client && typeof window !== "undefined" ? window.__SMARTEAT_CONFIG__ || {} : {};
+
+  return {
+    supabaseUrl: runtimeConfig.public.supabaseUrl || browserConfig.supabaseUrl,
+    supabaseAnonKey: runtimeConfig.public.supabaseAnonKey || browserConfig.supabaseAnonKey,
+  };
 }
 </script>
 

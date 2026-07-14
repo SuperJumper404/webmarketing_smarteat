@@ -3,6 +3,13 @@
 export default defineNuxtConfig({
     ssr: false,
     buildDir: process.env.NUXT_BUILD_DIR || '.nuxt',
+    app: {
+      head: {
+        script: [
+          { src: '/runtime-config.js' },
+        ],
+      },
+    },
     modules: [
       '@nuxtjs/tailwindcss',
     ],
