@@ -28,12 +28,27 @@
           :key="problem.title"
           class="problem-card group overflow-hidden rounded-2xl border border-transparent bg-white p-3 hover:-translate-y-2 hover:scale-[1.02] hover:border-primary-200 hover:bg-gray-950 hover:shadow-xl hover:shadow-primary-900/10 focus-within:-translate-y-2 focus-within:scale-[1.02] focus-within:border-primary-200 focus-within:bg-gray-950 focus-within:shadow-xl focus-within:shadow-primary-900/10 sm:p-4"
           data-reveal
+          @mouseenter="playProblemVideo"
+          @mouseleave="pauseProblemVideo"
+          @focusin="playProblemVideo"
+          @focusout="pauseProblemVideo"
         >
           <div
             class="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-950"
           >
+            <video
+              v-if="problem.video"
+              class="problem-card-image h-full w-full object-cover hover:scale-105"
+              :src="problem.video"
+              :poster="problem.image"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-hidden="true"
+            />
             <img
-              v-if="problem.image"
+              v-else-if="problem.image"
               class="problem-card-image h-full w-full object-cover hover:scale-105"
               :src="problem.image"
               :alt="problem.imageAlt || problem.title"
@@ -113,6 +128,25 @@ function getHighlightedTitleParts(title, highlightedText) {
     },
     { text: title.slice(index + highlightedText.length), highlight: false },
   ].filter((part) => part.text);
+}
+
+function getProblemVideo(event) {
+  return event.currentTarget.querySelector("video");
+}
+
+function playProblemVideo(event) {
+  const video = getProblemVideo(event);
+  if (!video) return;
+
+  video.play().catch(() => {});
+}
+
+function pauseProblemVideo(event) {
+  const video = getProblemVideo(event);
+  if (!video) return;
+
+  video.pause();
+  video.currentTime = 0;
 }
 </script>
 

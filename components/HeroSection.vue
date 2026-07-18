@@ -65,7 +65,8 @@
                 <article
                   v-for="slide in carouselSlides"
                   :key="`${slide.src}-${groupIndex}`"
-                  class="h-full aspect-[3/2] shrink-0 overflow-hidden rounded-[1.55rem]"
+                  class="h-full shrink-0 overflow-hidden rounded-[1.55rem]"
+                  :style="{ aspectRatio: getSlideAspectRatio(slide) }"
                 >
                   <img
                     class="h-full w-full rounded-[1.55rem] object-cover"
@@ -217,6 +218,18 @@ function pauseMarquee() {
 
 function resumeMarquee() {
   isMarqueePaused.value = false;
+}
+
+function getSlideAspectRatio(slide) {
+  if (slide.src === "/hero-iphone-menu.png") {
+    return "356 / 716";
+  }
+
+  if (slide.src === "/hero-iphone-menu-transparent.png") {
+    return "1098 / 2134";
+  }
+
+  return "3 / 2";
 }
 
 function wordMotion(index) {

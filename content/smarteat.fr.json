@@ -40,6 +40,14 @@
           "alt": "Expérience client SmartEat avec QR code, commande et paiement"
         },
         {
+          "src": "/hero-iphone-menu.png",
+          "alt": "Interface mobile SmartEat de commande sur iPhone"
+        },
+        {
+          "src": "/hero-iphone-menu-transparent.png",
+          "alt": "Mockup iPhone SmartEat avec fond transparent"
+        },
+        {
           "src": "/hero-suivi-preparation.png",
           "alt": "Suivi de préparation SmartEat en temps réel"
         },
@@ -83,10 +91,11 @@
         "title": "Gérez vos commandes simplement",
         "problem": "Les erreurs d'encaissement, les commandes non facturées, les ruptures de stock ou le manque de suivi peuvent réduire vos marges sans être visibles immédiatement.",
         "solution": "De A à Z, SmartEat mets de l'ordre dans vos commandes, de la prise de commande à l'encaissement.",
-        "image": "/gestion-commandes-bg.png"
+        "image": "/gestion-commandes-bg.png",
+        "video": "/problem-commandes-video.mp4"
       },
       {
-        "title": "Protégez la rentabilité de votre restaurant",
+        "title": "Augmentez votre chiffre d'affaires",
         "problem": "Les erreurs d'encaissement, les commandes non facturées, les ruptures de stock ou le manque de suivi peuvent réduire vos marges sans être visibles immédiatement.",
         "solution": "SmartEat vous aide à suivre les ventes, structurer les encaissements et mieux comprendre ce qui impacte vos revenus."
       },
@@ -96,7 +105,7 @@
         "solution": "SmartEat simplifie la prise de commande et réduit les allers-retours inutiles entre la salle, le comptoir et la cuisine."
       },
       {
-        "title": "Pilotez votre restaurant avec des données claires",
+        "title": "Analyser vos performances de ventes",
         "problem": "Sans indicateurs fiables, il est difficile de savoir quels produits se vendent le mieux, quelles périodes génèrent le plus de chiffre d'affaires ou où se trouvent les pertes.",
         "solution": "SmartEat regroupe vos ventes, vos commandes et vos performances dans un espace de suivi simple à consulter."
       }
