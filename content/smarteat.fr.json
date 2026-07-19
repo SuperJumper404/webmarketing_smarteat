@@ -40,10 +40,6 @@
           "alt": "Expérience client SmartEat avec QR code, commande et paiement"
         },
         {
-          "src": "/hero-iphone-menu.png",
-          "alt": "Interface mobile SmartEat de commande sur iPhone"
-        },
-        {
           "src": "/hero-iphone-menu-transparent.png",
           "alt": "Mockup iPhone SmartEat avec fond transparent"
         },
@@ -97,12 +93,14 @@
       {
         "title": "Augmentez votre chiffre d'affaires",
         "problem": "Les erreurs d'encaissement, les commandes non facturées, les ruptures de stock ou le manque de suivi peuvent réduire vos marges sans être visibles immédiatement.",
-        "solution": "SmartEat vous aide à suivre les ventes, structurer les encaissements et mieux comprendre ce qui impacte vos revenus."
+        "solution": "SmartEat vous aide à suivre les ventes, structurer les encaissements et mieux comprendre ce qui impacte vos revenus.",
+        "video": "/problem-chiffre-affaires-video.mp4"
       },
       {
         "title": "Gagnez du temps pendant les rushs",
         "problem": "Pendant les pics d'activité, chaque minute compte : les équipes doivent prendre les commandes, répondre aux clients, éviter les oublis et gérer les priorités en même temps.",
-        "solution": "SmartEat simplifie la prise de commande et réduit les allers-retours inutiles entre la salle, le comptoir et la cuisine."
+        "solution": "SmartEat simplifie la prise de commande et réduit les allers-retours inutiles entre la salle, le comptoir et la cuisine.",
+        "video": "/problem-rushs-video.mp4"
       },
       {
         "title": "Analyser vos performances de ventes",

@@ -34,11 +34,11 @@
           @focusout="pauseProblemVideo"
         >
           <div
-            class="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-950"
+            class="relative aspect-video overflow-hidden rounded-xl bg-gray-950"
           >
             <video
               v-if="problem.video"
-              class="problem-card-image h-full w-full object-cover hover:scale-105"
+              class="problem-card-video h-full w-full object-contain"
               :src="problem.video"
               :poster="problem.image"
               muted
@@ -161,6 +161,15 @@ function pauseProblemVideo(event) {
 
 .problem-card-image {
   transition: transform 1.2s ease;
+}
+
+.problem-card-video {
+  transition: transform 1.2s ease;
+}
+
+.problem-card:hover .problem-card-video,
+.problem-card:focus-within .problem-card-video {
+  transform: scale(1.02);
 }
 
 .problem-card-title,
