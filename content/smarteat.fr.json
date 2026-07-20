@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "SmartEat - Menu QR, commande et caisse pour restaurants",
+    "title": "SmartEat - La plateforme tout-en-un pour gérer votre restaurant",
     "description": "SmartEat aide les restaurateurs à digitaliser leur menu, recevoir les commandes par QR code et mieux piloter leur activité."
   },
   "navigation": {
@@ -105,7 +105,8 @@
       {
         "title": "Analyser vos performances de ventes",
         "problem": "Sans indicateurs fiables, il est difficile de savoir quels produits se vendent le mieux, quelles périodes génèrent le plus de chiffre d'affaires ou où se trouvent les pertes.",
-        "solution": "SmartEat regroupe vos ventes, vos commandes et vos performances dans un espace de suivi simple à consulter."
+        "solution": "SmartEat regroupe vos ventes, vos commandes et vos performances dans un espace de suivi simple à consulter.",
+        "video": "/problem-performances-video.mp4"
       }
     ]
   },

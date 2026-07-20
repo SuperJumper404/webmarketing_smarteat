@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     buildDir: process.env.NUXT_BUILD_DIR || '.nuxt',
     app: {
       head: {
-        title: 'SmartEat - Menu QR, commande et caisse pour restaurants',
+        title: 'SmartEat - La plateforme tout-en-un pour gérer votre restaurant',
         meta: [
           {
             name: 'description',
@@ -22,7 +22,7 @@ export default defineNuxtConfig({
           },
           {
             property: 'og:title',
-            content: 'SmartEat - Menu QR, commande et caisse pour restaurants',
+            content: 'SmartEat - La plateforme tout-en-un pour gérer votre restaurant',
           },
           {
             property: 'og:description',
@@ -47,7 +47,7 @@ export default defineNuxtConfig({
           },
           {
             name: 'twitter:title',
-            content: 'SmartEat - Menu QR, commande et caisse pour restaurants',
+            content: 'SmartEat - La plateforme tout-en-un pour gérer votre restaurant',
           },
           {
             name: 'twitter:description',
