@@ -30,8 +30,8 @@
     "title": "L'unique solution dont votre restaurant a besoin.",
     "subtitle": "Centralisez votre menu QR, vos commandes, votre caisse et vos performances dans une seule plateforme pensée pour les restaurants modernes.",
     "supportingText": "Du menu à l’encaissement, SmartEat réunit tous les outils essentiels pour piloter votre restaurant avec simplicité et efficacité.",
-    "primaryCta": "Demander une démo",
-    "secondaryCta": "Créer mon espace SmartEat",
+    "primaryCta": "Essayer SmartEat gratuitement",
+    "secondaryCta": "Parlez à un expert",
     "visual": {
       "type": "carousel",
       "slides": [
@@ -220,7 +220,7 @@
     "title": "Votre restaurant peut devenir plus rentable avec les bons outils",
     "text": "Demandez une démo SmartEat et voyons comment simplifier votre service, augmenter vos ventes et mieux piloter votre activité.",
     "primaryCta": "Demander une démo",
-    "secondaryCta": "Créer mon espace SmartEat"
+    "secondaryCta": "Essayer SmartEat gratuitement"
   },
   "onboarding": {
     "intro": {

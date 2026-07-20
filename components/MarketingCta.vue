@@ -5,24 +5,28 @@
   >
     <button
       type="button"
-      class="btn-fill-primary rounded-lg bg-primary-700 px-6 py-3 text-base font-semibold text-white shadow-sm hover:shadow-lg hover:shadow-primary-900/20 focus:outline-none focus:ring-4 focus:ring-primary-200"
+      class="btn-fill-primary inline-flex items-center justify-center gap-2 rounded-lg bg-primary-700 px-6 py-3 text-base font-semibold text-white shadow-sm hover:shadow-lg hover:shadow-primary-900/20 focus:outline-none focus:ring-4 focus:ring-primary-200"
       v-motion="primaryMotion"
       @click="$emit('select', 'demo')"
     >
+      <QrCodeIcon class="h-5 w-5" aria-hidden="true" />
       {{ primaryLabel }}
     </button>
     <button
       type="button"
-      class="btn-fill-outline rounded-lg border border-primary-700 px-6 py-3 text-base font-semibold text-primary-700 hover:shadow-md hover:shadow-primary-900/10 focus:outline-none focus:ring-4 focus:ring-primary-100"
+      class="btn-fill-outline inline-flex items-center justify-center gap-2 rounded-lg border border-primary-700 px-6 py-3 text-base font-semibold text-primary-700 hover:shadow-md hover:shadow-primary-900/10 focus:outline-none focus:ring-4 focus:ring-primary-100"
       v-motion="secondaryMotion"
       @click="$emit('select', 'account')"
     >
+      <PhoneIcon class="h-5 w-5" aria-hidden="true" />
       {{ secondaryLabel }}
     </button>
   </div>
 </template>
 
 <script setup>
+import { PhoneIcon, QrCodeIcon } from "@heroicons/vue/24/solid";
+
 defineProps({
   primaryLabel: {
     type: String,
@@ -30,7 +34,7 @@ defineProps({
   },
   secondaryLabel: {
     type: String,
-    default: "Créer mon espace SmartEat",
+    default: "Parlez à un expert",
   },
   centered: {
     type: Boolean,

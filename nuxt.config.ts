@@ -5,6 +5,66 @@ export default defineNuxtConfig({
     buildDir: process.env.NUXT_BUILD_DIR || '.nuxt',
     app: {
       head: {
+        title: 'SmartEat - Menu QR, commande et caisse pour restaurants',
+        meta: [
+          {
+            name: 'description',
+            content:
+              'SmartEat aide les restaurateurs à digitaliser leur menu, recevoir les commandes par QR code et mieux piloter leur activité.',
+          },
+          {
+            property: 'og:type',
+            content: 'website',
+          },
+          {
+            property: 'og:url',
+            content: 'https://www.smarteat.fr',
+          },
+          {
+            property: 'og:title',
+            content: 'SmartEat - Menu QR, commande et caisse pour restaurants',
+          },
+          {
+            property: 'og:description',
+            content:
+              'SmartEat aide les restaurateurs à digitaliser leur menu, recevoir les commandes par QR code et mieux piloter leur activité.',
+          },
+          {
+            property: 'og:image',
+            content: 'https://www.smarteat.fr/og-image.png',
+          },
+          {
+            property: 'og:image:width',
+            content: '1200',
+          },
+          {
+            property: 'og:image:height',
+            content: '630',
+          },
+          {
+            name: 'twitter:card',
+            content: 'summary_large_image',
+          },
+          {
+            name: 'twitter:title',
+            content: 'SmartEat - Menu QR, commande et caisse pour restaurants',
+          },
+          {
+            name: 'twitter:description',
+            content:
+              'SmartEat aide les restaurateurs à digitaliser leur menu, recevoir les commandes par QR code et mieux piloter leur activité.',
+          },
+          {
+            name: 'twitter:image',
+            content: 'https://www.smarteat.fr/og-image.png',
+          },
+        ],
+        link: [
+          {
+            rel: 'canonical',
+            href: 'https://www.smarteat.fr',
+          },
+        ],
         script: [
           { src: '/runtime-config.js' },
         ],

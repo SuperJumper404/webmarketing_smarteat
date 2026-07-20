@@ -42,7 +42,6 @@
               :src="problem.video"
               :poster="problem.image"
               muted
-              loop
               playsinline
               preload="metadata"
               aria-hidden="true"
@@ -138,6 +137,7 @@ function playProblemVideo(event) {
   const video = getProblemVideo(event);
   if (!video) return;
 
+  video.currentTime = 0;
   video.play().catch(() => {});
 }
 
@@ -146,7 +146,6 @@ function pauseProblemVideo(event) {
   if (!video) return;
 
   video.pause();
-  video.currentTime = 0;
 }
 </script>
 
