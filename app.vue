@@ -22,6 +22,8 @@
 
     <MarketingFooter :content="content.footer" />
 
+    <WhatsAppChat :href="content.footer.whatsappHref" />
+
     <LazyLeadOnboarding
       v-if="onboardingOpen"
       open

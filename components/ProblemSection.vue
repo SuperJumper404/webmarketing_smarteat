@@ -40,6 +40,7 @@
               v-if="problem.video"
               class="problem-card-video h-full w-full object-contain"
               :src="problem.video"
+              :poster="problem.poster"
               muted
               playsinline
               preload="metadata"
