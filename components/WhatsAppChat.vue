@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-5 right-4 z-40 flex items-center gap-3 sm:bottom-7 sm:right-7">
+  <div class="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-7 sm:right-7">
     <div
       class="hidden rounded-2xl border border-gray-100 bg-white px-4 py-2.5 text-right shadow-[0_8px_28px_rgba(17,24,39,0.12)] sm:block"
     >

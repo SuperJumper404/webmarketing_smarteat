@@ -1,7 +1,7 @@
 ﻿<template>
   <section class="bg-white">
     <div class="mx-auto max-w-[86rem] px-4 py-16 sm:px-6 lg:px-8">
-      <div class="max-w-3xl" data-reveal>
+      <div class="w-full" data-reveal>
         <p
           v-if="content.eyebrow"
           class="text-sm font-semibold uppercase tracking-wide text-primary-700"
@@ -9,7 +9,7 @@
           {{ content.eyebrow }}
         </p>
         <h2
-          class="mt-3 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl"
+          class="mb-10 mt-4 w-full text-center text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl lg:text-6xl"
         >
           <template
             v-for="part in titleParts"
@@ -22,11 +22,15 @@
         </h2>
       </div>
 
-      <div class="mt-10 grid gap-5 lg:grid-cols-2">
+      <div class="mt-16 grid gap-5 lg:grid-cols-2">
         <article
           v-for="(problem, index) in normalizedItems"
           :key="problem.title"
-          class="problem-card group overflow-hidden rounded-2xl border border-transparent bg-white p-3 hover:-translate-y-2 hover:scale-[1.02] hover:border-primary-200 hover:bg-gray-950 hover:shadow-xl hover:shadow-primary-900/10 focus-within:-translate-y-2 focus-within:scale-[1.02] focus-within:border-primary-200 focus-within:bg-gray-950 focus-within:shadow-xl focus-within:shadow-primary-900/10 sm:p-4"
+          class="problem-card group relative overflow-hidden rounded-2xl border border-transparent bg-white p-3 hover:z-10 focus-within:z-10 sm:p-4"
+          :class="[
+            index % 2 === 0 ? 'problem-card-left' : 'problem-card-right',
+            index < 2 ? 'problem-card-top' : 'problem-card-bottom',
+          ]"
           data-reveal
           @mouseenter="playProblemVideo"
           @mouseleave="pauseProblemVideo"
@@ -63,25 +67,33 @@
           </div>
 
           <div
-            class="relative mt-2 min-h-[170px] overflow-hidden rounded-xl bg-transparent p-5 text-gray-950 transition-colors duration-500 ease-out group-hover:text-white group-focus-within:text-white sm:mt-3 sm:min-h-[190px]"
+            class="relative mt-2 min-h-[170px] overflow-hidden rounded-xl bg-transparent p-5 pb-16 text-gray-950 sm:mt-3 sm:min-h-[190px]"
           >
             <div class="max-w-xl pr-2">
               <h3
-                class="problem-card-title text-2xl font-bold leading-7 sm:text-3xl sm:leading-8"
+                class="problem-card-title text-2xl font-bold leading-8 sm:text-3xl sm:leading-9"
               >
                 {{ problem.title }}
               </h3>
               <p
-                class="problem-card-copy mt-3 text-sm leading-6 text-gray-600 transition-colors duration-500 ease-out group-hover:text-white/90 group-focus-within:text-white/90 sm:text-base sm:leading-7"
+                class="problem-card-copy mt-3 text-sm leading-6 text-gray-600 sm:text-base sm:leading-7"
               >
                 {{ problem.problem }}
               </p>
               <p
-                class="problem-card-copy mt-2 hidden text-sm leading-6 text-gray-500 transition-colors duration-500 ease-out group-hover:text-white/80 group-focus-within:text-white/80 sm:block"
+                class="problem-card-copy mt-2 hidden text-sm leading-6 text-gray-500 sm:block sm:text-base sm:leading-7"
               >
                 {{ problem.solution }}
               </p>
             </div>
+
+            <a
+              href="#solution"
+              class="btn-fill-primary absolute bottom-5 right-5 inline-flex translate-y-3 items-center justify-center gap-1.5 rounded-lg bg-primary-700 px-4 py-2 text-sm font-semibold text-white opacity-0 shadow-sm transition duration-300 ease-out hover:shadow-lg hover:shadow-primary-900/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100"
+            >
+              En savoir plus
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </article>
       </div>
@@ -151,24 +163,55 @@ function pauseProblemVideo(event) {
 
 <style scoped>
 .problem-card {
+  --card-hover-x: 0px;
+  --card-hover-y: -24px;
   transition:
-    transform 1.2s ease,
-    background-color 0.5s ease,
-    border-color 0.5s ease,
-    box-shadow 0.5s ease;
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.problem-card:hover,
+.problem-card:focus-within {
+  background-color: #f8fafc;
+  box-shadow:
+    0 32px 72px -24px rgba(15, 23, 42, 0.28),
+    0 10px 28px -18px rgba(15, 23, 42, 0.18);
+  transform: translate3d(var(--card-hover-x), var(--card-hover-y), 0) scale(1.03);
+}
+
+@media (min-width: 1024px) {
+  .problem-card-left {
+    --card-hover-x: -24px;
+  }
+
+  .problem-card-right {
+    --card-hover-x: 24px;
+  }
+
+  .problem-card-top {
+    --card-hover-y: -24px;
+  }
+
+  .problem-card-bottom {
+    --card-hover-y: 24px;
+  }
 }
 
 .problem-card-image {
-  transition: transform 1.2s ease;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .problem-card-video {
-  transition: transform 1.2s ease;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .problem-card:hover .problem-card-video,
-.problem-card:focus-within .problem-card-video {
-  transform: scale(1.02);
+.problem-card:focus-within .problem-card-video,
+.problem-card:hover .problem-card-image,
+.problem-card:focus-within .problem-card-image {
+  transform: scale(1.04);
 }
 
 .problem-card-title,
