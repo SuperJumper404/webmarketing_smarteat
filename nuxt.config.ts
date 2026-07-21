@@ -18,7 +18,7 @@ export default defineNuxtConfig({
           },
           {
             property: 'og:url',
-            content: 'https://www.smarteat.fr',
+            content: 'https://smarteat.fr',
           },
           {
             property: 'og:title',
@@ -31,7 +31,7 @@ export default defineNuxtConfig({
           },
           {
             property: 'og:image',
-            content: 'https://www.smarteat.fr/og-image.png',
+            content: 'https://smarteat.fr/og-image.png',
           },
           {
             property: 'og:image:width',
@@ -56,13 +56,13 @@ export default defineNuxtConfig({
           },
           {
             name: 'twitter:image',
-            content: 'https://www.smarteat.fr/og-image.png',
+            content: 'https://smarteat.fr/og-image.png',
           },
         ],
         link: [
           {
             rel: 'canonical',
-            href: 'https://www.smarteat.fr',
+            href: 'https://smarteat.fr',
           },
         ],
         script: [
