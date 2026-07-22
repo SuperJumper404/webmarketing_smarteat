@@ -184,8 +184,43 @@
   },
   "solution": {
     "eyebrow": "La solution SmartEat",
-    "title": "Un espace centralisé pour vendre, servir et piloter plus simplement",
-    "text": "SmartEat réunit menu QR, prise de commande, click & collect, caisse, suivi des ventes et outils de gestion dans une expérience simple pour le restaurateur et ses clients."
+    "title": "Unifiez tous vos points de commande avec SmartEat",
+    "text": "Sur borne, à table, au comptoir ou sur mobile, chaque commande rejoint le même espace.",
+    "cards": [
+      {
+        "id": "borne",
+        "title": "Borne de commande",
+        "text": "Vos clients consultent le menu, commandent et paient en autonomie, même pendant les périodes de forte affluence.",
+        "image": "/solution-borne.png",
+        "imageAlt": "Borne de commande SmartEat affichant le menu du restaurant",
+        "ctaLabel": "Voir la prise de commande",
+        "href": "#prise-de-commande"
+      },
+      {
+        "id": "comptoir",
+        "title": "Sur table et au comptoir",
+        "text": "Votre équipe prend, suit et centralise les commandes depuis le même terminal, en salle comme au comptoir.",
+        "image": "/solution-comptoir.png",
+        "imageAlt": "Terminal de comptoir SmartEat affichant les commandes et le menu",
+        "ctaLabel": "Voir le pilotage",
+        "href": "#tableau-de-bord"
+      },
+      {
+        "id": "qr-mobile",
+        "title": "Menu QR sur téléphone",
+        "text": "Le client scanne le QR code, consulte le menu et commande directement depuis sa table avec son téléphone.",
+        "image": "/solution-qr-mobile.png",
+        "imageAlt": "Téléphone SmartEat avec menu digital et QR code de table",
+        "ctaLabel": "Voir le menu QR",
+        "href": "#menu-qr"
+      }
+    ],
+    "sync": {
+      "eyebrow": "Un seul écosystème",
+      "title": "Tout communique en temps réel",
+      "text": "Commandes, produits, prix, tables et disponibilités restent synchronisés dans SmartEat.",
+      "items": ["Borne", "Comptoir", "QR mobile"]
+    }
   },
   "features": [
     {

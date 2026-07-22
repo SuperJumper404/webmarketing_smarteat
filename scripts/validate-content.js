@@ -149,6 +149,38 @@ assertObject(content.solution, "solution");
 assert.equal(typeof content.solution.eyebrow, "string", "solution.eyebrow must be a string");
 assert.equal(typeof content.solution.title, "string", "solution.title must be a string");
 assert.equal(typeof content.solution.text, "string", "solution.text must be a string");
+assert.ok(Array.isArray(content.solution.cards), "solution.cards must be an array");
+assert.equal(content.solution.cards.length, 3, "solution.cards must contain exactly 3 cards");
+
+const solutionCardIds = [];
+const solutionCardHrefs = [];
+for (const [index, card] of content.solution.cards.entries()) {
+  const cardName = `solution.cards[${index}]`;
+  assertObject(card, cardName);
+  for (const key of ["id", "title", "text", "image", "imageAlt", "ctaLabel", "href"]) {
+    assertNonEmptyString(card[key], `${cardName}.${key}`);
+  }
+  assert.ok(card.image.startsWith("/"), `${cardName}.image must use a public absolute path`);
+  solutionCardIds.push(card.id);
+  solutionCardHrefs.push(card.href);
+}
+assertUnique(solutionCardIds, "solution card IDs");
+assert.deepEqual(
+  solutionCardIds,
+  ["borne", "comptoir", "qr-mobile"],
+  "solution card IDs must match the approved order",
+);
+
+assertObject(content.solution.sync, "solution.sync");
+for (const key of ["eyebrow", "title", "text"]) {
+  assertNonEmptyString(content.solution.sync[key], `solution.sync.${key}`);
+}
+assert.ok(Array.isArray(content.solution.sync.items), "solution.sync.items must be an array");
+assert.deepEqual(
+  content.solution.sync.items,
+  ["Borne", "Comptoir", "QR mobile"],
+  "solution.sync.items must match the approved values and order",
+);
 
 assert.ok(Array.isArray(content.features), "features must be an array");
 assert.ok(content.features.length >= 6, "features must contain at least 6 items");
@@ -176,6 +208,7 @@ const knownLocalAnchors = new Set([
 const localNavigationHrefs = [
   ...content.navigation.links.map((link) => link.href),
   ...megaMenuHrefs,
+  ...solutionCardHrefs,
 ].filter((href) => href.startsWith("#"));
 for (const href of localNavigationHrefs) {
   assert.ok(knownLocalAnchors.has(href), `Unknown local navigation anchor: ${href}`);
