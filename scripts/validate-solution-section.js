@@ -12,5 +12,7 @@ assert.match(source, /sm:grid-cols-2/, "Solution section must use the approved t
 assert.match(source, /lg:grid-cols-3/, "Solution section must use the approved desktop grid");
 assert.match(source, /motion-reduce:transform-none/, "Solution motion must respect reduced-motion preferences");
 assert.match(source, /ArrowsRightLeftIcon/, "Synchronization band must use the approved connection icon");
+assert.match(source, /class="[^"]*mb-7[^"]*"[^>]*>\s*\{\{ card\.text \}\}/, "Solution copy must preserve CTA spacing");
+assert.match(source, /class="[^"]*mt-auto[^"]*"[^>]*>\s*\{\{ card\.ctaLabel \}\}/, "Solution CTAs must align to the card bottom");
 
 console.log("SmartEat solution section integration OK");

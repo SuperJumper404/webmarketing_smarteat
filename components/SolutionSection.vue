@@ -33,12 +33,12 @@
             <h3 class="text-2xl font-bold leading-8 text-gray-950">
               {{ card.title }}
             </h3>
-            <p class="mt-3 text-sm leading-6 text-gray-600 sm:text-base sm:leading-7">
+            <p class="mb-7 mt-3 text-sm leading-6 text-gray-600 sm:text-base sm:leading-7">
               {{ card.text }}
             </p>
             <a
               :href="card.href"
-              class="btn-fill-outline mt-7 inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-primary-700 px-4 text-sm font-semibold text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
+              class="btn-fill-outline mt-auto inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-primary-700 px-4 text-sm font-semibold text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
             >
               {{ card.ctaLabel }}
               <ArrowRightIcon class="h-4 w-4" aria-hidden="true" />
