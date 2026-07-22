@@ -13,7 +13,8 @@
     "test:lead": "node --test functions/*.test.js utils/*.test.js",
     "test:content": "node scripts/validate-content.js",
     "test:motion": "node scripts/validate-motion.js",
-    "test": "npm run test:lead && npm run test:content && npm run test:motion"
+    "test:solution": "node scripts/validate-solution-section.js",
+    "test": "npm run test:lead && npm run test:content && npm run test:motion && npm run test:solution"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.7.0",
