@@ -7,22 +7,90 @@
     "logoAlt": "SmartEat",
     "links": [
       {
-        "label": "Produit",
-        "href": "#produit"
+        "label": "Pourquoi SmartEat",
+        "href": "#pourquoi-smarteat"
       },
       {
-        "label": "Solution",
-        "href": "#solution"
+        "label": "Comment ça marche",
+        "href": "#contact"
       },
       {
         "label": "FAQ",
         "href": "#faq"
-      },
-      {
-        "label": "Contact",
-        "href": "#contact"
       }
     ],
+    "megaMenu": {
+      "label": "Produit",
+      "fallbackHref": "#solution",
+      "eyebrow": "Explorer SmartEat",
+      "title": "Tout ce qu’il faut pour vendre, servir et piloter",
+      "groups": [
+        {
+          "title": "Commander et vendre",
+          "items": [
+            {
+              "id": "menu-qr",
+              "label": "Menu QR personnalisable",
+              "description": "Un menu digital à l’image du restaurant.",
+              "href": "#menu-qr",
+              "icon": "qr"
+            },
+            {
+              "id": "prise-de-commande",
+              "label": "Prise de commande",
+              "description": "Centraliser les commandes et réduire les erreurs.",
+              "href": "#prise-de-commande",
+              "icon": "orders"
+            },
+            {
+              "id": "click-and-collect",
+              "label": "Click & Collect",
+              "description": "Vendre aussi en dehors du service en salle.",
+              "href": "#click-and-collect",
+              "icon": "collect"
+            }
+          ]
+        },
+        {
+          "title": "Gérer et piloter",
+          "items": [
+            {
+              "id": "tableau-de-bord",
+              "label": "Tableau de bord",
+              "description": "Suivre les ventes et les tendances.",
+              "href": "#tableau-de-bord",
+              "icon": "dashboard"
+            },
+            {
+              "id": "plan-de-table",
+              "label": "Plan de table et QR codes",
+              "description": "Organiser les tables et le parcours client.",
+              "href": "#plan-de-table",
+              "icon": "tables"
+            },
+            {
+              "id": "journal-des-ventes",
+              "label": "Journal des ventes",
+              "description": "Conserver une activité claire et structurée.",
+              "href": "#journal-des-ventes",
+              "icon": "journal"
+            }
+          ]
+        }
+      ],
+      "spotlight": {
+        "title": "Découvrir SmartEat",
+        "text": "Retrouvez la plateforme tout-en-un pensée pour simplifier le service et le pilotage.",
+        "label": "Voir la solution",
+        "href": "#solution"
+      },
+      "roadmap": {
+        "eyebrow": "Bientôt dans SmartEat",
+        "text": "Stocks, réservations, SMS marketing et paiements mobiles.",
+        "label": "Voir la roadmap",
+        "href": "#roadmap"
+      }
+    },
     "primaryCta": "Demander une démo",
     "secondaryCta": "Nous contacter"
   },
@@ -121,36 +189,42 @@
   },
   "features": [
     {
+      "id": "menu-qr",
       "title": "Menu QR personnalisable",
       "text": "Vos clients scannent, consultent le menu et commandent sans attendre.",
       "image": "/menupersonnalisable.svg",
       "imageAlt": "Menu QR personnalisable SmartEat"
     },
     {
+      "id": "prise-de-commande",
       "title": "Prise de commande",
       "text": "Centralisez les commandes et réduisez les erreurs entre la salle et la préparation.",
       "image": "/prisedecommande.svg",
       "imageAlt": "Prise de commande SmartEat"
     },
     {
+      "id": "click-and-collect",
       "title": "Click & Collect",
       "text": "Générez des ventes supplémentaires même en dehors du service en salle.",
       "image": "/appscreen.svg",
       "imageAlt": "Click and collect SmartEat"
     },
     {
+      "id": "tableau-de-bord",
       "title": "Tableau de bord",
       "text": "Suivez les ventes, les performances du menu et les tendances qui comptent.",
       "image": "/dashbord.svg",
       "imageAlt": "Tableau de bord SmartEat"
     },
     {
+      "id": "plan-de-table",
       "title": "Plan de table et QR codes",
       "text": "Organisez vos tables et préparez une expérience de commande fluide.",
       "image": "/tableplan.svg",
       "imageAlt": "Plan de table SmartEat"
     },
     {
+      "id": "journal-des-ventes",
       "title": "Journal des ventes",
       "text": "Gardez une trace claire et structurée de votre activité.",
       "image": "/qrappmenu2.png",

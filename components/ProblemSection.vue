@@ -1,5 +1,5 @@
 ﻿<template>
-  <section class="bg-white">
+  <section id="pourquoi-smarteat" class="scroll-mt-24 bg-white">
     <div class="mx-auto max-w-[86rem] px-4 py-16 sm:px-6 lg:px-8">
       <div class="w-full" data-reveal>
         <p
