@@ -1,49 +1,88 @@
-﻿<template>
-  <header class="sticky top-0 z-30 border-b border-gray-100 bg-white/95 backdrop-blur">
+<template>
+  <header
+    ref="headerRef"
+    class="sticky top-0 z-30 border-b border-gray-100 bg-white/95 backdrop-blur"
+  >
     <nav
-      class="mx-auto flex max-w-[86rem] items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+      class="mx-auto flex max-w-[86rem] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8"
       aria-label="Navigation principale"
     >
       <button
         type="button"
-        class="flex items-center gap-3 rounded-lg pr-2 text-left focus:outline-none focus:ring-4 focus:ring-primary-100 md:hidden"
+        class="flex items-center gap-3 rounded-lg pr-2 text-left focus:outline-none focus:ring-4 focus:ring-primary-100 lg:hidden"
         :aria-expanded="mobileMenuOpen"
         aria-controls="mobile-navigation"
-        aria-label="Ouvrir le menu SmartEat"
-        @click="mobileMenuOpen = !mobileMenuOpen"
+        :aria-label="mobileMenuOpen ? 'Fermer le menu SmartEat' : 'Ouvrir le menu SmartEat'"
+        @click="toggleMobileMenu"
       >
-        <img class="h-11 w-11 rounded-lg object-contain" src="/logo.png" :alt="content.logoAlt" />
+        <img
+          class="h-11 w-11 rounded-lg object-contain"
+          src="/logo.png"
+          :alt="content.logoAlt"
+        />
         <span class="text-2xl font-bold tracking-tight">
           Smart<span class="text-primary-700">Eat</span>
         </span>
-        <svg
+        <ChevronDownIcon
           class="h-4 w-4 text-gray-500 transition"
           :class="{ 'rotate-180': mobileMenuOpen }"
-          viewBox="0 0 20 20"
-          fill="currentColor"
           aria-hidden="true"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
-            clip-rule="evenodd"
-          />
-        </svg>
+        />
       </button>
 
-      <a href="#" class="hidden items-center gap-3 md:flex" aria-label="SmartEat accueil">
-        <img class="h-11 w-11 rounded-lg object-contain" src="/logo.png" :alt="content.logoAlt" />
+      <a
+        href="#"
+        class="hidden shrink-0 items-center gap-3 lg:flex"
+        aria-label="SmartEat accueil"
+      >
+        <img
+          class="h-11 w-11 rounded-lg object-contain"
+          src="/logo.png"
+          :alt="content.logoAlt"
+        />
         <span class="text-2xl font-bold tracking-tight">
           Smart<span class="text-primary-700">Eat</span>
         </span>
       </a>
 
-      <div class="hidden items-center gap-8 md:flex">
+      <div class="hidden items-center gap-5 lg:flex xl:gap-7">
+        <div
+          v-if="megaMenu"
+          @mouseenter="scheduleMegaMenuOpen"
+          @mouseleave="scheduleMegaMenuClose"
+        >
+          <button
+            type="button"
+            class="inline-flex items-center gap-1.5 rounded-lg px-1 py-2 text-sm font-semibold text-gray-700 transition hover:text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
+            :aria-expanded="desktopMegaMenuOpen"
+            aria-controls="product-mega-menu"
+            @click="toggleMegaMenu"
+            @keydown.enter.prevent="toggleMegaMenu"
+            @keydown.space.prevent="toggleMegaMenu"
+          >
+            {{ megaMenu.label }}
+            <ChevronDownIcon
+              class="h-4 w-4 transition"
+              :class="{ 'rotate-180 text-primary-700': desktopMegaMenuOpen }"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+
+        <a
+          v-else
+          href="#solution"
+          class="text-sm font-semibold text-gray-700 transition hover:text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
+        >
+          Produit
+        </a>
+
         <a
           v-for="item in content.links"
           :key="item.href"
           :href="item.href"
-          class="text-sm font-semibold text-gray-700 transition hover:text-primary-700"
+          class="whitespace-nowrap text-sm font-semibold text-gray-700 transition hover:text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
+          @click="closeAllMenus"
         >
           {{ item.label }}
         </a>
@@ -53,32 +92,23 @@
         class="btn-fill-outline inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-primary-700 px-3 text-sm font-semibold text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100 sm:hidden"
         :href="footer.phoneHref"
       >
-        <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-          <path
-            fill-rule="evenodd"
-            d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.15A1.5 1.5 0 0 1 6.1 3.13l.62 2.49a1.5 1.5 0 0 1-.43 1.47l-.75.75a11.03 11.03 0 0 0 6.62 6.62l.75-.75a1.5 1.5 0 0 1 1.47-.43l2.49.62A1.5 1.5 0 0 1 18 15.35v1.15a1.5 1.5 0 0 1-1.5 1.5H15C7.82 18 2 12.18 2 5V3.5Z"
-            clip-rule="evenodd"
-          />
-        </svg>
+        <PhoneIcon class="h-4 w-4" aria-hidden="true" />
         Contact
       </a>
 
-      <div class="hidden items-end gap-4 sm:flex">
-        <a class="font-sans text-center leading-tight tracking-tight" :href="footer.phoneHref">
+      <div class="hidden shrink-0 items-center gap-3 sm:flex">
+        <a
+          class="hidden font-sans text-center leading-tight tracking-tight xl:block"
+          :href="footer.phoneHref"
+        >
           <span class="block text-sm font-bold text-primary-700">À votre écoute !</span>
           <span class="block text-base font-bold text-gray-800">{{ footer.phone }}</span>
         </a>
         <a
-          class="btn-fill-outline inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-primary-700 px-4 text-sm font-semibold text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
+          class="btn-fill-outline hidden h-9 items-center justify-center gap-2 rounded-lg border border-primary-700 px-4 text-sm font-semibold text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100 md:inline-flex"
           :href="footer.phoneHref"
         >
-          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path
-              fill-rule="evenodd"
-              d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.15A1.5 1.5 0 0 1 6.1 3.13l.62 2.49a1.5 1.5 0 0 1-.43 1.47l-.75.75a11.03 11.03 0 0 0 6.62 6.62l.75-.75a1.5 1.5 0 0 1 1.47-.43l2.49.62A1.5 1.5 0 0 1 18 15.35v1.15a1.5 1.5 0 0 1-1.5 1.5H15C7.82 18 2 12.18 2 5V3.5Z"
-              clip-rule="evenodd"
-            />
-          </svg>
+          <PhoneIcon class="h-4 w-4" aria-hidden="true" />
           {{ content.secondaryCta }}
         </a>
         <button
@@ -91,19 +121,83 @@
       </div>
     </nav>
 
+    <Transition name="mega-menu">
+      <div
+        v-if="megaMenu && desktopMegaMenuOpen"
+        class="absolute left-0 right-0 top-full hidden pt-3 lg:block"
+        @mouseenter="openMegaMenuNow"
+        @mouseleave="scheduleMegaMenuClose"
+      >
+        <MarketingMegaMenu :menu="megaMenu" @select="closeAllMenus" />
+      </div>
+    </Transition>
+
     <Transition name="mobile-menu">
       <div
         v-if="mobileMenuOpen"
         id="mobile-navigation"
-        class="border-t border-gray-100 bg-white px-4 pb-5 pt-2 shadow-lg shadow-gray-900/5 md:hidden"
+        class="absolute left-0 right-0 top-full max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-gray-100 bg-white px-4 pb-5 pt-2 shadow-lg shadow-gray-900/5 lg:hidden"
       >
         <div class="mx-auto flex max-w-[86rem] flex-col gap-2">
+          <div v-if="megaMenu" class="rounded-xl border border-gray-100">
+            <button
+              type="button"
+              class="flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-sm font-semibold text-gray-800 focus:outline-none focus:ring-4 focus:ring-primary-100"
+              :aria-expanded="mobileProductOpen"
+              aria-controls="mobile-product-navigation"
+              @click="mobileProductOpen = !mobileProductOpen"
+            >
+              {{ megaMenu.label }}
+              <ChevronDownIcon
+                class="h-4 w-4 transition"
+                :class="{ 'rotate-180 text-primary-700': mobileProductOpen }"
+                aria-hidden="true"
+              />
+            </button>
+
+            <div
+              v-if="mobileProductOpen"
+              id="mobile-product-navigation"
+              class="border-t border-gray-100 px-2 pb-2 pt-3"
+            >
+              <div
+                v-for="group in megaMenu.groups"
+                :key="group.title"
+                class="mb-4 last:mb-0"
+              >
+                <p
+                  class="px-2 text-xs font-bold uppercase tracking-wide text-gray-500"
+                >
+                  {{ group.title }}
+                </p>
+                <a
+                  v-for="item in group.items"
+                  :key="item.id"
+                  :href="item.href"
+                  class="mt-1 block rounded-lg px-2 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
+                  @click="closeAllMenus"
+                >
+                  {{ item.label }}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a
+            v-else
+            href="#solution"
+            class="rounded-lg px-3 py-3 text-sm font-semibold text-gray-700 transition hover:bg-primary-50 hover:text-primary-700"
+            @click="closeAllMenus"
+          >
+            Produit
+          </a>
+
           <a
             v-for="item in content.links"
             :key="item.href"
             :href="item.href"
-            class="rounded-lg px-3 py-3 text-sm font-semibold text-gray-700 transition hover:bg-primary-50 hover:text-primary-700"
-            @click="closeMobileMenu"
+            class="rounded-lg px-3 py-3 text-sm font-semibold text-gray-700 transition hover:bg-primary-50 hover:text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
+            @click="closeAllMenus"
           >
             {{ item.label }}
           </a>
@@ -112,15 +206,9 @@
             <a
               class="btn-fill-outline inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-primary-700 px-4 text-sm font-semibold text-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-100"
               :href="footer.phoneHref"
-              @click="closeMobileMenu"
+              @click="closeAllMenus"
             >
-              <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path
-                  fill-rule="evenodd"
-                  d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.15A1.5 1.5 0 0 1 6.1 3.13l.62 2.49a1.5 1.5 0 0 1-.43 1.47l-.75.75a11.03 11.03 0 0 0 6.62 6.62l.75-.75a1.5 1.5 0 0 1 1.47-.43l2.49.62A1.5 1.5 0 0 1 18 15.35v1.15a1.5 1.5 0 0 1-1.5 1.5H15C7.82 18 2 12.18 2 5V3.5Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+              <PhoneIcon class="h-4 w-4" aria-hidden="true" />
               {{ content.secondaryCta }}
             </a>
             <button
@@ -138,9 +226,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { ChevronDownIcon } from "@heroicons/vue/20/solid";
+import { PhoneIcon } from "@heroicons/vue/24/outline";
+import { normalizeMegaMenu } from "~/utils/marketing-navigation.mjs";
 
-defineProps({
+const props = defineProps({
   content: {
     type: Object,
     required: true,
@@ -152,19 +243,103 @@ defineProps({
 });
 
 const emit = defineEmits(["select", "login"]);
+const headerRef = ref(null);
 const mobileMenuOpen = ref(false);
+const mobileProductOpen = ref(false);
+const desktopMegaMenuOpen = ref(false);
+const megaMenu = computed(() => normalizeMegaMenu(props.content.megaMenu));
+
+let openTimer;
+let closeTimer;
+
+function clearTimers() {
+  window.clearTimeout(openTimer);
+  window.clearTimeout(closeTimer);
+}
+
+function openMegaMenuNow() {
+  clearTimers();
+  desktopMegaMenuOpen.value = true;
+}
+
+function scheduleMegaMenuOpen() {
+  window.clearTimeout(closeTimer);
+  openTimer = window.setTimeout(openMegaMenuNow, 120);
+}
+
+function scheduleMegaMenuClose() {
+  window.clearTimeout(openTimer);
+  closeTimer = window.setTimeout(() => {
+    desktopMegaMenuOpen.value = false;
+  }, 220);
+}
+
+function toggleMegaMenu() {
+  clearTimers();
+  desktopMegaMenuOpen.value = !desktopMegaMenuOpen.value;
+}
+
+function closeMegaMenu() {
+  clearTimers();
+  desktopMegaMenuOpen.value = false;
+}
+
+function toggleMobileMenu() {
+  mobileMenuOpen.value = !mobileMenuOpen.value;
+  if (!mobileMenuOpen.value) mobileProductOpen.value = false;
+}
 
 function closeMobileMenu() {
   mobileMenuOpen.value = false;
+  mobileProductOpen.value = false;
+}
+
+function closeAllMenus() {
+  closeMegaMenu();
+  closeMobileMenu();
 }
 
 function selectMobile(intent) {
-  closeMobileMenu();
+  closeAllMenus();
   emit("select", intent);
 }
+
+function onDocumentPointerDown(event) {
+  if (desktopMegaMenuOpen.value && !headerRef.value?.contains(event.target)) {
+    closeMegaMenu();
+  }
+}
+
+function onDocumentKeydown(event) {
+  if (event.key === "Escape") closeAllMenus();
+}
+
+onMounted(() => {
+  document.addEventListener("pointerdown", onDocumentPointerDown);
+  document.addEventListener("keydown", onDocumentKeydown);
+});
+
+onBeforeUnmount(() => {
+  clearTimers();
+  document.removeEventListener("pointerdown", onDocumentPointerDown);
+  document.removeEventListener("keydown", onDocumentKeydown);
+});
 </script>
 
 <style scoped>
+.mega-menu-enter-active,
+.mega-menu-leave-active {
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.mega-menu-enter-from,
+.mega-menu-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
 .mobile-menu-enter-active,
 .mobile-menu-leave-active {
   transition:
@@ -176,5 +351,21 @@ function selectMobile(intent) {
 .mobile-menu-leave-to {
   opacity: 0;
   transform: translateY(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mega-menu-enter-active,
+  .mega-menu-leave-active,
+  .mobile-menu-enter-active,
+  .mobile-menu-leave-active {
+    transition: none;
+  }
+
+  .mega-menu-enter-from,
+  .mega-menu-leave-to,
+  .mobile-menu-enter-from,
+  .mobile-menu-leave-to {
+    transform: none;
+  }
 }
 </style>

@@ -6,7 +6,7 @@
           v-for="(feature, index) in items"
           :id="feature.id"
           :key="feature.title"
-          class="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-900/10"
+          class="scroll-mt-40 rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-900/10"
           v-motion="featureMotion(index)"
         >
           <img class="h-20 w-20 object-contain" :src="feature.image" :alt="feature.imageAlt" />

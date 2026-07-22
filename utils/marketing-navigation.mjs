@@ -2,7 +2,7 @@ function isNonEmptyString(value) {
   return typeof value === "string" && value.trim().length > 0;
 }
 
-function normalizeMegaMenu(menu) {
+export function normalizeMegaMenu(menu) {
   if (!menu || typeof menu !== "object" || Array.isArray(menu)) return null;
   if (!isNonEmptyString(menu.label) || !isNonEmptyString(menu.fallbackHref)) return null;
   if (!Array.isArray(menu.groups)) return null;
@@ -19,5 +19,3 @@ function normalizeMegaMenu(menu) {
   if (groups.length === 0) return null;
   return { ...menu, groups };
 }
-
-module.exports = { normalizeMegaMenu };

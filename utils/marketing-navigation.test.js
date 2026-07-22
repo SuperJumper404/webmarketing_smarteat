@@ -1,6 +1,12 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { normalizeMegaMenu } = require("./marketing-navigation");
+
+let normalizeMegaMenu;
+
+test.before(async () => {
+  const navigation = await import("./marketing-navigation.mjs");
+  normalizeMegaMenu = navigation.normalizeMegaMenu;
+});
 
 const validMenu = {
   label: "Produit",

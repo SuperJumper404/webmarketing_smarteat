@@ -1,5 +1,5 @@
-﻿<template>
-  <section id="faq" class="bg-white">
+<template>
+  <section id="faq" class="scroll-mt-24 bg-white">
     <div class="mx-auto max-w-[86rem] px-4 py-16 sm:px-6 lg:px-8">
       <div class="mt-10 divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white" data-reveal>
         <article v-for="faq in items" :key="faq.question" class="p-6">
