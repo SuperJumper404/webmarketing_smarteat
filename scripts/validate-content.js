@@ -12,6 +12,15 @@ function assertObject(value, name) {
   assert.equal(Array.isArray(value), false, `${name} must be an object`);
 }
 
+function assertNonEmptyString(value, name) {
+  assert.equal(typeof value, "string", `${name} must be a string`);
+  assert.ok(value.trim().length > 0, `${name} must not be empty`);
+}
+
+function assertUnique(values, name) {
+  assert.equal(new Set(values).size, values.length, `${name} must be unique`);
+}
+
 const requiredTopLevelKeys = [
   "meta",
   "navigation",
@@ -42,12 +51,56 @@ assert.ok(content.meta.description.length > 30, "meta.description is too short")
 
 assertObject(content.navigation, "navigation");
 assert.ok(Array.isArray(content.navigation.links), "navigation.links must be an array");
-assert.ok(content.navigation.links.length >= 4, "navigation.links must contain at least 4 links");
+assert.ok(content.navigation.links.length >= 3, "navigation.links must contain at least 3 links");
 for (const [index, link] of content.navigation.links.entries()) {
   assertObject(link, `navigation.links[${index}]`);
-  assert.equal(typeof link.label, "string", `navigation.links[${index}].label must be a string`);
-  assert.equal(typeof link.href, "string", `navigation.links[${index}].href must be a string`);
+  assertNonEmptyString(link.label, `navigation.links[${index}].label`);
+  assertNonEmptyString(link.href, `navigation.links[${index}].href`);
 }
+
+assertObject(content.navigation.megaMenu, "navigation.megaMenu");
+const megaMenu = content.navigation.megaMenu;
+for (const key of ["label", "fallbackHref", "eyebrow", "title"]) {
+  assertNonEmptyString(megaMenu[key], `navigation.megaMenu.${key}`);
+}
+assert.ok(Array.isArray(megaMenu.groups), "navigation.megaMenu.groups must be an array");
+assert.equal(megaMenu.groups.length, 2, "navigation.megaMenu.groups must contain exactly 2 groups");
+
+const capabilityIds = [];
+const megaMenuHrefs = [megaMenu.fallbackHref];
+for (const [groupIndex, group] of megaMenu.groups.entries()) {
+  assertObject(group, `navigation.megaMenu.groups[${groupIndex}]`);
+  assertNonEmptyString(group.title, `navigation.megaMenu.groups[${groupIndex}].title`);
+  assert.ok(Array.isArray(group.items), `navigation.megaMenu.groups[${groupIndex}].items must be an array`);
+  assert.equal(group.items.length, 3, `navigation.megaMenu.groups[${groupIndex}].items must contain 3 items`);
+
+  for (const [itemIndex, item] of group.items.entries()) {
+    const itemName = `navigation.megaMenu.groups[${groupIndex}].items[${itemIndex}]`;
+    assertObject(item, itemName);
+    for (const key of ["id", "label", "description", "href", "icon"]) {
+      assertNonEmptyString(item[key], `${itemName}.${key}`);
+    }
+    capabilityIds.push(item.id);
+    megaMenuHrefs.push(item.href);
+  }
+}
+
+for (const blockName of ["spotlight", "roadmap"]) {
+  const block = megaMenu[blockName];
+  assertObject(block, `navigation.megaMenu.${blockName}`);
+  for (const key of blockName === "spotlight"
+    ? ["title", "text", "label", "href"]
+    : ["eyebrow", "text", "label", "href"]) {
+    assertNonEmptyString(block[key], `navigation.megaMenu.${blockName}.${key}`);
+  }
+  megaMenuHrefs.push(block.href);
+}
+
+assertUnique(capabilityIds, "mega-menu capability IDs");
+assertUnique(
+  megaMenu.groups.flatMap((group) => group.items.map((item) => item.href)),
+  "mega-menu capability hrefs",
+);
 assert.equal(typeof content.navigation.primaryCta, "string", "navigation.primaryCta must be a string");
 assert.equal(typeof content.navigation.secondaryCta, "string", "navigation.secondaryCta must be a string");
 
@@ -101,10 +154,31 @@ assert.ok(Array.isArray(content.features), "features must be an array");
 assert.ok(content.features.length >= 6, "features must contain at least 6 items");
 for (const [index, feature] of content.features.entries()) {
   assertObject(feature, `features[${index}]`);
+  assertNonEmptyString(feature.id, `features[${index}].id`);
   assert.equal(typeof feature.title, "string", `features[${index}].title must be a string`);
   assert.equal(typeof feature.text, "string", `features[${index}].text must be a string`);
   assert.equal(typeof feature.image, "string", `features[${index}].image must be a string`);
   assert.equal(typeof feature.imageAlt, "string", `features[${index}].imageAlt must be a string`);
+}
+
+const featureIds = content.features.map((feature) => feature.id);
+assertUnique(featureIds, "feature IDs");
+assert.deepEqual(featureIds, capabilityIds, "feature IDs must match mega-menu capability IDs and order");
+
+const knownLocalAnchors = new Set([
+  "#pourquoi-smarteat",
+  "#solution",
+  "#contact",
+  "#faq",
+  "#roadmap",
+  ...featureIds.map((id) => `#${id}`),
+]);
+const localNavigationHrefs = [
+  ...content.navigation.links.map((link) => link.href),
+  ...megaMenuHrefs,
+].filter((href) => href.startsWith("#"));
+for (const href of localNavigationHrefs) {
+  assert.ok(knownLocalAnchors.has(href), `Unknown local navigation anchor: ${href}`);
 }
 
 assertObject(content.howItWorks, "howItWorks");
