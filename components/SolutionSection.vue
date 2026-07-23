@@ -13,7 +13,7 @@
         </p>
       </div>
 
-      <div class="mt-16 grid gap-x-6 gap-y-24 pt-16 sm:grid-cols-2 sm:gap-y-28 sm:pt-28 lg:grid-cols-3 lg:gap-y-6">
+      <div class="mt-16 grid gap-x-6 gap-y-32 pt-24 sm:grid-cols-2 sm:gap-y-40 sm:pt-36 lg:grid-cols-3 lg:gap-y-6">
         <article
           v-for="(card, index) in content.cards"
           :key="card.id"
@@ -23,7 +23,7 @@
         >
           <div class="relative aspect-[4/3] overflow-visible rounded-xl bg-white">
             <img
-              class="absolute inset-x-0 bottom-0 z-10 h-[calc(100%+4.25rem)] w-full object-contain p-3 transition duration-500 group-hover:scale-[1.025] group-focus-within:scale-[1.025] motion-reduce:transform-none motion-reduce:transition-none sm:h-[calc(100%+6.5rem)] sm:p-4"
+              class="absolute inset-x-0 bottom-0 z-10 h-[calc(100%+6rem)] w-full object-contain p-1 transition duration-500 group-hover:scale-[1.025] group-focus-within:scale-[1.025] motion-reduce:transform-none motion-reduce:transition-none sm:h-[calc(100%+9rem)] sm:p-2"
               :src="card.image"
               :alt="card.imageAlt"
             />

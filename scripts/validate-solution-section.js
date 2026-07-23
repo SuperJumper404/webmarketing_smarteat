@@ -16,8 +16,8 @@ assert.match(source, /class="[^"]*mb-7[^"]*"[^>]*>\s*\{\{ card\.text \}\}/, "Sol
 assert.match(source, /class="[^"]*mt-auto[^"]*"[^>]*>\s*\{\{ card\.ctaLabel \}\}/, "Solution CTAs must align to the card bottom");
 assert.match(
   source,
-  /gap-y-24[^"]*pt-16[^"]*sm:gap-y-28[^"]*sm:pt-28[^"]*lg:gap-y-6/,
-  "Solution grid must reserve enough space for larger floating visuals",
+  /gap-y-32[^"]*pt-24[^"]*sm:gap-y-40[^"]*sm:pt-36[^"]*lg:gap-y-6/,
+  "Solution grid must reserve enough space for XXL floating visuals",
 );
 assert.match(
   source,
@@ -27,8 +27,8 @@ assert.match(
 assert.match(source, /absolute inset-x-0 bottom-0 z-10/, "Solution images must anchor to the media-panel bottom");
 assert.match(
   source,
-  /h-\[calc\(100%\+4\.25rem\)\][^"]*p-3[^"]*sm:h-\[calc\(100%\+6\.5rem\)\][^"]*sm:p-4/,
-  "Solution images must use the approved larger responsive proportions",
+  /h-\[calc\(100%\+6rem\)\][^"]*p-1[^"]*sm:h-\[calc\(100%\+9rem\)\][^"]*sm:p-2/,
+  "Solution images must use the approved XXL responsive proportions",
 );
 
 console.log("SmartEat solution section integration OK");
