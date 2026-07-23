@@ -13,17 +13,17 @@
         </p>
       </div>
 
-      <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-16 grid gap-x-6 gap-y-20 pt-14 sm:grid-cols-2 sm:gap-y-24 sm:pt-[5.5rem] lg:grid-cols-3 lg:gap-y-6">
         <article
           v-for="(card, index) in content.cards"
           :key="card.id"
-          class="group flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-900/10 focus-within:-translate-y-2 focus-within:shadow-xl motion-reduce:transform-none motion-reduce:transition-none sm:p-5"
+          class="group flex h-full flex-col overflow-visible rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-gray-900/10 focus-within:-translate-y-2 focus-within:shadow-xl motion-reduce:transform-none motion-reduce:transition-none sm:p-5"
           :class="index === 2 ? 'sm:col-span-2 sm:mx-auto sm:w-[calc(50%-0.75rem)] lg:col-span-1 lg:w-auto' : ''"
           data-reveal
         >
-          <div class="aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+          <div class="relative aspect-[4/3] overflow-visible rounded-xl bg-gray-100">
             <img
-              class="h-full w-full object-contain p-5 transition duration-500 group-hover:scale-[1.025] group-focus-within:scale-[1.025] motion-reduce:transform-none motion-reduce:transition-none sm:p-7"
+              class="absolute inset-x-0 bottom-0 z-10 h-[calc(100%+3.5rem)] w-full object-contain p-5 transition duration-500 group-hover:scale-[1.025] group-focus-within:scale-[1.025] motion-reduce:transform-none motion-reduce:transition-none sm:h-[calc(100%+5.5rem)] sm:p-7"
               :src="card.image"
               :alt="card.imageAlt"
             />
