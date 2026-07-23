@@ -14,14 +14,21 @@ assert.match(source, /motion-reduce:transform-none/, "Solution motion must respe
 assert.match(source, /ArrowsRightLeftIcon/, "Synchronization band must use the approved connection icon");
 assert.match(source, /class="[^"]*mb-7[^"]*"[^>]*>\s*\{\{ card\.text \}\}/, "Solution copy must preserve CTA spacing");
 assert.match(source, /class="[^"]*mt-auto[^"]*"[^>]*>\s*\{\{ card\.ctaLabel \}\}/, "Solution CTAs must align to the card bottom");
-assert.match(source, /pt-14[^"]*sm:pt-\[5\.5rem\]/, "Solution grid must reserve space for floating visuals");
-assert.match(source, /gap-y-20[^"]*sm:gap-y-24[^"]*lg:gap-y-6/, "Wrapped solution cards must not overlap");
-assert.match(source, /aspect-\[4\/3\][^"]*overflow-visible/, "Solution media panels must expose overflowing images");
+assert.match(
+  source,
+  /gap-y-24[^"]*pt-16[^"]*sm:gap-y-28[^"]*sm:pt-28[^"]*lg:gap-y-6/,
+  "Solution grid must reserve enough space for larger floating visuals",
+);
+assert.match(
+  source,
+  /aspect-\[4\/3\][^"]*overflow-visible[^"]*bg-white/,
+  "Solution media panels must share the white card background",
+);
 assert.match(source, /absolute inset-x-0 bottom-0 z-10/, "Solution images must anchor to the media-panel bottom");
 assert.match(
   source,
-  /h-\[calc\(100%\+3\.5rem\)\][^"]*sm:h-\[calc\(100%\+5\.5rem\)\]/,
-  "Solution images must use the approved responsive overflow height",
+  /h-\[calc\(100%\+4\.25rem\)\][^"]*p-3[^"]*sm:h-\[calc\(100%\+6\.5rem\)\][^"]*sm:p-4/,
+  "Solution images must use the approved larger responsive proportions",
 );
 
 console.log("SmartEat solution section integration OK");
