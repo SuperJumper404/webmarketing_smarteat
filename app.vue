@@ -10,8 +10,8 @@
     <main>
       <HeroSection :content="content.hero" @select="openOnboarding" />
       <ProblemSection :content="content.problem" />
-      <BenefitsSection :items="content.benefits" />
       <SolutionSection :content="content.solution" />
+      <BenefitsSection :items="content.benefits" />
       <FeaturesSection :items="content.features" />
       <HowItWorksSection :content="content.howItWorks" />
       <ComplianceSection :content="content.compliance" />
